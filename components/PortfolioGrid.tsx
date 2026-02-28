@@ -50,7 +50,7 @@ const galleryItems = [
     label: "Garden Bed Design",
     alt: "Custom garden bed design and planting Grand Rapids Michigan",
     category: "Landscaping",
-    image: "/images/IMG_4267.jpg",
+    image: "/images/IMG_7394-preview.jpg",
     span: "",
   },
   {
@@ -74,7 +74,7 @@ const galleryItems = [
     label: "Hedge Trimming & Mulch",
     alt: "Hedge trimming and mulch installation Grand Rapids MI",
     category: "Landscaping",
-    image: "/images/IMG_4937.jpg",
+    image: "/images/tree-trimming-chainsaw.jpg",
     span: "",
   },
   {
@@ -90,7 +90,7 @@ const galleryItems = [
     label: "Brick Patio & Landscaping",
     alt: "Brick patio and surrounding landscape design Grand Rapids MI",
     category: "Landscaping",
-    image: "/images/IMG_6706.jpg",
+    image: "/images/paver-patio-seating.jpg",
     span: "md:col-span-2",
   },
   {
@@ -106,7 +106,7 @@ const galleryItems = [
     label: "Residential Lawn Care",
     alt: "Residential lawn care and mowing service Grand Rapids MI",
     category: "Lawn Care",
-    image: "/images/IMG_6094.jpg",
+    image: "/images/IMG_6081.jpg",
     span: "",
   },
   {
@@ -130,7 +130,7 @@ const galleryItems = [
     label: "Commercial Mowing",
     alt: "Commercial property mowing and lawn care Grand Rapids Michigan",
     category: "Lawn Care",
-    image: "/images/IMG_6102.jpg",
+    image: "/images/IMG_5510.jpg",
     span: "",
   },
   {
@@ -138,7 +138,7 @@ const galleryItems = [
     label: "Paver Walkway & Patio",
     alt: "Paver walkway and patio hardscape project Grand Rapids MI",
     category: "Hardscaping",
-    image: "/images/IMG_4429.jpg",
+    image: "/images/mike-paver-patio.jpg",
     span: "",
   },
   {
@@ -146,7 +146,7 @@ const galleryItems = [
     label: "Backyard Patio",
     alt: "Backyard patio installation and hardscaping Grand Rapids Michigan",
     category: "Hardscaping",
-    image: "/images/IMG_5386.jpg",
+    image: "/images/happy-customer-patio.jpg",
     span: "",
   },
   {
@@ -154,7 +154,7 @@ const galleryItems = [
     label: "Commercial Property Maintenance",
     alt: "Commercial property landscape maintenance Grand Rapids MI",
     category: "Lawn Care",
-    image: "/images/IMG_6887-preview.jpg",
+    image: "/images/FullSizeRender.jpg",
     span: "md:col-span-2",
   },
   {
@@ -162,7 +162,7 @@ const galleryItems = [
     label: "Residential Mowing",
     alt: "Residential lawn mowing service Grand Rapids Michigan",
     category: "Lawn Care",
-    image: "/images/IMG_5733.jpg",
+    image: "/images/IMG_6098.jpg",
     span: "",
   },
   {
@@ -241,7 +241,7 @@ export default function PortfolioGrid() {
                 src={item.image}
                 alt={item.alt}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image]"
                 sizes={
                   item.span.includes("col-span-2")
                     ? "(max-width: 768px) 100vw, 50vw"

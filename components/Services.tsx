@@ -20,7 +20,7 @@ const services = [
     alt: "Weekly lawn mowing and maintenance service East Grand Rapids MI",
     description:
       "Keep your property looking pristine all season long. Our comprehensive lawn care includes weekly mowing, precision edging, trimming, and thorough cleanup. We maintain consistent schedules and pay attention to every detail so your yard always makes a great impression.",
-    image: "/images/IMG_5387.jpg",
+    image: "/images/IMG_5510.jpg",
     areas: ["East Grand Rapids", "Grand Rapids", "Kentwood", "Cascade"],
   },
   {
@@ -29,7 +29,7 @@ const services = [
     alt: "Custom landscape design and garden bed installation East Grand Rapids Michigan",
     description:
       "Transform your outdoor space with custom landscape design and installation. From fresh mulch and seasonal plantings to complete landscape renovations, we create beautiful, functional spaces that boost your property's curb appeal and value.",
-    image: "/images/IMG_4267.jpg",
+    image: "/images/IMG_5541.jpg",
     areas: ["East Grand Rapids", "Ada", "Forest Hills", "Cascade"],
   },
   {
@@ -38,7 +38,7 @@ const services = [
     alt: "Custom patio and walkway installation East Grand Rapids Michigan",
     description:
       "Add lasting beauty and structure with professional hardscape installation. We build custom patios, walkways, retaining walls, and stone features using quality materials and expert craftsmanship. Every project is built to withstand Michigan's seasons.",
-    image: "/images/IMG_5386.jpg",
+    image: "/images/IMG_6756.jpg",
     areas: ["East Grand Rapids", "Grand Rapids", "Wyoming", "Ada"],
   },
   {
