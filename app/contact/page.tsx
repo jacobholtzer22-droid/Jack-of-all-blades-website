@@ -5,16 +5,16 @@ import PageHeader from "@/components/PageHeader";
 const ContactContent = dynamic(() => import("@/components/ContactContent"));
 
 export const metadata: Metadata = {
-  title: "Contact Us | Free Landscaping Estimate Grand Rapids MI",
+  title: "Contact Us | Free Landscaping Estimate East Grand Rapids MI",
   description:
-    "Get a free landscaping estimate from Jack of All Blades Landscaping. Call 616-250-8044 or fill out our contact form. Serving Grand Rapids, MI.",
+    "Request a free landscaping estimate in East Grand Rapids, Grand Rapids, and surrounding Michigan communities. Call 616-250-8044 or fill out our form.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Us | Free Landscaping Estimate Grand Rapids MI",
+    title: "Contact Us | Free Landscaping Estimate East Grand Rapids MI",
     description:
-      "Get a free landscaping estimate from Jack of All Blades Landscaping. Call 616-250-8044 or fill out our contact form. Serving Grand Rapids, MI.",
+      "Request a free landscaping estimate in East Grand Rapids, Grand Rapids, and surrounding Michigan communities. Call 616-250-8044 or fill out our form.",
     url: "https://jackofallbladeslandscaping.com/contact",
     siteName: "Jack of All Blades Landscaping",
     images: [
@@ -36,7 +36,8 @@ export default function ContactPage() {
         label="Get In Touch"
         title="Contact"
         titleAccent="Us"
-        description="Get a free estimate today. We serve Grand Rapids, MI and all surrounding areas."
+        description="Get a free estimate today. Serving East Grand Rapids, Grand Rapids, and all surrounding Michigan communities."
+        backgroundImage="/images/happy-customer-patio.jpg"
       />
       <ContactContent />
     </>

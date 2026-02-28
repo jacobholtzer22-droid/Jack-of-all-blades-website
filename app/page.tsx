@@ -8,21 +8,22 @@ const HomeAboutPreview = dynamic(() => import("@/components/HomeAboutPreview"));
 const HomeTestimonialPreview = dynamic(
   () => import("@/components/HomeTestimonialPreview")
 );
+const ServiceAreas = dynamic(() => import("@/components/ServiceAreas"));
 const CTABanner = dynamic(() => import("@/components/CTABanner"));
 
 export const metadata: Metadata = {
   title:
-    "Jack of All Blades Landscaping | Lawn Care & Landscaping Grand Rapids MI",
+    "Jack of All Blades Landscaping | Lawn Care & Landscaping East Grand Rapids MI",
   description:
-    "Professional landscaping, hardscaping, lawn care, snow removal, and tree services in Grand Rapids, MI. Fully bonded with 8+ years experience. Free estimates available. Call 616-250-8044.",
+    "Professional landscaping, lawn care, hardscaping & tree services in East Grand Rapids, Grand Rapids, Kentwood & surrounding areas. Fully bonded. Free estimates. Call 616-250-8044.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title:
-      "Jack of All Blades Landscaping | Lawn Care & Landscaping Grand Rapids MI",
+      "Jack of All Blades Landscaping | Lawn Care & Landscaping East Grand Rapids MI",
     description:
-      "Professional landscaping, hardscaping, lawn care, snow removal, and tree services in Grand Rapids, MI. Fully bonded with 8+ years experience. Free estimates available.",
+      "Professional landscaping, lawn care, hardscaping & tree services in East Grand Rapids, Grand Rapids, Kentwood & surrounding areas. Fully bonded. Free estimates.",
     url: "https://jackofallbladeslandscaping.com",
     siteName: "Jack of All Blades Landscaping",
     images: [
@@ -47,28 +48,51 @@ const jsonLd = {
   email: "jackofallbladeslandscaping@gmail.com",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Grand Rapids",
+    addressLocality: "East Grand Rapids",
     addressRegion: "MI",
     postalCode: "49506",
     addressCountry: "US",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 42.9634,
+    longitude: -85.6681,
+  },
   areaServed: [
-    "Grand Rapids",
-    "Wyoming",
-    "Kentwood",
-    "Walker",
-    "Byron Center",
-    "Grandville",
-    "Rockford",
-    "Cascade",
-    "Ada",
-    "East Grand Rapids",
+    { "@type": "City", name: "East Grand Rapids", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Grand Rapids", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Kentwood", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Wyoming", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Walker", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Byron Center", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Grandville", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Cascade", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Ada", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Rockford", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Comstock Park", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Forest Hills", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Caledonia", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Jenison", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Hudsonville", containedInPlace: { "@type": "State", name: "Michigan" } },
+    { "@type": "City", name: "Alto", containedInPlace: { "@type": "State", name: "Michigan" } },
   ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Landscaping Services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lawn Care" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Landscaping" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hardscaping" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Snow Removal" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Seasonal Cleanup" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Tree Trimming and Removal" } },
+    ],
+  },
   priceRange: "$$",
   openingHours: "Mo-Sa 07:00-19:00",
   sameAs: [],
   description:
-    "Professional landscaping, hardscaping, lawn care, snow removal, and tree services in Grand Rapids, MI. Fully bonded with 8+ years experience. Free estimates available.",
+    "Professional landscaping, hardscaping, lawn care, snow removal, and tree services in East Grand Rapids, Grand Rapids, and West Michigan. Fully bonded with 8+ years experience. Free estimates available.",
 };
 
 export default function Home() {
@@ -83,6 +107,7 @@ export default function Home() {
       <HomePhotoStrip />
       <HomeAboutPreview />
       <HomeTestimonialPreview />
+      <ServiceAreas />
       <CTABanner />
     </>
   );

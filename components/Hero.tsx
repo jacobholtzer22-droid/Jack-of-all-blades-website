@@ -42,7 +42,7 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2 border border-forest-700/40 bg-black/40 backdrop-blur-sm rounded-full px-5 py-2 mb-8">
           <div className="w-2 h-2 rounded-full bg-forest-400 animate-pulse" />
           <span className="text-white text-sm font-semibold tracking-wide" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
-            Grand Rapids, Michigan
+            East Grand Rapids, Michigan
           </span>
         </div>
 
@@ -57,8 +57,8 @@ export default function Hero() {
         </h1>
 
         <p className="text-white text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto mb-4 font-semibold leading-relaxed" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
-          Premium landscaping, hardscaping & lawn care that transforms your
-          outdoor space into something extraordinary.
+          Premium landscaping, hardscaping & lawn care serving East Grand Rapids,
+          Grand Rapids & West Michigan.
         </p>
 
         <p className="text-white/95 text-base mb-10 font-semibold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>

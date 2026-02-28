@@ -94,8 +94,10 @@ export default function AboutContent() {
             >
               <p>
                 My name is Mike Hazzard and I am the founder of Jack of All
-                Blades Landscaping. I started the business when I was 16, and
-                learned from a young age what hard work can do!
+                Blades Landscaping. Based in East Grand Rapids, we serve Grand
+                Rapids, Kentwood, Wyoming, Ada, Cascade, and communities across
+                West Michigan. I started the business when I was 16, and learned
+                from a young age what hard work can do!
               </p>
               <p>
                 Ever since then I&apos;ve had a passion for running my business
@@ -165,7 +167,7 @@ export default function AboutContent() {
               src="/images/mike-paver-patio.jpg"
               alt="Mike Hazzard working on paver patio installation Grand Rapids MI"
               fill
-              className="object-cover"
+              className="object-cover object-top"
               sizes="(max-width: 640px) 100vw, 33vw"
               quality={75}
               placeholder="blur"

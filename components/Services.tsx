@@ -13,55 +13,62 @@ import {
   Scissors,
   ArrowRight,
 } from "lucide-react";
+import { getServiceAreaLink } from "@/data/serviceAreas";
 
 const services = [
   {
     icon: Leaf,
     title: "Lawn Care",
-    alt: "Weekly lawn mowing and maintenance service Grand Rapids MI",
+    alt: "Weekly lawn mowing and maintenance service East Grand Rapids MI",
     description:
-      "Keep your Grand Rapids property looking pristine all season long. Our comprehensive lawn care includes weekly mowing, precision edging, trimming, and thorough cleanup. We maintain consistent schedules and pay attention to every detail so your yard always makes a great impression.",
+      "Keep your property looking pristine all season long. Our comprehensive lawn care includes weekly mowing, precision edging, trimming, and thorough cleanup. We maintain consistent schedules and pay attention to every detail so your yard always makes a great impression.",
     image: "/images/IMG_5387.jpg",
+    areas: ["East Grand Rapids", "Grand Rapids", "Kentwood", "Cascade"],
   },
   {
     icon: Flower2,
     title: "Landscaping",
-    alt: "Custom landscape design and garden bed installation Grand Rapids Michigan",
+    alt: "Custom landscape design and garden bed installation East Grand Rapids Michigan",
     description:
       "Transform your outdoor space with custom landscape design and installation. From fresh mulch and seasonal plantings to complete landscape renovations, we create beautiful, functional spaces that boost your property's curb appeal and value.",
     image: "/images/IMG_4267.jpg",
+    areas: ["East Grand Rapids", "Ada", "Forest Hills", "Cascade"],
   },
   {
     icon: Layers,
     title: "Hardscaping",
-    alt: "Custom patio and walkway installation Grand Rapids Michigan",
+    alt: "Custom patio and walkway installation East Grand Rapids Michigan",
     description:
       "Add lasting beauty and structure with professional hardscape installation. We build custom patios, walkways, retaining walls, and stone features using quality materials and expert craftsmanship. Every project is built to withstand Michigan's seasons.",
     image: "/images/IMG_5386.jpg",
+    areas: ["East Grand Rapids", "Grand Rapids", "Wyoming", "Ada"],
   },
   {
     icon: Snowflake,
     title: "Snow Removal",
-    alt: "Commercial and residential snow removal service Grand Rapids MI",
+    alt: "Commercial and residential snow removal service East Grand Rapids MI",
     description:
       "Don't let Michigan winters slow you down. Our reliable snow removal services include plowing, salting, ice management, and sidewalk clearing for both residential and commercial properties. Contract-based service with guaranteed response times.",
     image: "/images/snow-removal-truck.jpg",
+    areas: ["East Grand Rapids", "Grand Rapids", "Kentwood", "Grandville"],
   },
   {
     icon: Scissors,
     title: "Seasonal Cleanup",
-    alt: "Fall and spring yard cleanup service Grand Rapids Michigan",
+    alt: "Fall and spring yard cleanup service East Grand Rapids Michigan",
     description:
       "Prepare your property for every season with our thorough cleanup services. Spring and fall cleanups include leaf removal, garden bed clearing, perennial cutbacks, debris removal, and complete yard detailing to keep your landscape healthy year-round.",
     image: "/images/IMG_7394-preview.jpg",
+    areas: ["East Grand Rapids", "Kentwood", "Walker", "Cascade"],
   },
   {
     icon: TreePine,
     title: "Tree Trimming / Removal",
-    alt: "Professional tree trimming and removal service Grand Rapids MI",
+    alt: "Professional tree trimming and removal service East Grand Rapids MI",
     description:
       "Protect your property and improve its appearance with professional tree services. We handle trimming, shaping, full tree removal, and stump grinding. Licensed and insured for safe, efficient work that transforms your yard.",
     image: "/images/tree-removal-truck.jpg",
+    areas: ["East Grand Rapids", "Grand Rapids", "Ada", "Rockford"],
   },
 ];
 
@@ -106,8 +113,8 @@ export default function Services() {
             Our Services
           </h2>
           <p className="text-dark-200 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
-            Comprehensive landscaping solutions to keep your property looking its
-            best — every season, every detail.
+            Comprehensive landscaping solutions for homes and businesses across
+            East Grand Rapids and the greater Grand Rapids area.
           </p>
         </div>
 
@@ -127,7 +134,7 @@ export default function Services() {
                   src={service.image}
                   alt={service.alt}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image]"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   quality={75}
                   placeholder="blur"
@@ -153,17 +160,33 @@ export default function Services() {
                     {service.description}
                   </p>
 
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-forest-300 hover:text-forest-200 transition-colors group/link"
-                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
-                  >
-                    Get Free Estimate
-                    <ArrowRight
-                      size={16}
-                      className="transition-transform group-hover/link:translate-x-1"
-                    />
-                  </Link>
+                  <div className="space-y-3">
+                    <p className="text-white/80 text-xs font-medium" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
+                      Available in:{" "}
+                      {service.areas.map((area, j) => (
+                        <span key={area}>
+                          <Link
+                            href={getServiceAreaLink(area)}
+                            className="text-forest-400 hover:text-forest-300 transition-colors underline underline-offset-2"
+                          >
+                            {area}
+                          </Link>
+                          {j < service.areas.length - 1 ? ", " : ""}
+                        </span>
+                      ))}
+                    </p>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-forest-300 hover:text-forest-200 transition-colors group/link"
+                      style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
+                    >
+                      Get Free Estimate
+                      <ArrowRight
+                        size={16}
+                        className="transition-transform group-hover/link:translate-x-1"
+                      />
+                    </Link>
+                  </div>
                 </div>
               </div>
             );

@@ -9,17 +9,17 @@ const CTABanner = dynamic(() => import("@/components/CTABanner"));
 
 export const metadata: Metadata = {
   title:
-    "Customer Reviews | Jack of All Blades Landscaping Grand Rapids",
+    "Customer Reviews | Jack of All Blades Landscaping East Grand Rapids",
   description:
-    "Read what our customers say about Jack of All Blades Landscaping. Real reviews from satisfied clients in Grand Rapids, MI.",
+    "Read reviews from satisfied customers across East Grand Rapids, Kentwood, Wyoming, and Grand Rapids. 5-star rated landscaping services.",
   alternates: {
     canonical: "/testimonials",
   },
   openGraph: {
     title:
-      "Customer Reviews | Jack of All Blades Landscaping Grand Rapids",
+      "Customer Reviews | Jack of All Blades Landscaping East Grand Rapids",
     description:
-      "Read what our customers say about Jack of All Blades Landscaping. Real reviews from satisfied clients in Grand Rapids, MI.",
+      "Read reviews from satisfied customers across East Grand Rapids, Kentwood, Wyoming, and Grand Rapids. 5-star rated landscaping services.",
     url: "https://jackofallbladeslandscaping.com/testimonials",
     siteName: "Jack of All Blades Landscaping",
     images: [
@@ -42,6 +42,7 @@ export default function TestimonialsPage() {
         title="What Our Clients"
         titleAccent="Say"
         description="Don't just take our word for it. Here's what our customers have to say about working with us."
+        backgroundImage="/images/customer-handshake-patio.jpg"
       />
       <TestimonialsList />
       <CTABanner />

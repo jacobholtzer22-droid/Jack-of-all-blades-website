@@ -20,26 +20,33 @@ const body = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Jack of All Blades Landscaping | Grand Rapids, MI",
+    default: "Jack of All Blades Landscaping | East Grand Rapids, MI",
     template: "%s | Jack of All Blades Landscaping",
   },
   description:
-    "Professional landscaping, hardscaping, lawn care, and snow removal services in Grand Rapids, Michigan. Man Made Excellence. Call 616-250-8044 for a free estimate.",
+    "Professional landscaping, lawn care, hardscaping & tree services in East Grand Rapids, Grand Rapids, Kentwood & West Michigan. Man Made Excellence. Call 616-250-8044 for a free estimate.",
   keywords: [
-    "landscaping",
-    "hardscaping",
-    "lawn care",
-    "snow removal",
+    "landscaping East Grand Rapids",
+    "lawn care Grand Rapids",
+    "hardscaping Kentwood",
+    "snow removal Wyoming",
+    "East Grand Rapids",
     "Grand Rapids",
     "Michigan",
     "tree trimming",
     "seasonal cleanup",
     "Jack of All Blades",
   ],
+  other: {
+    "geo.region": "US-MI",
+    "geo.placename": "East Grand Rapids",
+    "geo.position": "42.9634;-85.6681",
+    "ICBM": "42.9634, -85.6681",
+  },
   openGraph: {
-    title: "Jack of All Blades Landscaping | Grand Rapids, MI",
+    title: "Jack of All Blades Landscaping | East Grand Rapids, MI",
     description:
-      "Professional landscaping, hardscaping, lawn care, and snow removal services in Grand Rapids, Michigan. Man Made Excellence.",
+      "Professional landscaping, lawn care, hardscaping & tree services in East Grand Rapids, Grand Rapids & West Michigan. Man Made Excellence.",
     type: "website",
     locale: "en_US",
     siteName: "Jack of All Blades Landscaping",

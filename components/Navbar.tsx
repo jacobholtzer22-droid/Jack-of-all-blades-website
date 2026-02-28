@@ -104,8 +104,10 @@ export default function Navbar() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden text-white p-2 relative z-[60]"
+          type="button"
+          className="lg:hidden text-white p-3 -m-1 relative z-[110] min-w-[44px] min-h-[44px] flex items-center justify-center touch-manipulation"
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -113,21 +115,22 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden fixed inset-0 top-0 bg-dark-950/98 backdrop-blur-xl transition-all duration-300 z-[55] ${
+        className={`lg:hidden fixed inset-0 top-0 bg-dark-950/98 backdrop-blur-xl transition-all duration-300 z-[100] touch-manipulation ${
           mobileOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+            ? "opacity-100 pointer-events-auto visible"
+            : "opacity-0 pointer-events-none invisible"
         }`}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
+        <nav className="flex flex-col items-center justify-center h-full gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`text-2xl font-heading font-semibold transition-colors ${
+              onClick={() => setMobileOpen(false)}
+              className={`text-2xl font-heading font-semibold transition-colors py-3 px-6 -my-2 min-h-[48px] flex items-center touch-manipulation ${
                 pathname === link.href
                   ? "text-forest-400"
-                  : "text-dark-100 hover:text-forest-400"
+                  : "text-dark-100 hover:text-forest-400 active:text-forest-300"
               }`}
             >
               {link.label}
@@ -148,7 +151,7 @@ export default function Navbar() {
               <span>616-250-8044</span>
             </a>
           </div>
-        </div>
+        </nav>
       </div>
     </header>
   );

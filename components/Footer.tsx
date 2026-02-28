@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="absolute inset-0 bg-earthy-950" />
 
       <div className="relative z-10 max-w-7xl mx-auto section-padding py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
@@ -25,8 +25,9 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-dark-300 text-sm leading-relaxed max-w-md mb-6">
-              Professional landscaping, hardscaping, and lawn care services in
-              Grand Rapids, Michigan. Man Made Excellence since day one.
+              Professional landscaping, hardscaping, and lawn care services
+              serving East Grand Rapids, Grand Rapids, Kentwood, Ada, Cascade, and
+              all of West Michigan. Man Made Excellence since day one.
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -74,6 +75,32 @@ export default function Footer() {
                 { label: "Portfolio", href: "/portfolio" },
                 { label: "Testimonials", href: "/testimonials" },
                 { label: "Contact", href: "/contact" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-dark-300 hover:text-forest-400 text-sm transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Service Areas */}
+          <div>
+            <h4 className="font-heading font-semibold text-white mb-4 text-sm uppercase tracking-wider">
+              Service Areas
+            </h4>
+            <ul className="space-y-3">
+              {[
+                { label: "East Grand Rapids", href: "/service-areas/east-grand-rapids" },
+                { label: "Grand Rapids", href: "/service-areas/grand-rapids" },
+                { label: "Kentwood", href: "/service-areas/kentwood" },
+                { label: "Wyoming", href: "/service-areas/wyoming-mi" },
+                { label: "Ada", href: "/service-areas/ada" },
+                { label: "Cascade", href: "/service-areas/cascade" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link

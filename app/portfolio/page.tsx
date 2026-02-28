@@ -7,17 +7,17 @@ const CTABanner = dynamic(() => import("@/components/CTABanner"));
 
 export const metadata: Metadata = {
   title:
-    "Our Work | Landscaping & Hardscaping Projects Grand Rapids MI",
+    "Our Work | Landscaping & Hardscaping Projects East Grand Rapids MI",
   description:
-    "View our landscaping, hardscaping, and lawn care projects in Grand Rapids, MI. See the quality craftsmanship from Jack of All Blades Landscaping.",
+    "View landscaping, hardscaping, and lawn care projects completed across East Grand Rapids, Grand Rapids, Ada, Cascade & West Michigan.",
   alternates: {
     canonical: "/portfolio",
   },
   openGraph: {
     title:
-      "Our Work | Landscaping & Hardscaping Projects Grand Rapids MI",
+      "Our Work | Landscaping & Hardscaping Projects East Grand Rapids MI",
     description:
-      "View our landscaping, hardscaping, and lawn care projects in Grand Rapids, MI. See the quality craftsmanship from Jack of All Blades Landscaping.",
+      "View landscaping, hardscaping, and lawn care projects completed across East Grand Rapids, Grand Rapids, Ada, Cascade & West Michigan.",
     url: "https://jackofallbladeslandscaping.com/portfolio",
     siteName: "Jack of All Blades Landscaping",
     images: [
@@ -39,7 +39,8 @@ export default function PortfolioPage() {
         label="Our Work"
         title="Project"
         titleAccent="Portfolio"
-        description="A showcase of our landscaping, hardscaping, and lawn care transformations across Grand Rapids."
+        description="A showcase of our landscaping, hardscaping, and lawn care transformations across East Grand Rapids, Grand Rapids, and West Michigan."
+        backgroundImage="/images/paver-patio-seating.jpg"
       />
       <PortfolioGrid />
       <CTABanner />

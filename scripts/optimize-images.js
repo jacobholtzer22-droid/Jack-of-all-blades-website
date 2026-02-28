@@ -42,10 +42,10 @@ async function optimizeImage(filePath) {
   try {
     let pipeline = sharp(filePath);
     const metadata = await pipeline.metadata();
-    const needsResize = metadata.width > MAX_WIDTH;
 
     const tryOptimize = async (width, q, flatten = false) => {
-      let p = sharp(filePath);
+      let p = sharp(filePath)
+        .rotate(); // Apply EXIF orientation so images don't display sideways on mobile
       if (metadata.width > width) {
         p = p.resize(width, null, { withoutEnlargement: true });
       }

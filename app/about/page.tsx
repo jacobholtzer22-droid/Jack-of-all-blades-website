@@ -7,17 +7,17 @@ const CTABanner = dynamic(() => import("@/components/CTABanner"));
 
 export const metadata: Metadata = {
   title:
-    "About Jack of All Blades | Trusted Landscaping Company Grand Rapids MI",
+    "About Jack of All Blades | Trusted Landscaping Company East Grand Rapids MI",
   description:
-    "Learn about Mike Hazzard and the Jack of All Blades Landscaping team. Serving Grand Rapids, MI since 2018 with professional landscaping, hardscaping, and lawn care.",
+    "Jack of All Blades Landscaping has served East Grand Rapids and the greater Grand Rapids area for 8+ years. Fully bonded, reliable, and committed to excellence.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title:
-      "About Jack of All Blades | Trusted Landscaping Company Grand Rapids MI",
+      "About Jack of All Blades | Trusted Landscaping Company East Grand Rapids MI",
     description:
-      "Learn about Mike Hazzard and the Jack of All Blades Landscaping team. Serving Grand Rapids, MI since 2018 with professional landscaping, hardscaping, and lawn care.",
+      "Jack of All Blades Landscaping has served East Grand Rapids and the greater Grand Rapids area for 8+ years. Fully bonded, reliable, and committed to excellence.",
     url: "https://jackofallbladeslandscaping.com/about",
     siteName: "Jack of All Blades Landscaping",
     images: [
@@ -39,7 +39,8 @@ export default function AboutPage() {
         label="About Us"
         title="Built from the"
         titleAccent="ground up"
-        description="Meet the team behind Grand Rapids' most dedicated landscaping company."
+        description="Meet the team behind East Grand Rapids and West Michigan's most dedicated landscaping company."
+        backgroundImage="/images/IMG_5510.jpg"
       />
       <AboutContent />
       <CTABanner />

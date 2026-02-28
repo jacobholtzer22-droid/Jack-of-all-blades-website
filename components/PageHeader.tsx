@@ -3,6 +3,7 @@ interface PageHeaderProps {
   title: string;
   titleAccent?: string;
   description: string;
+  backgroundImage?: string;
 }
 
 export default function PageHeader({
@@ -10,10 +11,17 @@ export default function PageHeader({
   title,
   titleAccent,
   description,
+  backgroundImage,
 }: PageHeaderProps) {
   return (
     <section className="relative pt-36 pb-20 sm:pt-44 sm:pb-28 overflow-hidden animate-fade-in">
-      <div className="absolute inset-0 bg-gradient-to-br from-earthy-950 via-earthy-900 to-earthy-950" />
+      {backgroundImage && (
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${backgroundImage})` }}
+        />
+      )}
+      <div className={`absolute inset-0 ${backgroundImage ? "bg-gradient-to-br from-earthy-950/85 via-earthy-900/75 to-earthy-950/85" : "bg-gradient-to-br from-earthy-950 via-earthy-900 to-earthy-950"}`} />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-forest-900/20 via-transparent to-transparent" />
       <div
         className="absolute inset-0 opacity-[0.03]"

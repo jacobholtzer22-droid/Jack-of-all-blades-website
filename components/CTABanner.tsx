@@ -46,8 +46,8 @@ export default function CTABanner() {
           <span className="text-forest-400">Your Property?</span>
         </h2>
         <p className="reveal opacity-0 text-dark-200 text-lg sm:text-xl mb-10 leading-relaxed">
-          Get a free estimate today. We serve Grand Rapids, MI and all
-          surrounding areas.
+          Get a free estimate today. Serving East Grand Rapids, Grand Rapids,
+          Kentwood, Cascade, Ada, and all surrounding communities.
         </p>
         <div className="reveal opacity-0 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
