@@ -143,10 +143,10 @@ export default function Gallery() {
                 blurDataURL={BLUR_DATA_URL}
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-dark-950/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/20" />
 
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
-                <p className="text-white text-sm sm:text-base font-heading font-semibold drop-shadow-lg">
+                <p className="text-white text-sm sm:text-base font-heading font-bold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
                   {item.label}
                 </p>
               </div>

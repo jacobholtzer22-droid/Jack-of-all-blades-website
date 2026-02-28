@@ -92,7 +92,7 @@ export default function HomeTestimonialPreview() {
                 ))}
               </div>
 
-              <blockquote className="text-dark-100 text-lg sm:text-xl leading-relaxed font-light mb-8">
+              <blockquote className="text-dark-50 text-lg sm:text-xl leading-relaxed font-medium mb-8">
                 &ldquo;{testimonial.text}&rdquo;
               </blockquote>
             </div>

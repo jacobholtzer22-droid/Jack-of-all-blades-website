@@ -50,7 +50,7 @@ export default function CTABanner() {
           </a>
           <Link
             href="/contact"
-            className="w-full sm:w-auto group flex items-center justify-center gap-3 border border-forest-500/50 bg-forest-900/30 hover:bg-forest-800/50 text-white hover:text-forest-300 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-forest-600/20"
+            className="w-full sm:w-auto group flex items-center justify-center gap-3 bg-white text-black hover:bg-gray-100 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:shadow-xl"
           >
             Request Estimate Online
             <ArrowRight

@@ -133,7 +133,7 @@ export default function Services() {
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/85 to-dark-950/40 group-hover:via-dark-950/80 group-hover:to-dark-950/30 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/20" />
 
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-forest-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -145,17 +145,18 @@ export default function Services() {
                     />
                   </div>
 
-                  <h3 className="font-heading font-bold text-xl text-white mb-3 group-hover:text-forest-300 transition-colors">
+                  <h3 className="font-heading font-bold text-xl text-white mb-3 group-hover:text-forest-300 transition-colors" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
                     {service.title}
                   </h3>
 
-                  <p className="text-dark-200 leading-relaxed text-[15px] mb-5">
+                  <p className="text-white/95 leading-relaxed text-[15px] mb-5 font-medium" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
                     {service.description}
                   </p>
 
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-forest-400 hover:text-forest-300 transition-colors group/link"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-forest-300 hover:text-forest-200 transition-colors group/link"
+                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
                   >
                     Get Free Estimate
                     <ArrowRight

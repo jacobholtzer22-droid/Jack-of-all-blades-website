@@ -50,6 +50,10 @@ const config: Config = {
         heading: ["var(--font-heading)", "sans-serif"],
         body: ["var(--font-body)", "sans-serif"],
       },
+      textShadow: {
+        overlay: "0 2px 8px rgba(0,0,0,0.7)",
+        "overlay-strong": "0 2px 12px rgba(0,0,0,0.9)",
+      },
     },
   },
   plugins: [],

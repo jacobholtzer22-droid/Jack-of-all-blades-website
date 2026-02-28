@@ -95,10 +95,10 @@ const galleryItems = [
   },
   {
     id: 11,
-    label: "Paver Patio with Seating",
-    alt: "Paver patio with built-in seating area Grand Rapids Michigan",
+    label: "Paver Patio Installation",
+    alt: "Professional paver patio installation Grand Rapids Michigan",
     category: "Hardscaping",
-    image: "/images/paver-patio-seating.jpg",
+    image: "/images/mike-paver-patio.jpg",
     span: "",
   },
   {
@@ -252,13 +252,13 @@ export default function PortfolioGrid() {
                 blurDataURL={BLUR_DATA_URL}
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-dark-950/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/20" />
 
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
-                <p className="text-white text-sm sm:text-base font-heading font-semibold drop-shadow-lg">
+                <p className="text-white text-sm sm:text-base font-heading font-bold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
                   {item.label}
                 </p>
-                <span className="inline-block text-forest-300 text-xs mt-1 bg-dark-900/60 backdrop-blur-sm rounded-full px-3 py-1">
+                <span className="inline-block text-white/90 text-xs mt-1 font-semibold bg-black/50 backdrop-blur-sm rounded-full px-3 py-1" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.6)" }}>
                   {item.category}
                 </span>
               </div>

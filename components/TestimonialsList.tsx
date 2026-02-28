@@ -98,7 +98,7 @@ export default function TestimonialsList() {
               </div>
 
               {/* Review text */}
-              <blockquote className="text-dark-100 text-base leading-relaxed font-light mb-6 flex-1">
+              <blockquote className="text-dark-50 text-base leading-relaxed font-medium mb-6 flex-1">
                 &ldquo;{testimonial.text}&rdquo;
               </blockquote>
 

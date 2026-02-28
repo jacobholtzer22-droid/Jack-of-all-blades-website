@@ -183,118 +183,8 @@ export default function ContactContent() {
 
       <div className="relative z-10 max-w-7xl mx-auto section-padding">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
-          {/* Contact Info */}
-          <div className="lg:col-span-2 reveal opacity-0">
-            <h2 className="font-heading font-bold text-2xl text-white mb-6">
-              Get in Touch
-            </h2>
-
-            <div className="space-y-5 mb-10">
-              <a
-                href="tel:6162508044"
-                className="group flex items-start gap-4 bg-dark-800/40 border border-dark-600/20 rounded-xl p-5 hover:border-forest-600/30 transition-all"
-              >
-                <div className="w-12 h-12 rounded-xl bg-forest-900/40 border border-forest-700/20 flex items-center justify-center flex-shrink-0 group-hover:bg-forest-800/50 transition-colors">
-                  <Phone size={22} className="text-forest-400" />
-                </div>
-                <div>
-                  <div className="text-dark-300 text-sm mb-1">Call or Text</div>
-                  <div className="text-white font-heading font-semibold text-lg group-hover:text-forest-300 transition-colors">
-                    616-250-8044
-                  </div>
-                </div>
-              </a>
-
-              <a
-                href="mailto:jackofallbladeslandscaping@gmail.com"
-                className="group flex items-start gap-4 bg-dark-800/40 border border-dark-600/20 rounded-xl p-5 hover:border-forest-600/30 transition-all"
-              >
-                <div className="w-12 h-12 rounded-xl bg-forest-900/40 border border-forest-700/20 flex items-center justify-center flex-shrink-0 group-hover:bg-forest-800/50 transition-colors">
-                  <Mail size={22} className="text-forest-400" />
-                </div>
-                <div>
-                  <div className="text-dark-300 text-sm mb-1">Email Us</div>
-                  <div className="text-white font-heading font-semibold text-base sm:text-lg group-hover:text-forest-300 transition-colors break-all">
-                    jackofallbladeslandscaping
-                    <wbr />
-                    @gmail.com
-                  </div>
-                </div>
-              </a>
-
-              <div className="flex items-start gap-4 bg-dark-800/40 border border-dark-600/20 rounded-xl p-5">
-                <div className="w-12 h-12 rounded-xl bg-forest-900/40 border border-forest-700/20 flex items-center justify-center flex-shrink-0">
-                  <MapPin size={22} className="text-forest-400" />
-                </div>
-                <div>
-                  <div className="text-dark-300 text-sm mb-1">Service Area</div>
-                  <div className="text-white font-heading font-semibold text-lg">
-                    Grand Rapids, MI 49506
-                  </div>
-                  <div className="text-dark-300 text-sm">
-                    & surrounding areas
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 bg-dark-800/40 border border-dark-600/20 rounded-xl p-5">
-                <div className="w-12 h-12 rounded-xl bg-forest-900/40 border border-forest-700/20 flex items-center justify-center flex-shrink-0">
-                  <Clock size={22} className="text-forest-400" />
-                </div>
-                <div>
-                  <div className="text-dark-300 text-sm mb-1">Response Time</div>
-                  <div className="text-white font-heading font-semibold text-lg">
-                    Within 24 Hours
-                  </div>
-                  <div className="text-dark-300 text-sm">
-                    We respond to all inquiries quickly
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Socials */}
-            <div>
-              <p className="text-dark-300 text-sm font-medium mb-4 uppercase tracking-wider">
-                Follow Us
-              </p>
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://www.instagram.com/jackofallbladeslandscape"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group w-12 h-12 rounded-xl bg-dark-800/40 border border-dark-600/20 flex items-center justify-center hover:border-forest-600/30 hover:bg-dark-700/40 transition-all"
-                  aria-label="Instagram"
-                >
-                  <svg
-                    className="w-5 h-5 text-dark-200 group-hover:text-forest-400 transition-colors"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                  </svg>
-                </a>
-                <a
-                  href="https://www.tiktok.com/@jackofallbladeslscp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group w-12 h-12 rounded-xl bg-dark-800/40 border border-dark-600/20 flex items-center justify-center hover:border-forest-600/30 hover:bg-dark-700/40 transition-all"
-                  aria-label="TikTok"
-                >
-                  <svg
-                    className="w-5 h-5 text-dark-200 group-hover:text-forest-400 transition-colors"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.18 8.18 0 004.77 1.52V6.84a4.84 4.84 0 01-1-.15z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="lg:col-span-3 reveal opacity-0">
+          {/* Contact Form - shown first */}
+          <div className="lg:col-span-3 lg:order-1 reveal opacity-0">
             {submitted ? (
               <div className="bg-dark-800/30 border border-forest-600/30 rounded-2xl p-8 sm:p-12 text-center">
                 <div className="w-16 h-16 rounded-full bg-forest-900/40 border border-forest-700/30 flex items-center justify-center mx-auto mb-6">
@@ -525,6 +415,116 @@ export default function ContactContent() {
                 </p>
               </form>
             )}
+          </div>
+
+          {/* Contact Info */}
+          <div className="lg:col-span-2 lg:order-2 reveal opacity-0">
+            <h2 className="font-heading font-bold text-2xl text-white mb-6">
+              Get in Touch
+            </h2>
+
+            <div className="space-y-5 mb-10">
+              <a
+                href="tel:6162508044"
+                className="group flex items-start gap-4 bg-dark-800/40 border border-dark-600/20 rounded-xl p-5 hover:border-forest-600/30 transition-all"
+              >
+                <div className="w-12 h-12 rounded-xl bg-forest-900/40 border border-forest-700/20 flex items-center justify-center flex-shrink-0 group-hover:bg-forest-800/50 transition-colors">
+                  <Phone size={22} className="text-forest-400" />
+                </div>
+                <div>
+                  <div className="text-dark-300 text-sm mb-1">Call or Text</div>
+                  <div className="text-white font-heading font-semibold text-lg group-hover:text-forest-300 transition-colors">
+                    616-250-8044
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="mailto:jackofallbladeslandscaping@gmail.com"
+                className="group flex items-start gap-4 bg-dark-800/40 border border-dark-600/20 rounded-xl p-5 hover:border-forest-600/30 transition-all"
+              >
+                <div className="w-12 h-12 rounded-xl bg-forest-900/40 border border-forest-700/20 flex items-center justify-center flex-shrink-0 group-hover:bg-forest-800/50 transition-colors">
+                  <Mail size={22} className="text-forest-400" />
+                </div>
+                <div>
+                  <div className="text-dark-300 text-sm mb-1">Email Us</div>
+                  <div className="text-white font-heading font-semibold text-base sm:text-lg group-hover:text-forest-300 transition-colors break-all">
+                    jackofallbladeslandscaping
+                    <wbr />
+                    @gmail.com
+                  </div>
+                </div>
+              </a>
+
+              <div className="flex items-start gap-4 bg-dark-800/40 border border-dark-600/20 rounded-xl p-5">
+                <div className="w-12 h-12 rounded-xl bg-forest-900/40 border border-forest-700/20 flex items-center justify-center flex-shrink-0">
+                  <MapPin size={22} className="text-forest-400" />
+                </div>
+                <div>
+                  <div className="text-dark-300 text-sm mb-1">Service Area</div>
+                  <div className="text-white font-heading font-semibold text-lg">
+                    Grand Rapids, MI 49506
+                  </div>
+                  <div className="text-dark-300 text-sm">
+                    & surrounding areas
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 bg-dark-800/40 border border-dark-600/20 rounded-xl p-5">
+                <div className="w-12 h-12 rounded-xl bg-forest-900/40 border border-forest-700/20 flex items-center justify-center flex-shrink-0">
+                  <Clock size={22} className="text-forest-400" />
+                </div>
+                <div>
+                  <div className="text-dark-300 text-sm mb-1">Response Time</div>
+                  <div className="text-white font-heading font-semibold text-lg">
+                    Within 24 Hours
+                  </div>
+                  <div className="text-dark-300 text-sm">
+                    We respond to all inquiries quickly
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Socials */}
+            <div>
+              <p className="text-dark-300 text-sm font-medium mb-4 uppercase tracking-wider">
+                Follow Us
+              </p>
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://www.instagram.com/jackofallbladeslandscape"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group w-12 h-12 rounded-xl bg-dark-800/40 border border-dark-600/20 flex items-center justify-center hover:border-forest-600/30 hover:bg-dark-700/40 transition-all"
+                  aria-label="Instagram"
+                >
+                  <svg
+                    className="w-5 h-5 text-dark-200 group-hover:text-forest-400 transition-colors"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.tiktok.com/@jackofallbladeslscp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group w-12 h-12 rounded-xl bg-dark-800/40 border border-dark-600/20 flex items-center justify-center hover:border-forest-600/30 hover:bg-dark-700/40 transition-all"
+                  aria-label="TikTok"
+                >
+                  <svg
+                    className="w-5 h-5 text-dark-200 group-hover:text-forest-400 transition-colors"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.18 8.18 0 004.77 1.52V6.84a4.84 4.84 0 01-1-.15z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

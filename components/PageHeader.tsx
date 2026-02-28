@@ -28,13 +28,13 @@ export default function PageHeader({
         <span className="text-forest-400 text-sm font-semibold uppercase tracking-[0.2em] mb-4 block">
           {label}
         </span>
-        <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6 tracking-tight">
+        <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6 tracking-tight" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}>
           {title}{" "}
           {titleAccent && (
             <span className="text-forest-400">{titleAccent}</span>
           )}
         </h1>
-        <p className="text-dark-200 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
+        <p className="text-dark-100 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
           {description}
         </p>
       </div>

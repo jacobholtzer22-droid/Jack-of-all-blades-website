@@ -48,7 +48,7 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         showBg
           ? "bg-dark-950/95 backdrop-blur-md shadow-lg shadow-black/20 py-3"
-          : "bg-transparent py-5"
+          : "bg-black/60 backdrop-blur-md py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto section-padding flex items-center justify-between">
@@ -74,7 +74,7 @@ export default function Navbar() {
               className={`text-sm font-medium tracking-wide uppercase transition-colors ${
                 pathname === link.href
                   ? "text-forest-400"
-                  : "text-dark-200 hover:text-forest-400"
+                  : "text-white hover:text-forest-400"
               }`}
             >
               {link.label}
@@ -91,7 +91,11 @@ export default function Navbar() {
           </Link>
           <a
             href="tel:6162508044"
-            className="flex items-center gap-2 border border-dark-500 hover:border-forest-500/50 text-dark-100 hover:text-forest-400 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all"
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all ${
+              showBg
+                ? "border border-dark-500 hover:border-forest-500/50 text-dark-100 hover:text-forest-400"
+                : "bg-white text-black hover:bg-gray-100 border-0"
+            }`}
           >
             <Phone size={16} />
             <span>Call Now</span>
