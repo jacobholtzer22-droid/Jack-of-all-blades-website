@@ -42,6 +42,7 @@ export default function HomePhotoStrip() {
   return (
     <section
       ref={sectionRef}
+      id="gallery"
       className="relative py-20 sm:py-28 overflow-hidden border-t border-forest-900/30"
     >
       <div className="absolute inset-0 bg-earthy-800" />

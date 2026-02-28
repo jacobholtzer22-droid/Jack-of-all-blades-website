@@ -2,9 +2,8 @@
 /**
  * Fix EXIF orientation for all images in /public
  *
- * Reads each image, applies EXIF rotation via sharp, and overwrites the original.
- * This bakes correct orientation into the pixel data so images display
- * right-side-up regardless of browser/Next.js handling.
+ * Reads each image into sharp, applies .rotate() with no arguments (auto-orient
+ * from EXIF), then overwrites the original file.
  *
  * Run: npm run fix-exif-orientation
  */
@@ -31,32 +30,32 @@ function getAllImageFiles(dir, files = []) {
 }
 
 async function fixOrientation(filePath) {
-  const relPath = path.relative(PUBLIC_DIR, filePath);
+  const filename = path.basename(filePath);
   const ext = path.extname(filePath).toLowerCase();
 
   try {
-    const image = sharp(filePath);
+    const inputBuffer = fs.readFileSync(filePath);
+    const image = sharp(inputBuffer);
 
-    // .rotate() with no args applies EXIF orientation and bakes it into pixel data
-    let pipeline = image.rotate();
-    let buffer;
-    if (ext === ".png") {
-      buffer = await pipeline.png().toBuffer();
-    } else {
-      buffer = await pipeline.jpeg({ quality: 92 }).toBuffer();
-    }
-    fs.writeFileSync(filePath, buffer);
-    console.log(`  ✅ ${relPath}`);
+    const outputFormat = ext === ".png" ? "png" : "jpeg";
+    const outputOptions = outputFormat === "jpeg" ? { quality: 92 } : {};
+    const outputBuffer = await image
+      .rotate()
+      .toFormat(outputFormat, outputOptions)
+      .toBuffer();
+
+    fs.writeFileSync(filePath, outputBuffer);
+    console.log(`  ${filename}`);
     return { fixed: true };
   } catch (err) {
-    console.error(`  ❌ ${relPath}:`, err.message);
+    console.error(`  ❌ ${filename}:`, err.message);
     return { error: true };
   }
 }
 
 async function main() {
-  console.log("\n🔄 Fix EXIF Orientation\n");
-  console.log(`  Scanning: ${PUBLIC_DIR}\n`);
+  console.log("\n🔄 Fix EXIF orientation (sharp .rotate() auto-orient)\n");
+  console.log(`  Processing images in: ${PUBLIC_DIR}\n`);
 
   const files = getAllImageFiles(PUBLIC_DIR);
   if (files.length === 0) {

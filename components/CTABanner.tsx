@@ -28,7 +28,7 @@ export default function CTABanner() {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-20 sm:py-28 overflow-hidden min-h-[320px] sm:min-h-[360px] flex items-center">
+    <section ref={ref} id="contact" className="relative py-20 sm:py-28 overflow-hidden min-h-[320px] sm:min-h-[360px] flex items-center">
       <Image
         src="/images/IMG_6081.jpg"
         alt=""

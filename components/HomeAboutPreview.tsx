@@ -35,7 +35,7 @@ export default function HomeAboutPreview() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-24 sm:py-32 overflow-hidden border-t border-forest-900/30">
+    <section ref={sectionRef} id="about" className="relative py-24 sm:py-32 overflow-hidden border-t border-forest-900/30">
       <div className="absolute inset-0 bg-earthy-700" />
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-forest-950/10 to-transparent" />
 
