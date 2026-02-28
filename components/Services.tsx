@@ -13,8 +13,6 @@ import {
   Scissors,
   ArrowRight,
 } from "lucide-react";
-import { getServiceAreaLink } from "@/data/serviceAreas";
-
 const services = [
   {
     icon: Leaf,
@@ -161,20 +159,6 @@ export default function Services() {
                   </p>
 
                   <div className="space-y-3">
-                    <p className="text-white/80 text-xs font-medium" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
-                      Available in:{" "}
-                      {service.areas.map((area, j) => (
-                        <span key={area}>
-                          <Link
-                            href={getServiceAreaLink(area)}
-                            className="text-forest-400 hover:text-forest-300 transition-colors underline underline-offset-2"
-                          >
-                            {area}
-                          </Link>
-                          {j < service.areas.length - 1 ? ", " : ""}
-                        </span>
-                      ))}
-                    </p>
                     <Link
                       href="/contact"
                       className="inline-flex items-center gap-2 text-sm font-semibold text-forest-300 hover:text-forest-200 transition-colors group/link"
