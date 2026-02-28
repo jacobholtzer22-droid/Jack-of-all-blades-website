@@ -60,6 +60,7 @@ export default function HomeTestimonialPreview() {
   return (
     <section
       ref={sectionRef}
+      id="testimonials"
       className="relative py-24 sm:py-32 overflow-hidden texture-overlay border-t border-forest-900/30"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-earthy-950 to-earthy-600" />

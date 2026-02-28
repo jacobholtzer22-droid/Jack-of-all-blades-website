@@ -1,36 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { Phone, Menu, X } from "lucide-react";
 
 const navLinks = [
+  { label: "Home", href: "#" },
   { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
   { label: "Gallery", href: "#gallery" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const showBg = scrolled;
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-500 ${
-        showBg
-          ? "bg-dark-950/95 backdrop-blur-md shadow-lg shadow-black/20 py-3"
-          : "bg-black/60 backdrop-blur-md py-5"
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-[90] bg-[#111] shadow-lg shadow-black/20 py-3">
       <div className="max-w-7xl mx-auto section-padding flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 group">
           <Image
@@ -46,12 +33,12 @@ export default function Navbar() {
           </div>
         </a>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-4">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium tracking-wide uppercase transition-colors text-white hover:text-forest-400"
+              className="text-[14px] font-medium tracking-wide uppercase transition-colors text-white hover:text-forest-400"
             >
               {link.label}
             </a>
@@ -67,11 +54,7 @@ export default function Navbar() {
           </a>
           <a
             href="tel:6162508044"
-            className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all ${
-              showBg
-                ? "border border-dark-500 hover:border-forest-500/50 text-dark-100 hover:text-forest-400"
-                : "bg-white text-black hover:bg-gray-100 border-0"
-            }`}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all border border-dark-500 hover:border-forest-500/50 text-dark-100 hover:text-forest-400"
           >
             <Phone size={16} />
             <span>Call Now</span>
@@ -92,7 +75,7 @@ export default function Navbar() {
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
-          className="lg:hidden fixed inset-0 top-0 bg-[#0a0a0a]/98 z-[100] touch-manipulation overscroll-none flex flex-col items-center justify-center gap-8"
+          className="lg:hidden fixed inset-0 top-0 bg-[#111] z-[100] touch-manipulation overscroll-none flex flex-col items-center justify-center gap-8"
           aria-hidden={!isOpen}
         >
           <button
