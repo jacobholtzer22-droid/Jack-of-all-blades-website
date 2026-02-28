@@ -20,6 +20,7 @@ const body = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jackofallbladeslandscaping.com"),
   title: {
     default: "Jack of All Blades Landscaping | East Grand Rapids, MI",
     template: "%s | Jack of All Blades Landscaping",
@@ -77,12 +78,21 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${heading.variable} ${body.variable}`}>
       <head>
-        <link
-          rel="preload"
-          as="image"
-          href="/_next/image?url=%2Fimages%2FIMG_5510.webp&w=1920&q=85"
-          fetchPriority="high"
+        {/* Critical above-the-fold CSS - prevents white flash before main stylesheet loads */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-tap-highlight-color:transparent}body{background-color:#0f1a0e;color:#fff;font-family:var(--font-body),sans-serif}::selection{background-color:rgba(45,90,39,.4);color:#fff}`,
+          }}
         />
+        {/* Preconnect & DNS prefetch for external resources */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://www.instagram.com" />
+        <link rel="dns-prefetch" href="https://www.tiktok.com" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+        <link rel="dns-prefetch" href="https://alignandacquire.com" />
       </head>
       <body>
         <Navbar />

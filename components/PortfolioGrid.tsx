@@ -29,6 +29,7 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/IMG_6448.webp",
     span: "",
+    imageRotate: 90,
   },
   {
     id: 3,
@@ -45,6 +46,7 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/IMG_6756.webp",
     span: "",
+    imageRotate: 90,
   },
   {
     id: 5,
@@ -61,6 +63,7 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/walkway-front-house.webp",
     span: "md:col-span-2",
+    imageRotate: 90,
   },
   {
     id: 7,
@@ -93,6 +96,7 @@ const galleryItems = [
     category: "Landscaping",
     image: "/images/paver-patio-seating.webp",
     span: "md:col-span-2",
+    imageRotate: 90,
   },
   {
     id: 11,
@@ -101,6 +105,7 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/mike-paver-patio.webp",
     span: "",
+    imageRotate: 90,
   },
   {
     id: 12,
@@ -109,6 +114,7 @@ const galleryItems = [
     category: "Lawn Care",
     image: "/images/IMG_6094.webp",
     span: "",
+    imageRotate: 90,
   },
   {
     id: 13,
@@ -134,6 +140,7 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/IMG_6706.webp",
     span: "",
+    imageRotate: 90,
   },
   {
     id: 17,
@@ -142,6 +149,7 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/happy-customer-patio.webp",
     span: "",
+    imageRotate: 90,
   },
   {
     id: 18,
@@ -158,6 +166,7 @@ const galleryItems = [
     category: "Lawn Care",
     image: "/images/IMG_6098.webp",
     span: "",
+    imageRotate: 90,
   },
   {
     id: 20,

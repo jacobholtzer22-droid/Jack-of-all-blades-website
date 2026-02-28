@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface PageHeaderProps {
   label: string;
   title: string;
@@ -22,15 +24,19 @@ export default function PageHeader({
   return (
     <section className="relative pt-36 pb-20 sm:pt-44 sm:pb-28 overflow-hidden animate-fade-in min-h-[380px] sm:min-h-[440px]">
       {backgroundImage && (
-        <div
-          className={`absolute inset-0 bg-earthy-900 bg-no-repeat ${
-            backgroundSize === "contain" ? "bg-contain" : "bg-cover"
-          }`}
-          style={{
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundPosition,
-          }}
-        />
+        <div className="absolute inset-0 bg-earthy-900">
+          <Image
+            src={backgroundImage}
+            alt=""
+            fill
+            className={backgroundSize === "contain" ? "object-contain" : "object-cover"}
+            style={{ objectPosition: backgroundPosition }}
+            sizes="100vw"
+            quality={85}
+            priority
+            fetchPriority="high"
+          />
+        </div>
       )}
       <div className={`absolute inset-0 ${backgroundImage ? "bg-gradient-to-br from-earthy-950/85 via-earthy-900/75 to-earthy-950/85" : "bg-gradient-to-br from-earthy-950 via-earthy-900 to-earthy-950"}`} />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-forest-900/20 via-transparent to-transparent" />

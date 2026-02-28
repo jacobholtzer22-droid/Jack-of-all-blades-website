@@ -11,6 +11,7 @@ const galleryItems = [
     alt: "Custom paver patio installation Grand Rapids Michigan",
     image: "/images/IMG_6448.webp",
     span: "md:col-span-2 md:row-span-2",
+    imageRotate: 90,
   },
   {
     id: 2,
@@ -46,6 +47,7 @@ const galleryItems = [
     alt: "Paver walkway installation at residential property Grand Rapids MI",
     image: "/images/IMG_6706.webp",
     span: "md:col-span-2",
+    imageRotate: 90,
   },
   {
     id: 7,
@@ -67,6 +69,7 @@ const galleryItems = [
     alt: "Retaining wall and hardscape construction Grand Rapids Michigan",
     image: "/images/IMG_6448.webp",
     span: "md:col-span-2",
+    imageRotate: 90,
   },
 ];
 
@@ -132,7 +135,7 @@ export default function Gallery() {
                 src={item.image}
                 alt={item.alt}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className={`object-cover transition-transform duration-700 group-hover:scale-105 ${(item as { imageRotate?: number }).imageRotate ? "rotate-90" : ""}`}
                 sizes={
                   item.span.includes("col-span-2")
                     ? "(max-width: 768px) 100vw, 50vw"

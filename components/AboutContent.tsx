@@ -73,6 +73,8 @@ export default function AboutContent() {
                   quality={75}
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 w-full h-full border border-forest-700/20 rounded-2xl -z-10" />
@@ -157,7 +159,7 @@ export default function AboutContent() {
               src="/images/walkway-front-house.webp"
               alt="Paver walkway installation at residential home Grand Rapids MI"
               fill
-              className="object-cover"
+              className="object-cover rotate-90"
               sizes="(max-width: 640px) 100vw, 33vw"
               quality={75}
               placeholder="blur"
@@ -171,7 +173,7 @@ export default function AboutContent() {
               src="/images/mike-paver-patio.webp"
               alt="Mike Hazzard working on paver patio installation Grand Rapids MI"
               fill
-              className="object-cover object-top"
+              className="object-cover object-top rotate-90"
               sizes="(max-width: 640px) 100vw, 33vw"
               quality={75}
               placeholder="blur"
