@@ -45,7 +45,7 @@ export default function HomeAboutPreview() {
             <div className="relative">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/tree-trimming-chainsaw.png"
+                  src="/images/tree-trimming-chainsaw.jpg"
                   alt="Mike Hazzard owner of Jack of All Blades Landscaping performing tree service in Grand Rapids MI"
                   fill
                   className="object-cover"

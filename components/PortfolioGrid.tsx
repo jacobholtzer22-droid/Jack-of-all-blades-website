@@ -58,7 +58,7 @@ const galleryItems = [
     label: "Walkway Installation",
     alt: "Paver walkway installation at residential home Grand Rapids MI",
     category: "Hardscaping",
-    image: "/images/walkway-front-house.png",
+    image: "/images/walkway-front-house.jpg",
     span: "md:col-span-2",
   },
   {
@@ -82,7 +82,7 @@ const galleryItems = [
     label: "Snow Plowing",
     alt: "Snow plowing and removal service Grand Rapids Michigan",
     category: "Snow Removal",
-    image: "/images/snow-removal-truck.png",
+    image: "/images/snow-removal-truck.jpg",
     span: "",
   },
   {
@@ -98,7 +98,7 @@ const galleryItems = [
     label: "Paver Patio with Seating",
     alt: "Paver patio with built-in seating area Grand Rapids Michigan",
     category: "Hardscaping",
-    image: "/images/paver-patio-seating.png",
+    image: "/images/paver-patio-seating.jpg",
     span: "",
   },
   {
@@ -114,7 +114,7 @@ const galleryItems = [
     label: "Sod Installation",
     alt: "Professional sod installation and new lawn service Grand Rapids Michigan",
     category: "Lawn Care",
-    image: "/images/sod-laying-team.png",
+    image: "/images/sod-laying-team.jpg",
     span: "md:col-span-2",
   },
   {
@@ -170,7 +170,7 @@ const galleryItems = [
     label: "Tree Removal",
     alt: "Tree removal and stump grinding service Grand Rapids MI",
     category: "Landscaping",
-    image: "/images/tree-removal-truck.png",
+    image: "/images/tree-removal-truck.jpg",
     span: "",
   },
 ];

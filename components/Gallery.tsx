@@ -23,7 +23,7 @@ const galleryItems = [
     id: 3,
     label: "Tree Trimming",
     alt: "Tree trimming and pruning service Grand Rapids Michigan",
-    image: "/images/tree-trimming-chainsaw.png",
+    image: "/images/tree-trimming-chainsaw.jpg",
     span: "",
   },
   {
@@ -37,21 +37,21 @@ const galleryItems = [
     id: 5,
     label: "Sod Installation",
     alt: "New sod installation and lawn setup Grand Rapids Michigan",
-    image: "/images/sod-installation.png",
+    image: "/images/sod-installation.jpg",
     span: "",
   },
   {
     id: 6,
     label: "Paver Walkway",
     alt: "Paver walkway installation at residential property Grand Rapids MI",
-    image: "/images/walkway-front-house.png",
+    image: "/images/walkway-front-house.jpg",
     span: "md:col-span-2",
   },
   {
     id: 7,
     label: "Snow Removal",
     alt: "Snow removal and plowing service Grand Rapids Michigan",
-    image: "/images/snow-removal-truck.png",
+    image: "/images/snow-removal-truck.jpg",
     span: "",
   },
   {

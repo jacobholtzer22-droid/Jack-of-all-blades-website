@@ -121,6 +121,16 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Request Estimate CTA */}
+        <div className="flex justify-center mb-8">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-forest-600 hover:bg-forest-500 text-white px-8 py-3.5 rounded-xl text-base font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-forest-600/25"
+          >
+            Request a Free Estimate
+          </Link>
+        </div>
+
         {/* Bottom bar */}
         <div className="border-t border-dark-700/30 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-dark-400 text-sm">

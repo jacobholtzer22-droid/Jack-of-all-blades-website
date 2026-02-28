@@ -64,12 +64,22 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="tel:6162508044"
+          <Link
+            href="/contact"
             className="group flex items-center gap-3 bg-forest-600 hover:bg-forest-500 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-forest-600/30 hover:-translate-y-0.5"
           >
-            <Phone size={20} className="group-hover:animate-pulse" />
             Get a Free Estimate
+            <ArrowRight
+              size={18}
+              className="group-hover:translate-x-1 transition-transform"
+            />
+          </Link>
+          <a
+            href="tel:6162508044"
+            className="group flex items-center gap-3 border border-white/30 hover:border-forest-500/50 text-white hover:text-forest-400 px-8 py-4 rounded-xl text-lg font-medium transition-all duration-300 hover:bg-white/5 backdrop-blur-sm"
+          >
+            <Phone size={20} className="group-hover:animate-pulse" />
+            616-250-8044
           </a>
           <Link
             href="/portfolio"

@@ -43,16 +43,16 @@ export default function CTABanner() {
         <div className="reveal opacity-0 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="tel:6162508044"
-            className="group flex items-center gap-3 bg-forest-600 hover:bg-forest-500 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-forest-600/30 hover:-translate-y-0.5"
+            className="w-full sm:w-auto group flex items-center justify-center gap-3 bg-forest-600 hover:bg-forest-500 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-forest-600/30 hover:-translate-y-0.5"
           >
             <Phone size={20} />
             Call 616-250-8044
           </a>
           <Link
             href="/contact"
-            className="group flex items-center gap-3 border border-dark-400 hover:border-forest-500/50 text-dark-100 hover:text-forest-400 px-8 py-4 rounded-xl text-lg font-medium transition-all duration-300"
+            className="w-full sm:w-auto group flex items-center justify-center gap-3 border border-forest-500/50 bg-forest-900/30 hover:bg-forest-800/50 text-white hover:text-forest-300 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-forest-600/20"
           >
-            Contact Us
+            Request Estimate Online
             <ArrowRight
               size={18}
               className="group-hover:translate-x-1 transition-transform"

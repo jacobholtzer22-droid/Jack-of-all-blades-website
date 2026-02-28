@@ -82,10 +82,16 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-3">
+          <Link
+            href="/contact"
+            className="flex items-center gap-2 bg-forest-600 hover:bg-forest-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all hover:shadow-lg hover:shadow-forest-600/25"
+          >
+            <span>Free Estimate</span>
+          </Link>
           <a
             href="tel:6162508044"
-            className="flex items-center gap-2 bg-forest-600 hover:bg-forest-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all hover:shadow-lg hover:shadow-forest-600/25"
+            className="flex items-center gap-2 border border-dark-500 hover:border-forest-500/50 text-dark-100 hover:text-forest-400 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all"
           >
             <Phone size={16} />
             <span>Call Now</span>
@@ -123,13 +129,21 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <a
-            href="tel:6162508044"
-            className="mt-4 flex items-center gap-3 bg-forest-600 hover:bg-forest-500 text-white px-8 py-3.5 rounded-lg text-lg font-semibold transition-all"
-          >
-            <Phone size={20} />
-            <span>616-250-8044</span>
-          </a>
+          <div className="mt-6 flex flex-col sm:flex-row items-center gap-4">
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-forest-600 hover:bg-forest-500 text-white px-8 py-3.5 rounded-lg text-lg font-semibold transition-all"
+            >
+              <span>Free Estimate</span>
+            </Link>
+            <a
+              href="tel:6162508044"
+              className="w-full sm:w-auto flex items-center justify-center gap-3 border border-dark-500 hover:border-forest-500/50 text-dark-100 hover:text-forest-400 px-8 py-3.5 rounded-lg text-lg font-semibold transition-all"
+            >
+              <Phone size={20} />
+              <span>616-250-8044</span>
+            </a>
+          </div>
         </div>
       </div>
     </header>

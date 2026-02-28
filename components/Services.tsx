@@ -45,7 +45,7 @@ const services = [
     alt: "Commercial and residential snow removal service Grand Rapids MI",
     description:
       "Don't let Michigan winters slow you down. Our reliable snow removal services include plowing, salting, ice management, and sidewalk clearing for both residential and commercial properties. Contract-based service with guaranteed response times.",
-    image: "/images/snow-removal-truck.png",
+    image: "/images/snow-removal-truck.jpg",
   },
   {
     icon: Scissors,
@@ -61,7 +61,7 @@ const services = [
     alt: "Professional tree trimming and removal service Grand Rapids MI",
     description:
       "Protect your property and improve its appearance with professional tree services. We handle trimming, shaping, full tree removal, and stump grinding. Licensed and insured for safe, efficient work that transforms your yard.",
-    image: "/images/tree-removal-truck.png",
+    image: "/images/tree-removal-truck.jpg",
   },
 ];
 

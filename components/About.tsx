@@ -48,7 +48,7 @@ export default function About() {
             <div className="relative">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/tree-trimming-chainsaw.png"
+                  src="/images/tree-trimming-chainsaw.jpg"
                   alt="Mike Hazzard, founder of Jack of All Blades Landscaping"
                   fill
                   className="object-cover"

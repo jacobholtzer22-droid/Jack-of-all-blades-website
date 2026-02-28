@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Phone, ArrowUp } from "lucide-react";
+import Link from "next/link";
+import { Phone, ArrowUp, ClipboardList } from "lucide-react";
 
 export default function MobileFloatingButtons() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -33,14 +34,23 @@ export default function MobileFloatingButtons() {
         <ArrowUp size={20} className="text-white" />
       </button>
 
-      {/* Call Now */}
-      <a
-        href="tel:6162508044"
-        className="fixed bottom-0 left-0 right-0 z-[70] flex items-center justify-center gap-2.5 bg-forest-600 text-white py-3.5 font-semibold text-base shadow-[0_-4px_20px_rgba(0,0,0,0.3)] safe-area-bottom"
-      >
-        <Phone size={18} />
-        <span>Call Now — Free Estimate</span>
-      </a>
+      {/* Bottom bar: Call Now + Free Estimate */}
+      <div className="fixed bottom-0 left-0 right-0 z-[70] flex shadow-[0_-4px_20px_rgba(0,0,0,0.3)] safe-area-bottom">
+        <a
+          href="tel:6162508044"
+          className="flex-1 flex items-center justify-center gap-2 bg-forest-600 hover:bg-forest-500 text-white py-3.5 font-semibold text-sm transition-colors"
+        >
+          <Phone size={18} />
+          <span>Call Now</span>
+        </a>
+        <Link
+          href="/contact"
+          className="flex-1 flex items-center justify-center gap-2 bg-dark-800 hover:bg-dark-700 text-white py-3.5 font-semibold text-sm transition-colors border-l border-dark-600"
+        >
+          <ClipboardList size={18} />
+          <span>Free Estimate</span>
+        </Link>
+      </div>
     </div>
   );
 }
