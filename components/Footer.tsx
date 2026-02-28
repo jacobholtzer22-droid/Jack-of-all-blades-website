@@ -162,10 +162,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-forest-800/30 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-dark-400 text-sm">
+          <p className="text-dark-200 text-sm">
             &copy; 2026 Jack of All Blades Landscaping. All rights reserved.
           </p>
-          <p className="text-dark-500 text-sm">
+          <p className="text-dark-200 text-sm">
             Website by{" "}
             <a
               href="https://alignandacquire.com"
