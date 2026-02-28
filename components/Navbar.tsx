@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { Phone, Menu, X } from "lucide-react";
 
@@ -15,6 +16,10 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[90] bg-[#111] shadow-lg shadow-black/20 py-3">
@@ -64,7 +69,7 @@ export default function Navbar() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           type="button"
-          className="lg:hidden text-white p-3 -m-1 relative z-[120] min-w-[44px] min-h-[44px] flex items-center justify-center touch-manipulation"
+          className="lg:hidden text-white p-3 -m-1 relative z-[10000] min-w-[44px] min-h-[44px] flex items-center justify-center touch-manipulation"
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
@@ -72,40 +77,44 @@ export default function Navbar() {
         </button>
       </div>
 
-      {isOpen && (
-        <div
-          onClick={() => setIsOpen(false)}
-          className="lg:hidden fixed inset-0 top-0 bg-[#111] z-[100] touch-manipulation overscroll-none flex flex-col items-center justify-center gap-8"
-          aria-hidden={!isOpen}
-        >
-          <button
-            onClick={() => setIsOpen(false)}
-            type="button"
-            className="absolute top-4 right-4 z-[110] text-white p-3 -m-1 min-w-[44px] min-h-[44px] flex items-center justify-center touch-manipulation rounded-lg hover:bg-white/10 active:bg-white/20 transition-colors"
-            aria-label="Close menu"
+      {isOpen &&
+        mounted &&
+        createPortal(
+          <div
+            onClick={closeMenu}
+            className="lg:hidden fixed inset-0 top-0 bg-[#111] z-[9999] pointer-events-auto touch-manipulation overscroll-none flex flex-col items-center justify-center gap-6"
+            aria-hidden={!isOpen}
+            style={{ zIndex: 9999 }}
           >
-            <X size={24} />
-          </button>
-
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="text-2xl font-heading font-semibold transition-colors py-3 px-6 -my-2 min-h-[48px] flex items-center touch-manipulation text-dark-100 hover:text-forest-400 active:text-forest-300"
+            <button
+              onClick={closeMenu}
+              type="button"
+              className="absolute top-4 right-4 text-white p-4 min-w-[48px] min-h-[48px] flex items-center justify-center touch-manipulation rounded-lg hover:bg-white/10 active:bg-white/20 transition-colors"
+              aria-label="Close menu"
             >
-              {link.label}
+              <X size={24} />
+            </button>
+
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={closeMenu}
+                className="block w-full text-center text-2xl font-heading font-semibold transition-colors py-4 px-6 min-h-[52px] flex items-center justify-center touch-manipulation text-dark-100 hover:text-forest-400 active:text-forest-300"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              onClick={closeMenu}
+              className="flex items-center justify-center gap-2 bg-forest-600 hover:bg-forest-500 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all mt-2 min-h-[52px]"
+            >
+              Free Estimate
             </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={() => setIsOpen(false)}
-            className="flex items-center justify-center gap-2 bg-forest-600 hover:bg-forest-500 text-white px-8 py-3.5 rounded-lg text-lg font-semibold transition-all mt-4"
-          >
-            Free Estimate
-          </a>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </header>
   );
 }
