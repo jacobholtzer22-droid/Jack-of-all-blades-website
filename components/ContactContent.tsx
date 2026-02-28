@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import Image from "next/image";
 import {
   Phone,
   Mail,
@@ -181,16 +180,6 @@ export default function ContactContent() {
   return (
     <section ref={sectionRef} className="relative pb-24 sm:pb-32 overflow-hidden border-t border-forest-900/30">
       <div className="absolute inset-0 bg-earthy-900" />
-      <div className="absolute inset-0">
-        <Image
-          src="/images/IMG_5510.webp"
-          alt=""
-          fill
-          className="object-cover object-top opacity-[0.12] blur-sm scale-105 pointer-events-none"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-earthy-900/92" />
-      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto section-padding">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
