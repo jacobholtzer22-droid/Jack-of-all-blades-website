@@ -9,63 +9,63 @@ const galleryItems = [
     id: 1,
     label: "Paver Patio",
     alt: "Custom paver patio installation Grand Rapids Michigan",
-    image: "/images/IMG_6448.jpg",
+    image: "/images/IMG_6448.webp",
     span: "md:col-span-2 md:row-span-2",
   },
   {
     id: 2,
     label: "Lawn Mowing",
     alt: "Professional lawn mowing service Grand Rapids MI",
-    image: "/images/IMG_5381.jpg",
+    image: "/images/IMG_5381.webp",
     span: "",
   },
   {
     id: 3,
     label: "Tree Trimming",
     alt: "Tree trimming and pruning service Grand Rapids Michigan",
-    image: "/images/tree-trimming-chainsaw.jpg",
+    image: "/images/tree-trimming-chainsaw.webp",
     span: "",
   },
   {
     id: 4,
     label: "Landscaping",
     alt: "Residential landscaping project Grand Rapids MI",
-    image: "/images/IMG_5541.jpg",
+    image: "/images/IMG_5541.webp",
     span: "",
   },
   {
     id: 5,
     label: "Sod Installation",
     alt: "New sod installation and lawn setup Grand Rapids Michigan",
-    image: "/images/sod-installation.jpg",
+    image: "/images/sod-installation.webp",
     span: "",
   },
   {
     id: 6,
     label: "Paver Walkway",
     alt: "Paver walkway installation at residential property Grand Rapids MI",
-    image: "/images/IMG_6706.jpg",
+    image: "/images/IMG_6706.webp",
     span: "md:col-span-2",
   },
   {
     id: 7,
     label: "Snow Removal",
     alt: "Snow removal and plowing service Grand Rapids Michigan",
-    image: "/images/snow-removal-truck.jpg",
+    image: "/images/snow-removal-truck.webp",
     span: "",
   },
   {
     id: 8,
     label: "Fall Cleanup",
     alt: "Seasonal fall yard cleanup Grand Rapids MI",
-    image: "/images/IMG_7394-preview.jpg",
+    image: "/images/IMG_7394-preview.webp",
     span: "",
   },
   {
     id: 9,
     label: "Hardscaping",
     alt: "Retaining wall and hardscape construction Grand Rapids Michigan",
-    image: "/images/IMG_6448.jpg",
+    image: "/images/IMG_6448.webp",
     span: "md:col-span-2",
   },
 ];
@@ -141,6 +141,8 @@ export default function Gallery() {
                 quality={75}
                 placeholder="blur"
                 blurDataURL={BLUR_DATA_URL}
+                loading="lazy"
+                decoding="async"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/20" />

@@ -4,6 +4,8 @@ interface PageHeaderProps {
   titleAccent?: string;
   description: string;
   backgroundImage?: string;
+  /** Use "contain" to show full image without cropping; default "cover" fills the area */
+  backgroundSize?: "cover" | "contain";
 }
 
 export default function PageHeader({
@@ -12,12 +14,15 @@ export default function PageHeader({
   titleAccent,
   description,
   backgroundImage,
+  backgroundSize = "cover",
 }: PageHeaderProps) {
   return (
-    <section className="relative pt-36 pb-20 sm:pt-44 sm:pb-28 overflow-hidden animate-fade-in min-h-[320px] sm:min-h-[360px]">
+    <section className="relative pt-36 pb-20 sm:pt-44 sm:pb-28 overflow-hidden animate-fade-in min-h-[380px] sm:min-h-[440px]">
       {backgroundImage && (
         <div
-          className="absolute inset-0 bg-cover bg-top bg-no-repeat"
+          className={`absolute inset-0 bg-earthy-900 bg-center bg-no-repeat ${
+            backgroundSize === "contain" ? "bg-contain" : "bg-cover"
+          }`}
           style={{ backgroundImage: `url(${backgroundImage})` }}
         />
       )}

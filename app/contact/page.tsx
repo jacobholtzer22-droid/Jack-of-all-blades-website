@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "Jack of All Blades Landscaping",
     images: [
       {
-        url: "/images/IMG_5510.jpg",
+        url: "/images/IMG_5510.webp",
         width: 1200,
         height: 630,
         alt: "Professional lawn care and landscaping in Grand Rapids Michigan",
@@ -37,7 +37,8 @@ export default function ContactPage() {
         title="Contact"
         titleAccent="Us"
         description="Get a free estimate today. Serving East Grand Rapids, Grand Rapids, and all surrounding Michigan communities."
-        backgroundImage="/images/customer-handshake-patio.jpg"
+        backgroundImage="/images/customer-handshake-patio.webp"
+        backgroundSize="contain"
       />
       <ContactContent />
     </>

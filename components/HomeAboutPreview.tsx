@@ -45,7 +45,7 @@ export default function HomeAboutPreview() {
             <div className="relative">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/tree-trimming-chainsaw.jpg"
+                  src="/images/tree-trimming-chainsaw.webp"
                   alt="Mike Hazzard owner of Jack of All Blades Landscaping performing tree service in Grand Rapids MI"
                   fill
                   className="object-cover"
@@ -53,6 +53,8 @@ export default function HomeAboutPreview() {
                   quality={75}
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 w-full h-full border border-forest-700/20 rounded-2xl -z-10" />

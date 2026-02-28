@@ -20,7 +20,7 @@ const services = [
     alt: "Weekly lawn mowing and maintenance service East Grand Rapids MI",
     description:
       "Keep your property looking pristine all season long. Our comprehensive lawn care includes weekly mowing, precision edging, trimming, and thorough cleanup. We maintain consistent schedules and pay attention to every detail so your yard always makes a great impression.",
-    image: "/images/IMG_5510.jpg",
+    image: "/images/IMG_5510.webp",
     areas: ["East Grand Rapids", "Grand Rapids", "Kentwood", "Cascade"],
   },
   {
@@ -29,7 +29,7 @@ const services = [
     alt: "Custom landscape design and garden bed installation East Grand Rapids Michigan",
     description:
       "Transform your outdoor space with custom landscape design and installation. From fresh mulch and seasonal plantings to complete landscape renovations, we create beautiful, functional spaces that boost your property's curb appeal and value.",
-    image: "/images/IMG_5541.jpg",
+    image: "/images/IMG_5541.webp",
     areas: ["East Grand Rapids", "Ada", "Forest Hills", "Cascade"],
   },
   {
@@ -38,7 +38,7 @@ const services = [
     alt: "Custom patio and walkway installation East Grand Rapids Michigan",
     description:
       "Add lasting beauty and structure with professional hardscape installation. We build custom patios, walkways, retaining walls, and stone features using quality materials and expert craftsmanship. Every project is built to withstand Michigan's seasons.",
-    image: "/images/IMG_6756.jpg",
+    image: "/images/IMG_6756.webp",
     areas: ["East Grand Rapids", "Grand Rapids", "Wyoming", "Ada"],
   },
   {
@@ -47,7 +47,7 @@ const services = [
     alt: "Commercial and residential snow removal service East Grand Rapids MI",
     description:
       "Don't let Michigan winters slow you down. Our reliable snow removal services include plowing, salting, ice management, and sidewalk clearing for both residential and commercial properties. Contract-based service with guaranteed response times.",
-    image: "/images/snow-removal-truck.jpg",
+    image: "/images/snow-removal-truck.webp",
     areas: ["East Grand Rapids", "Grand Rapids", "Kentwood", "Grandville"],
   },
   {
@@ -56,7 +56,7 @@ const services = [
     alt: "Fall and spring yard cleanup service East Grand Rapids Michigan",
     description:
       "Prepare your property for every season with our thorough cleanup services. Spring and fall cleanups include leaf removal, garden bed clearing, perennial cutbacks, debris removal, and complete yard detailing to keep your landscape healthy year-round.",
-    image: "/images/IMG_7394-preview.jpg",
+    image: "/images/IMG_7394-preview.webp",
     areas: ["East Grand Rapids", "Kentwood", "Walker", "Cascade"],
   },
   {
@@ -65,7 +65,7 @@ const services = [
     alt: "Professional tree trimming and removal service East Grand Rapids MI",
     description:
       "Protect your property and improve its appearance with professional tree services. We handle trimming, shaping, full tree removal, and stump grinding. Licensed and insured for safe, efficient work that transforms your yard.",
-    image: "/images/tree-removal-truck.jpg",
+    image: "/images/tree-removal-truck.webp",
     areas: ["East Grand Rapids", "Grand Rapids", "Ada", "Rockford"],
   },
 ];
@@ -137,6 +137,8 @@ export default function Services() {
                   quality={75}
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/20" />
 

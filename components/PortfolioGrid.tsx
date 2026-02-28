@@ -18,7 +18,7 @@ const galleryItems = [
     label: "Landscaping Project",
     alt: "Professional landscaping project completed in Grand Rapids Michigan",
     category: "Landscaping",
-    image: "/images/IMG_5541.jpg",
+    image: "/images/IMG_5541.webp",
     span: "md:col-span-2 md:row-span-2",
   },
   {
@@ -26,7 +26,7 @@ const galleryItems = [
     label: "Patio Installation",
     alt: "Custom paver patio installation by Jack of All Blades Grand Rapids MI",
     category: "Hardscaping",
-    image: "/images/IMG_6448.jpg",
+    image: "/images/IMG_6448.webp",
     span: "",
   },
   {
@@ -34,7 +34,7 @@ const galleryItems = [
     label: "Lawn Maintenance",
     alt: "Weekly lawn mowing and maintenance service Grand Rapids Michigan",
     category: "Lawn Care",
-    image: "/images/IMG_5510.jpg",
+    image: "/images/IMG_5510.webp",
     span: "",
   },
   {
@@ -42,7 +42,7 @@ const galleryItems = [
     label: "Retaining Wall & Patio",
     alt: "Retaining wall and patio construction Grand Rapids MI",
     category: "Hardscaping",
-    image: "/images/IMG_6448.jpg",
+    image: "/images/IMG_6756.webp",
     span: "",
   },
   {
@@ -50,7 +50,7 @@ const galleryItems = [
     label: "Garden Bed Design",
     alt: "Custom garden bed design and planting Grand Rapids Michigan",
     category: "Landscaping",
-    image: "/images/IMG_7394-preview.jpg",
+    image: "/images/IMG_7394-preview.webp",
     span: "",
   },
   {
@@ -58,7 +58,7 @@ const galleryItems = [
     label: "Walkway Installation",
     alt: "Paver walkway installation at residential home Grand Rapids MI",
     category: "Hardscaping",
-    image: "/images/IMG_6706.jpg",
+    image: "/images/IMG_6706.webp",
     span: "md:col-span-2",
   },
   {
@@ -66,7 +66,7 @@ const galleryItems = [
     label: "Fall Cleanup",
     alt: "Fall yard cleanup and leaf removal service Grand Rapids Michigan",
     category: "Lawn Care",
-    image: "/images/IMG_7394-preview.jpg",
+    image: "/images/IMG_5381.webp",
     span: "",
   },
   {
@@ -74,7 +74,7 @@ const galleryItems = [
     label: "Hedge Trimming & Mulch",
     alt: "Hedge trimming and mulch installation Grand Rapids MI",
     category: "Landscaping",
-    image: "/images/tree-trimming-chainsaw.jpg",
+    image: "/images/tree-trimming-chainsaw.webp",
     span: "",
   },
   {
@@ -82,7 +82,7 @@ const galleryItems = [
     label: "Snow Plowing",
     alt: "Snow plowing and removal service Grand Rapids Michigan",
     category: "Snow Removal",
-    image: "/images/snow-removal-truck.jpg",
+    image: "/images/snow-removal-truck.webp",
     span: "",
   },
   {
@@ -90,7 +90,7 @@ const galleryItems = [
     label: "Brick Patio & Landscaping",
     alt: "Brick patio and surrounding landscape design Grand Rapids MI",
     category: "Landscaping",
-    image: "/images/paver-patio-seating.jpg",
+    image: "/images/paver-patio-seating.webp",
     span: "md:col-span-2",
   },
   {
@@ -98,7 +98,7 @@ const galleryItems = [
     label: "Paver Patio Installation",
     alt: "Professional paver patio installation Grand Rapids Michigan",
     category: "Hardscaping",
-    image: "/images/paver-patio-seating.jpg",
+    image: "/images/mike-paver-patio.webp",
     span: "",
   },
   {
@@ -106,7 +106,7 @@ const galleryItems = [
     label: "Residential Lawn Care",
     alt: "Residential lawn care and mowing service Grand Rapids MI",
     category: "Lawn Care",
-    image: "/images/IMG_6081.jpg",
+    image: "/images/IMG_6081.webp",
     span: "",
   },
   {
@@ -114,7 +114,7 @@ const galleryItems = [
     label: "Sod Installation",
     alt: "Professional sod installation and new lawn service Grand Rapids Michigan",
     category: "Lawn Care",
-    image: "/images/sod-laying-team.jpg",
+    image: "/images/sod-laying-team.webp",
     span: "md:col-span-2",
   },
   {
@@ -122,7 +122,7 @@ const galleryItems = [
     label: "Waterfront Property",
     alt: "Waterfront property lawn maintenance Grand Rapids MI",
     category: "Lawn Care",
-    image: "/images/FullSizeRender.jpg",
+    image: "/images/IMG_4429.webp",
     span: "",
   },
   {
@@ -130,7 +130,7 @@ const galleryItems = [
     label: "Commercial Mowing",
     alt: "Commercial property mowing and lawn care Grand Rapids Michigan",
     category: "Lawn Care",
-    image: "/images/IMG_5510.jpg",
+    image: "/images/IMG_4267.webp",
     span: "",
   },
   {
@@ -138,7 +138,7 @@ const galleryItems = [
     label: "Paver Walkway & Patio",
     alt: "Paver walkway and patio hardscape project Grand Rapids MI",
     category: "Hardscaping",
-    image: "/images/IMG_6706.jpg",
+    image: "/images/walkway-front-house.webp",
     span: "",
   },
   {
@@ -146,7 +146,7 @@ const galleryItems = [
     label: "Backyard Patio",
     alt: "Backyard patio installation and hardscaping Grand Rapids Michigan",
     category: "Hardscaping",
-    image: "/images/paver-patio-seating.jpg",
+    image: "/images/IMG_4937.webp",
     span: "",
   },
   {
@@ -154,7 +154,7 @@ const galleryItems = [
     label: "Commercial Property Maintenance",
     alt: "Commercial property landscape maintenance Grand Rapids MI",
     category: "Lawn Care",
-    image: "/images/FullSizeRender.jpg",
+    image: "/images/sod-installation.webp",
     span: "md:col-span-2",
   },
   {
@@ -162,7 +162,7 @@ const galleryItems = [
     label: "Residential Mowing",
     alt: "Residential lawn mowing service Grand Rapids Michigan",
     category: "Lawn Care",
-    image: "/images/IMG_6098.jpg",
+    image: "/images/IMG_6098.webp",
     span: "",
   },
   {
@@ -170,7 +170,7 @@ const galleryItems = [
     label: "Tree Removal",
     alt: "Tree removal and stump grinding service Grand Rapids MI",
     category: "Landscaping",
-    image: "/images/tree-removal-truck.jpg",
+    image: "/images/tree-removal-truck.webp",
     span: "",
   },
 ];
@@ -250,6 +250,8 @@ export default function PortfolioGrid() {
                 quality={75}
                 placeholder="blur"
                 blurDataURL={BLUR_DATA_URL}
+                loading="lazy"
+                decoding="async"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/20" />

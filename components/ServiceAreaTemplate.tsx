@@ -152,7 +152,7 @@ export default function ServiceAreaTemplate({ area }: ServiceAreaTemplateProps) 
         {/* CTA */}
         <div className="reveal opacity-0 relative rounded-2xl overflow-hidden border border-forest-700/30">
           <Image
-            src="/images/IMG_6081.jpg"
+            src="/images/IMG_6081.webp"
             alt=""
             fill
             className="object-cover"
@@ -160,6 +160,8 @@ export default function ServiceAreaTemplate({ area }: ServiceAreaTemplateProps) 
             quality={75}
             placeholder="blur"
             blurDataURL={BLUR_DATA_URL}
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-earthy-950/90" />
           <div className="relative z-10 p-8 sm:p-12 text-center">

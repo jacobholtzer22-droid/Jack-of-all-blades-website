@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "Jack of All Blades Landscaping",
     images: [
       {
-        url: "/images/IMG_5510.jpg",
+        url: "/images/IMG_5510.webp",
         width: 1200,
         height: 630,
         alt: "Professional lawn care and landscaping in Grand Rapids Michigan",
@@ -42,7 +42,7 @@ export default function TestimonialsPage() {
         title="What Our Clients"
         titleAccent="Say"
         description="Don't just take our word for it. Here's what our customers have to say about working with us."
-        backgroundImage="/images/customer-handshake-patio.jpg"
+        backgroundImage="/images/customer-handshake-patio.webp"
       />
       <TestimonialsList />
       <CTABanner />

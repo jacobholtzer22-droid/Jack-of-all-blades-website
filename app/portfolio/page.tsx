@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Jack of All Blades Landscaping",
     images: [
       {
-        url: "/images/IMG_5510.jpg",
+        url: "/images/IMG_5510.webp",
         width: 1200,
         height: 630,
         alt: "Professional lawn care and landscaping in Grand Rapids Michigan",
@@ -40,7 +40,7 @@ export default function PortfolioPage() {
         title="Project"
         titleAccent="Portfolio"
         description="A showcase of our landscaping, hardscaping, and lawn care transformations across East Grand Rapids, Grand Rapids, and West Michigan."
-        backgroundImage="/images/paver-patio-seating.jpg"
+        backgroundImage="/images/paver-patio-seating.webp"
       />
       <PortfolioGrid />
       <CTABanner />

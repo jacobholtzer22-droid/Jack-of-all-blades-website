@@ -183,7 +183,7 @@ export default function ContactContent() {
       <div className="absolute inset-0 bg-earthy-900" />
       <div className="absolute inset-0">
         <Image
-          src="/images/IMG_5510.jpg"
+          src="/images/IMG_5510.webp"
           alt=""
           fill
           className="object-cover object-top opacity-[0.12] blur-sm scale-105 pointer-events-none"

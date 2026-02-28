@@ -65,7 +65,7 @@ export default function AboutContent() {
             <div className="relative">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/tree-trimming-chainsaw.jpg"
+                  src="/images/tree-trimming-chainsaw.webp"
                   alt="Mike Hazzard founder of Jack of All Blades Landscaping tree trimming service Grand Rapids MI"
                   fill
                   className="object-cover"
@@ -140,7 +140,7 @@ export default function AboutContent() {
         <div className="reveal opacity-0 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-24 sm:mb-32">
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
             <Image
-              src="/images/sod-laying-team.jpg"
+              src="/images/sod-laying-team.webp"
               alt="Sod installation team at work Grand Rapids MI"
               fill
               className="object-cover"
@@ -148,11 +148,13 @@ export default function AboutContent() {
               quality={75}
               placeholder="blur"
               blurDataURL={BLUR_DATA_URL}
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
             <Image
-              src="/images/walkway-front-house.jpg"
+              src="/images/walkway-front-house.webp"
               alt="Paver walkway installation at residential home Grand Rapids MI"
               fill
               className="object-cover"
@@ -160,11 +162,13 @@ export default function AboutContent() {
               quality={75}
               placeholder="blur"
               blurDataURL={BLUR_DATA_URL}
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
             <Image
-              src="/images/mike-paver-patio.jpg"
+              src="/images/mike-paver-patio.webp"
               alt="Mike Hazzard working on paver patio installation Grand Rapids MI"
               fill
               className="object-cover object-top"
@@ -172,6 +176,8 @@ export default function AboutContent() {
               quality={75}
               placeholder="blur"
               blurDataURL={BLUR_DATA_URL}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

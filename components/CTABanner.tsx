@@ -30,12 +30,13 @@ export default function CTABanner() {
   return (
     <section ref={ref} id="contact" className="relative py-20 sm:py-28 overflow-hidden min-h-[320px] sm:min-h-[360px] flex items-center">
       <Image
-        src="/images/IMG_6081.jpg"
+        src="/images/IMG_6081.webp"
         alt=""
         fill
         className="object-cover"
         sizes="100vw"
-        priority={false}
+        loading="lazy"
+        decoding="async"
       />
       <div className="absolute inset-0 bg-earthy-950/85" />
       <div className="absolute inset-0 bg-gradient-to-br from-earthy-900/70 via-earthy-950/80 to-earthy-950/90" />

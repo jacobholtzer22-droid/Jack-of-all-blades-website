@@ -59,11 +59,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      { url: "/icon-192.webp", sizes: "192x192", type: "image/webp" },
+      { url: "/icon-512.webp", sizes: "512x512", type: "image/webp" },
     ],
     apple: [
-      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-icon.webp", sizes: "180x180", type: "image/webp" },
     ],
   },
   manifest: "/manifest.json",
@@ -76,6 +76,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${heading.variable} ${body.variable}`}>
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/_next/image?url=%2Fimages%2FIMG_5510.webp&w=1920&q=85"
+          fetchPriority="high"
+        />
+      </head>
       <body>
         <Navbar />
         <main>{children}</main>

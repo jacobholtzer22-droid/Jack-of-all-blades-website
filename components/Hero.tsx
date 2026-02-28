@@ -18,14 +18,19 @@ export default function Hero() {
       ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <Image
-        src="/images/IMG_5510.jpg"
-        alt="Beautifully maintained lawn by Jack of All Blades"
-        fill
-        className="object-cover"
-        priority
-        quality={85}
-      />
+      <div className="absolute inset-0">
+        <Image
+          src="/images/IMG_5510.webp"
+          alt="Beautifully maintained lawn by Jack of All Blades"
+          width={1600}
+          height={1200}
+          className="object-cover w-full h-full min-h-screen"
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          quality={85}
+        />
+      </div>
       <div className="absolute inset-0 bg-black/60 md:bg-black/50" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-forest-900/20 via-transparent to-transparent" />

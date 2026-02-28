@@ -10,12 +10,12 @@ const fs = require("fs");
 const sharp = require("sharp");
 
 const ROOT = path.join(__dirname, "..");
-const SRC = path.join(ROOT, "public/images/logo-transparent.png");
+const SRC = path.join(ROOT, "public/images/logo-transparent.webp");
 const OUTPUTS = [
-  { path: path.join(ROOT, "public/favicon.ico"), size: 32 },
-  { path: path.join(ROOT, "public/icon-192.png"), size: 192 },
-  { path: path.join(ROOT, "public/icon-512.png"), size: 512 },
-  { path: path.join(ROOT, "public/apple-icon.png"), size: 180 },
+  { path: path.join(ROOT, "public/favicon.ico"), size: 32, format: "png" },
+  { path: path.join(ROOT, "public/icon-192.webp"), size: 192, format: "webp" },
+  { path: path.join(ROOT, "public/icon-512.webp"), size: 512, format: "webp" },
+  { path: path.join(ROOT, "public/apple-icon.webp"), size: 180, format: "webp" },
 ];
 
 async function main() {
@@ -26,10 +26,14 @@ async function main() {
 
   const image = sharp(SRC);
 
-  for (const { path: outPath, size } of OUTPUTS) {
+  for (const { path: outPath, size, format } of OUTPUTS) {
     try {
-      // Browsers accept PNG data in .ico files; sharp outputs PNG
-      await image.clone().resize(size, size).png().toFile(outPath);
+      const pipeline = image.clone().resize(size, size);
+      if (format === "webp") {
+        await pipeline.webp({ effort: 6 }).toFile(outPath);
+      } else {
+        await pipeline.png().toFile(outPath);
+      }
       console.log(`Created ${path.relative(ROOT, outPath)} (${size}x${size})`);
     } catch (err) {
       console.error(`Failed to create ${outPath}:`, err.message);

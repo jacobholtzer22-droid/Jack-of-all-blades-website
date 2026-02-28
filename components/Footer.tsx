@@ -13,11 +13,13 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <Image
-                src="/images/logo-transparent.png"
+                src="/images/logo-transparent.webp"
                 alt="Jack of All Blades Logo"
                 width={36}
                 height={36}
                 className="rounded-md"
+                loading="lazy"
+                decoding="async"
               />
               <div className="font-heading font-bold text-lg tracking-tight">
                 <span className="text-white">Jack of All</span>{" "}

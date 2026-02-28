@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Jack of All Blades Landscaping",
     images: [
       {
-        url: "/images/IMG_5510.jpg",
+        url: "/images/IMG_5510.webp",
         width: 1200,
         height: 630,
         alt: "Professional lawn care and landscaping in Grand Rapids Michigan",
@@ -42,7 +42,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LandscapingBusiness",
   name: "Jack of All Blades Landscaping",
-  image: "https://jackofallbladeslandscaping.com/images/logo-transparent.png",
+  image: "https://jackofallbladeslandscaping.com/images/logo-transparent.webp",
   url: "https://jackofallbladeslandscaping.com",
   telephone: "616-250-8044",
   email: "jackofallbladeslandscaping@gmail.com",
