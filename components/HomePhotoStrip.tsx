@@ -7,14 +7,14 @@ import { ArrowRight } from "lucide-react";
 import { BLUR_DATA_URL } from "@/lib/constants";
 
 const galleryImages = [
-  { src: "/images/walkway-front-house.webp", alt: "Paver walkway installation by Jack of All Blades", rotate: true },
-  { src: "/images/paver-patio-seating.webp", alt: "Custom paver patio with seating area Grand Rapids MI", rotate: true },
-  { src: "/images/IMG_5541.webp", alt: "Professional landscaping project Grand Rapids" },
-  { src: "/images/IMG_6756.webp", alt: "Custom paver patio installation Grand Rapids Michigan", rotate: true },
+  { src: "/images/walkway-front-house.webp", alt: "Paver walkway installation by Jack of All Blades", rotateLeft: true },
+  { src: "/images/paver-patio-seating.webp", alt: "Custom paver patio with seating area Grand Rapids MI" },
+  { src: "/images/IMG_5541.webp", alt: "Professional landscaping project Grand Rapids", rotateLeft: true },
+  { src: "/images/IMG_6756.webp", alt: "Custom paver patio installation Grand Rapids Michigan", rotateLeft: true },
   { src: "/images/sod-laying-team.webp", alt: "Sod installation and lawn setup" },
   { src: "/images/sod-installation.webp", alt: "Fresh sod installation Grand Rapids Michigan" },
   { src: "/images/snow-removal-truck.webp", alt: "Snow removal and plowing Grand Rapids MI" },
-  { src: "/images/IMG_6448.webp", alt: "Retaining wall and patio construction Grand Rapids MI", rotate: true },
+  { src: "/images/IMG_6448.webp", alt: "Retaining wall and patio construction Grand Rapids MI", rotateLeft: true },
 ];
 
 export default function HomePhotoStrip() {
@@ -81,7 +81,7 @@ export default function HomePhotoStrip() {
                 src={img.src}
                 alt={img.alt}
                 fill
-                className={`object-cover transition-transform duration-500 group-hover:scale-105 [image-orientation:from-image] ${img.rotate ? "rotate-90" : ""}`}
+                className={`object-cover transition-transform duration-500 group-hover:scale-105 [image-orientation:from-image] ${img.rotateLeft ? "-rotate-90" : ""}`}
                 sizes="(max-width: 768px) 50vw, 25vw"
                 quality={75}
                 placeholder="blur"
@@ -107,7 +107,7 @@ export default function HomePhotoStrip() {
                   alt={img.alt}
                   width={400}
                   height={300}
-                  className={`object-cover w-full h-full [image-orientation:from-image] ${img.rotate ? "rotate-90" : ""}`}
+                  className={`object-cover w-full h-full [image-orientation:from-image] ${img.rotateLeft ? "-rotate-90" : ""}`}
                   quality={75}
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}
