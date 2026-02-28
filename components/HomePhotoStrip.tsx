@@ -7,14 +7,14 @@ import { ArrowRight } from "lucide-react";
 import { BLUR_DATA_URL } from "@/lib/constants";
 
 const galleryImages = [
-  { src: "/images/walkway-front-house.webp", alt: "Paver walkway installation by Jack of All Blades", rotateLeft: true },
+  { src: "/images/walkway-front-house.webp", alt: "Paver walkway installation by Jack of All Blades" },
   { src: "/images/paver-patio-seating.webp", alt: "Custom paver patio with seating area Grand Rapids MI" },
-  { src: "/images/IMG_5541.webp", alt: "Professional landscaping project Grand Rapids", rotateLeft: true },
-  { src: "/images/IMG_6756.webp", alt: "Custom paver patio installation Grand Rapids Michigan", rotateLeft: true },
+  { src: "/images/IMG_5541.webp", alt: "Professional landscaping project Grand Rapids" },
+  { src: "/images/IMG_6756.webp", alt: "Custom paver patio installation Grand Rapids Michigan" },
   { src: "/images/sod-laying-team.webp", alt: "Sod installation and lawn setup" },
   { src: "/images/sod-installation.webp", alt: "Fresh sod installation Grand Rapids Michigan" },
   { src: "/images/snow-removal-truck.webp", alt: "Snow removal and plowing Grand Rapids MI" },
-  { src: "/images/IMG_6448.webp", alt: "Retaining wall and patio construction Grand Rapids MI", rotateLeft: true },
+  { src: "/images/IMG_6448.webp", alt: "Retaining wall and patio construction Grand Rapids MI" },
 ];
 
 export default function HomePhotoStrip() {
