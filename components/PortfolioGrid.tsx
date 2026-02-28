@@ -18,7 +18,7 @@ const galleryItems = [
     label: "Landscaping Project",
     alt: "Professional landscaping project completed in Grand Rapids Michigan",
     category: "Landscaping",
-    image: "/images/IMG_5386.webp",
+    image: "/images/IMG_5541.webp",
     span: "md:col-span-2 md:row-span-2",
     imageRotate: 90,
   },
@@ -29,7 +29,6 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/IMG_6448.webp",
     span: "",
-    imageRotate: 15,
   },
   {
     id: 3,
@@ -46,7 +45,6 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/IMG_6756.webp",
     span: "",
-    imageRotate: 15,
   },
   {
     id: 5,
@@ -63,7 +61,6 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/walkway-front-house.webp",
     span: "md:col-span-2",
-    imageRotate: 15,
   },
   {
     id: 7,
@@ -96,7 +93,6 @@ const galleryItems = [
     category: "Landscaping",
     image: "/images/paver-patio-seating.webp",
     span: "md:col-span-2",
-    imageRotate: 15,
   },
   {
     id: 11,
@@ -105,7 +101,6 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/mike-paver-patio.webp",
     span: "",
-    imageRotate: 15,
   },
   {
     id: 12,
@@ -149,7 +144,6 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/happy-customer-patio.webp",
     span: "",
-    imageRotate: 15,
   },
   {
     id: 18,
