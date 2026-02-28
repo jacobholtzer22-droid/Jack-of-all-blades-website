@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "optimize-images": "node scripts/optimize-images.js",
+    "fix-exif-orientation": "node scripts/fix-exif-orientation.js",
     "generate-favicons": "node scripts/generate-favicons.js"
   },
   "dependencies": {

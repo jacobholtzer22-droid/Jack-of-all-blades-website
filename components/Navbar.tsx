@@ -19,7 +19,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const { mobileMenuOpen, setMobileMenuOpen } = useMobileMenu();
-  const isHome = pathname === "/";
+  const isHome = (pathname ?? "/") === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -29,12 +29,29 @@ export default function Navbar() {
 
   useEffect(() => {
     if (mobileMenuOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
       document.body.style.overflow = "hidden";
     } else {
+      const scrollY = document.body.style.top ? Math.abs(parseInt(document.body.style.top, 10)) : 0;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
       document.body.style.overflow = "";
+      if (scrollY) window.scrollTo(0, scrollY);
     }
     return () => {
+      const scrollY = document.body.style.top ? Math.abs(parseInt(document.body.style.top, 10)) : 0;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
       document.body.style.overflow = "";
+      if (scrollY) window.scrollTo(0, scrollY);
     };
   }, [mobileMenuOpen]);
 
@@ -73,7 +90,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={`text-sm font-medium tracking-wide uppercase transition-colors ${
-                pathname === link.href
+                (pathname ?? "/") === link.href
                   ? "text-forest-400"
                   : "text-white hover:text-forest-400"
               }`}
@@ -116,7 +133,7 @@ export default function Navbar() {
 
       {/* Mobile menu overlay - z-[100] so it covers floating buttons (z-[70]) */}
       <div
-        className={`lg:hidden fixed inset-0 top-0 bg-[#0a0a0a]/98 transition-all duration-300 z-[100] touch-manipulation ${
+        className={`lg:hidden fixed inset-0 top-0 bg-[#0a0a0a]/98 transition-all duration-300 z-[100] touch-manipulation overscroll-none ${
           mobileMenuOpen
             ? "opacity-100 pointer-events-auto visible"
             : "opacity-0 pointer-events-none invisible"
@@ -140,7 +157,7 @@ export default function Navbar() {
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
               className={`text-2xl font-heading font-semibold transition-colors py-3 px-6 -my-2 min-h-[48px] flex items-center touch-manipulation ${
-                pathname === link.href
+                (pathname ?? "/") === link.href
                   ? "text-forest-400"
                   : "text-dark-100 hover:text-forest-400 active:text-forest-300"
               }`}
