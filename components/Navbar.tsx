@@ -2,16 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import Link from "next/link";
 import Image from "next/image";
 import { Phone, Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Gallery", href: "/portfolio" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -24,7 +25,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-[90] bg-[#111] shadow-lg shadow-black/20 py-3">
       <div className="max-w-7xl mx-auto section-padding flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group">
           <Image
             src="/images/logo-transparent.png"
             alt="Jack of All Blades Logo"
@@ -36,27 +37,27 @@ export default function Navbar() {
             <span className="text-white">Jack of All</span>{" "}
             <span className="text-forest-400">Blades</span>
           </div>
-        </a>
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-4">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-[14px] font-medium tracking-wide uppercase transition-colors text-white hover:text-forest-400"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="flex items-center gap-2 bg-forest-600 hover:bg-forest-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all hover:shadow-lg hover:shadow-forest-600/25"
           >
             <span>Free Estimate</span>
-          </a>
+          </Link>
           <a
             href="tel:6162508044"
             className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold transition-all border border-dark-500 hover:border-forest-500/50 text-dark-100 hover:text-forest-400"
@@ -96,22 +97,22 @@ export default function Navbar() {
             </button>
 
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
                 className="block w-full text-center text-2xl font-heading font-semibold transition-colors py-4 px-6 min-h-[52px] flex items-center justify-center touch-manipulation text-dark-100 hover:text-forest-400 active:text-forest-300"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               onClick={closeMenu}
               className="flex items-center justify-center gap-2 bg-forest-600 hover:bg-forest-500 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all mt-2 min-h-[52px]"
             >
               Free Estimate
-            </a>
+            </Link>
           </div>,
           document.body
         )}
