@@ -8,21 +8,44 @@ import {
   Send,
   CheckCircle,
   Clock,
+  Loader2,
+  AlertCircle,
 } from "lucide-react";
 
 const serviceOptions = [
   "Lawn Care",
-  "Landscape",
-  "Hardscape",
+  "Landscaping",
+  "Hardscaping",
   "Snow Removal",
   "Seasonal Cleanup",
   "Tree Trimming / Removal",
   "Other",
 ];
 
+type FormErrors = {
+  name?: string;
+  phone?: string;
+  email?: string;
+  service?: string;
+  message?: string;
+};
+
 export default function ContactContent() {
   const sectionRef = useRef<HTMLElement>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [serverError, setServerError] = useState("");
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    service: "",
+    message: "",
+    website: "", // honeypot
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,11 +66,116 @@ export default function ContactContent() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e: FormEvent) => {
+  function validate(fields = form): FormErrors {
+    const errs: FormErrors = {};
+    if (!fields.name.trim()) errs.name = "Full name is required.";
+    if (!fields.phone.trim()) {
+      errs.phone = "Phone number is required.";
+    } else if (fields.phone.replace(/\D/g, "").length < 10) {
+      errs.phone = "Please enter a valid 10-digit phone number.";
+    }
+    if (
+      fields.email.trim() &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email.trim())
+    ) {
+      errs.email = "Please enter a valid email address.";
+    }
+    if (!fields.service) errs.service = "Please select a service.";
+    if (!fields.message.trim()) errs.message = "Message is required.";
+    return errs;
+  }
+
+  function handleChange(
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) {
+    const { name, value } = e.target;
+    const updated = { ...form, [name]: value };
+    setForm(updated);
+    if (touched[name]) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        const fieldErrors = validate(updated);
+        if (fieldErrors[name as keyof FormErrors]) {
+          next[name as keyof FormErrors] = fieldErrors[name as keyof FormErrors];
+        } else {
+          delete next[name as keyof FormErrors];
+        }
+        return next;
+      });
+    }
+  }
+
+  function handleBlur(e: React.FocusEvent) {
+    const { name } = e.target as HTMLInputElement;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    const fieldErrors = validate(form);
+    if (fieldErrors[name as keyof FormErrors]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name as keyof FormErrors]: fieldErrors[name as keyof FormErrors],
+      }));
+    }
+  }
+
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-  };
+    setServerError("");
+
+    const validationErrors = validate();
+    setErrors(validationErrors);
+    setTouched({ name: true, phone: true, service: true, message: true });
+
+    if (Object.keys(validationErrors).length > 0) return;
+
+    setSubmitting(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        if (data.errors) {
+          setErrors(data.errors);
+        } else {
+          setServerError(
+            data.error || "Something went wrong. Please try again."
+          );
+        }
+        return;
+      }
+
+      setSubmitted(true);
+      setForm({
+        name: "",
+        phone: "",
+        email: "",
+        service: "",
+        message: "",
+        website: "",
+      });
+      setTouched({});
+    } catch {
+      setServerError(
+        "Unable to send your message. Please call us at 616-250-8044."
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  const inputClass = (field: keyof FormErrors) =>
+    `w-full bg-dark-900/60 border rounded-xl px-4 py-3 text-white placeholder:text-dark-500 focus:outline-none transition-all ${
+      errors[field] && touched[field]
+        ? "border-red-500/60 focus:border-red-500/80 focus:ring-1 focus:ring-red-500/25"
+        : "border-dark-600/30 focus:border-forest-600/50 focus:ring-1 focus:ring-forest-600/25"
+    }`;
 
   return (
     <section ref={sectionRef} className="relative pb-24 sm:pb-32">
@@ -167,135 +295,236 @@ export default function ContactContent() {
 
           {/* Contact Form */}
           <div className="lg:col-span-3 reveal opacity-0">
-            <form
-              onSubmit={handleSubmit}
-              className="bg-dark-800/30 border border-dark-600/20 rounded-2xl p-6 sm:p-8 lg:p-10"
-            >
-              <h3 className="font-heading font-bold text-2xl text-white mb-2">
-                Request a Free Estimate
-              </h3>
-              <p className="text-dark-300 text-sm mb-8">
-                Fill out the form below and we&apos;ll get back to you within 24
-                hours.
-              </p>
-
-              <div className="grid sm:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-dark-200 text-sm font-medium mb-2"
-                  >
-                    Your Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    placeholder="John Smith"
-                    className="w-full bg-dark-900/60 border border-dark-600/30 rounded-xl px-4 py-3 text-white placeholder:text-dark-500 focus:outline-none focus:border-forest-600/50 focus:ring-1 focus:ring-forest-600/25 transition-all"
-                  />
+            {submitted ? (
+              <div className="bg-dark-800/30 border border-forest-600/30 rounded-2xl p-8 sm:p-12 text-center">
+                <div className="w-16 h-16 rounded-full bg-forest-900/40 border border-forest-700/30 flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle size={32} className="text-forest-400" />
                 </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-dark-200 text-sm font-medium mb-2"
-                  >
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    placeholder="john@example.com"
-                    className="w-full bg-dark-900/60 border border-dark-600/30 rounded-xl px-4 py-3 text-white placeholder:text-dark-500 focus:outline-none focus:border-forest-600/50 focus:ring-1 focus:ring-forest-600/25 transition-all"
-                  />
-                </div>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-4 mb-4">
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-dark-200 text-sm font-medium mb-2"
-                  >
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="(616) 555-0000"
-                    className="w-full bg-dark-900/60 border border-dark-600/30 rounded-xl px-4 py-3 text-white placeholder:text-dark-500 focus:outline-none focus:border-forest-600/50 focus:ring-1 focus:ring-forest-600/25 transition-all"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="service"
-                    className="block text-dark-200 text-sm font-medium mb-2"
-                  >
-                    Service Interested In
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    className="w-full bg-dark-900/60 border border-dark-600/30 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-forest-600/50 focus:ring-1 focus:ring-forest-600/25 transition-all appearance-none"
-                  >
-                    <option value="">Select a service...</option>
-                    {serviceOptions.map((opt) => (
-                      <option key={opt} value={opt}>
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className="mb-6">
-                <label
-                  htmlFor="message"
-                  className="block text-dark-200 text-sm font-medium mb-2"
-                >
-                  Tell Us About Your Project
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  placeholder="Describe what you're looking for, your timeline, property size, etc."
-                  className="w-full bg-dark-900/60 border border-dark-600/30 rounded-xl px-4 py-3 text-white placeholder:text-dark-500 focus:outline-none focus:border-forest-600/50 focus:ring-1 focus:ring-forest-600/25 transition-all resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={submitted}
-                className="w-full flex items-center justify-center gap-3 bg-forest-600 hover:bg-forest-500 disabled:bg-forest-700 text-white py-4 rounded-xl font-heading font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-forest-600/25 disabled:cursor-not-allowed"
-              >
-                {submitted ? (
-                  <>
-                    <CheckCircle size={20} />
-                    Message Sent!
-                  </>
-                ) : (
-                  <>
-                    <Send size={20} />
-                    Send Message
-                  </>
-                )}
-              </button>
-
-              <p className="text-dark-400 text-xs text-center mt-4">
-                Or call us directly at{" "}
+                <h3 className="font-heading font-bold text-2xl text-white mb-3">
+                  Thank You!
+                </h3>
+                <p className="text-dark-300 text-lg mb-6 max-w-md mx-auto">
+                  We&apos;ll get back to you within 24 hours. If your request is
+                  urgent, feel free to call us directly.
+                </p>
                 <a
                   href="tel:6162508044"
-                  className="text-forest-400 hover:text-forest-300"
+                  className="inline-flex items-center gap-2 text-forest-400 hover:text-forest-300 font-heading font-semibold transition-colors"
                 >
+                  <Phone size={18} />
                   616-250-8044
                 </a>
-              </p>
-            </form>
+                <div className="mt-8">
+                  <button
+                    type="button"
+                    onClick={() => setSubmitted(false)}
+                    className="text-dark-400 hover:text-dark-200 text-sm transition-colors min-h-[44px] px-4"
+                  >
+                    Send another message
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <form
+                onSubmit={handleSubmit}
+                className="bg-dark-800/30 border border-dark-600/20 rounded-2xl p-6 sm:p-8 lg:p-10"
+                noValidate
+              >
+                <h3 className="font-heading font-bold text-2xl text-white mb-2">
+                  Request a Free Estimate
+                </h3>
+                <p className="text-dark-300 text-sm mb-8">
+                  Fill out the form below and we&apos;ll get back to you within
+                  24 hours.
+                </p>
+
+                {serverError && (
+                  <div className="flex items-start gap-3 bg-red-950/40 border border-red-800/30 rounded-xl p-4 mb-6">
+                    <AlertCircle
+                      size={20}
+                      className="text-red-400 flex-shrink-0 mt-0.5"
+                    />
+                    <p className="text-red-300 text-sm">{serverError}</p>
+                  </div>
+                )}
+
+                {/* Honeypot — hidden from real users */}
+                <div className="absolute opacity-0 -z-10" aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input
+                    type="text"
+                    id="website"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={form.website}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-dark-200 text-sm font-medium mb-2"
+                    >
+                      Full Name <span className="text-forest-400">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      placeholder="John Smith"
+                      value={form.name}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={inputClass("name")}
+                    />
+                    {errors.name && touched.name && (
+                      <p className="text-red-400 text-xs mt-1.5">
+                        {errors.name}
+                      </p>
+                    )}
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-dark-200 text-sm font-medium mb-2"
+                    >
+                      Phone Number <span className="text-forest-400">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      placeholder="(616) 555-0000"
+                      value={form.phone}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={inputClass("phone")}
+                    />
+                    {errors.phone && touched.phone && (
+                      <p className="text-red-400 text-xs mt-1.5">
+                        {errors.phone}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-dark-200 text-sm font-medium mb-2"
+                    >
+                      Email Address{" "}
+                      <span className="text-dark-500 text-xs">(optional)</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="john@example.com"
+                      value={form.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={inputClass("email")}
+                    />
+                    {errors.email && touched.email && (
+                      <p className="text-red-400 text-xs mt-1.5">
+                        {errors.email}
+                      </p>
+                    )}
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="service"
+                      className="block text-dark-200 text-sm font-medium mb-2"
+                    >
+                      Service Interested In{" "}
+                      <span className="text-forest-400">*</span>
+                    </label>
+                    <select
+                      id="service"
+                      name="service"
+                      required
+                      value={form.service}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={`${inputClass("service")} appearance-none`}
+                    >
+                      <option value="">Select a service...</option>
+                      {serviceOptions.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {opt}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.service && touched.service && (
+                      <p className="text-red-400 text-xs mt-1.5">
+                        {errors.service}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <label
+                    htmlFor="message"
+                    className="block text-dark-200 text-sm font-medium mb-2"
+                  >
+                    Tell Us About Your Project{" "}
+                    <span className="text-forest-400">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    required
+                    placeholder="Describe what you're looking for, your timeline, property size, etc."
+                    value={form.message}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`${inputClass("message")} resize-none`}
+                  />
+                  {errors.message && touched.message && (
+                    <p className="text-red-400 text-xs mt-1.5">
+                      {errors.message}
+                    </p>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full flex items-center justify-center gap-3 bg-forest-600 hover:bg-forest-500 disabled:bg-forest-700 text-white py-4 rounded-xl font-heading font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-forest-600/25 disabled:cursor-not-allowed"
+                >
+                  {submitting ? (
+                    <>
+                      <Loader2 size={20} className="animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={20} />
+                      Send Message
+                    </>
+                  )}
+                </button>
+
+                <p className="text-dark-400 text-xs text-center mt-4">
+                  Or call us directly at{" "}
+                  <a
+                    href="tel:6162508044"
+                    className="text-forest-400 hover:text-forest-300"
+                  >
+                    616-250-8044
+                  </a>
+                </p>
+              </form>
+            )}
           </div>
         </div>
       </div>

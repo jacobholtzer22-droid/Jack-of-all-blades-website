@@ -1,30 +1,21 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, ArrowRight, ArrowDown } from "lucide-react";
+import { Phone, ArrowRight } from "lucide-react";
+import { BLUR_DATA_URL } from "@/lib/constants";
 
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (el) el.classList.add("animate-fade-in");
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden animate-fade-in">
       <Image
         src="/images/IMG_5510.jpg"
-        alt="Beautifully maintained lawn by Jack of All Blades"
+        alt="Professional lawn care and landscaping in Grand Rapids Michigan"
         fill
+        sizes="100vw"
         className="object-cover"
         priority
         quality={85}
+        placeholder="blur"
+        blurDataURL={BLUR_DATA_URL}
       />
       <div className="absolute inset-0 bg-dark-950/70" />
       <div className="absolute inset-0 bg-gradient-to-b from-dark-950/40 via-transparent to-dark-950/80" />
@@ -46,13 +37,18 @@ export default function Hero() {
           </span>
         </div>
 
-        <h1 className="font-heading font-900 text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.95] mb-6">
-          <span className="text-white drop-shadow-lg">Man Made</span>
+        <h1 className="font-heading font-900 text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] mb-4">
+          <span className="text-white drop-shadow-lg">Landscaping & Lawn Care</span>
           <br />
+          <span className="text-white drop-shadow-lg">Services in </span>
           <span className="bg-gradient-to-r from-forest-400 via-forest-500 to-forest-400 bg-clip-text text-transparent">
-            Excellence
+            Grand Rapids, MI
           </span>
         </h1>
+
+        <p className="text-forest-400 text-xl sm:text-2xl md:text-3xl font-heading font-bold mb-6 drop-shadow-md tracking-tight">
+          Man Made Excellence
+        </p>
 
         <p className="text-dark-100 text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto mb-4 font-light leading-relaxed drop-shadow-md">
           Premium landscaping, hardscaping & lawn care that transforms your
@@ -113,12 +109,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-        <span className="text-white/60 text-xs uppercase tracking-widest">
-          Scroll
-        </span>
-        <ArrowDown size={16} className="text-white/60" />
-      </div>
     </section>
   );
 }

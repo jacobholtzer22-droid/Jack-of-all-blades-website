@@ -95,6 +95,11 @@
   z-index: 1;
 }
 
+/* Safe area padding for devices with home indicators */
+.safe-area-bottom {
+  padding-bottom: max(0.875rem, env(safe-area-inset-bottom));
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

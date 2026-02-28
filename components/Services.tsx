@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { BLUR_DATA_URL } from "@/lib/constants";
 import {
   Leaf,
   Flower2,
@@ -9,49 +11,56 @@ import {
   Snowflake,
   TreePine,
   Scissors,
+  ArrowRight,
 } from "lucide-react";
 
 const services = [
   {
     icon: Leaf,
     title: "Lawn Care",
+    alt: "Weekly lawn mowing and maintenance service Grand Rapids MI",
     description:
-      "Our lawn care services keep your yard healthy, green, and well-maintained throughout the season. We offer routine mowing, trimming, edging, and cleanup to ensure your property always looks neat and professional. Reliable service with attention to detail—every visit.",
+      "Keep your Grand Rapids property looking pristine all season long. Our comprehensive lawn care includes weekly mowing, precision edging, trimming, and thorough cleanup. We maintain consistent schedules and pay attention to every detail so your yard always makes a great impression.",
     image: "/images/IMG_5387.jpg",
   },
   {
     icon: Flower2,
-    title: "Landscape",
+    title: "Landscaping",
+    alt: "Custom landscape design and garden bed installation Grand Rapids Michigan",
     description:
-      "We provide custom landscaping solutions designed to enhance the beauty and value of your property. From planting and mulching to landscape cleanups and bed maintenance, we focus on creating outdoor spaces that are both attractive and functional.",
+      "Transform your outdoor space with custom landscape design and installation. From fresh mulch and seasonal plantings to complete landscape renovations, we create beautiful, functional spaces that boost your property's curb appeal and value.",
     image: "/images/IMG_4267.jpg",
   },
   {
     icon: Layers,
-    title: "Hardscape",
+    title: "Hardscaping",
+    alt: "Custom patio and walkway installation Grand Rapids Michigan",
     description:
-      "Our hardscaping services add structure and durability to your outdoor space. We install patios, walkways, retaining walls, and other stone or paver features built to last. Quality craftsmanship and proper installation ensure long-term performance and visual appeal.",
+      "Add lasting beauty and structure with professional hardscape installation. We build custom patios, walkways, retaining walls, and stone features using quality materials and expert craftsmanship. Every project is built to withstand Michigan's seasons.",
     image: "/images/IMG_5386.jpg",
   },
   {
     icon: Snowflake,
     title: "Snow Removal",
+    alt: "Commercial and residential snow removal service Grand Rapids MI",
     description:
-      "We provide the services of salting, ice removal, snow cleared on driveways and pathways, along with city sidewalks. All details are listed in the contract.",
+      "Don't let Michigan winters slow you down. Our reliable snow removal services include plowing, salting, ice management, and sidewalk clearing for both residential and commercial properties. Contract-based service with guaranteed response times.",
     image: "/images/snow-removal-truck.png",
   },
   {
     icon: Scissors,
     title: "Seasonal Cleanup",
+    alt: "Fall and spring yard cleanup service Grand Rapids Michigan",
     description:
-      "Seasonal Cleanup offers many services such as leaf removal, cutting back perennials, yard cleanup and garden bed cleaning.",
+      "Prepare your property for every season with our thorough cleanup services. Spring and fall cleanups include leaf removal, garden bed clearing, perennial cutbacks, debris removal, and complete yard detailing to keep your landscape healthy year-round.",
     image: "/images/IMG_7394-preview.jpg",
   },
   {
     icon: TreePine,
     title: "Tree Trimming / Removal",
+    alt: "Professional tree trimming and removal service Grand Rapids MI",
     description:
-      "We have tree trimming, tree removal, and we also include stump removal if included. These services are very trusted with us and show a brand new look!",
+      "Protect your property and improve its appearance with professional tree services. We handle trimming, shaping, full tree removal, and stump grinding. Licensed and insured for safe, efficient work that transforms your yard.",
     image: "/images/tree-removal-truck.png",
   },
 ];
@@ -102,7 +111,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
           {services.map((service, i) => {
             const Icon = service.icon;
             return (
@@ -111,15 +120,18 @@ export default function Services() {
                 ref={(el) => {
                   cardsRef.current[i] = el;
                 }}
-                className="group relative rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl hover:shadow-forest-900/20 opacity-0 transition-all duration-500 min-h-[320px]"
+                className="group relative rounded-2xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl hover:shadow-forest-900/20 opacity-0 transition-all duration-500 min-h-[280px] sm:min-h-[320px]"
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 <Image
                   src={service.image}
-                  alt={service.title}
+                  alt={service.alt}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={75}
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/85 to-dark-950/40 group-hover:via-dark-950/80 group-hover:to-dark-950/30 transition-all duration-500" />
 
@@ -137,9 +149,20 @@ export default function Services() {
                     {service.title}
                   </h3>
 
-                  <p className="text-dark-200 leading-relaxed text-[15px]">
+                  <p className="text-dark-200 leading-relaxed text-[15px] mb-5">
                     {service.description}
                   </p>
+
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-forest-400 hover:text-forest-300 transition-colors group/link"
+                  >
+                    Get Free Estimate
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform group-hover/link:translate-x-1"
+                    />
+                  </Link>
                 </div>
               </div>
             );

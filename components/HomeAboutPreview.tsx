@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Shield, Star, Award } from "lucide-react";
+import { BLUR_DATA_URL } from "@/lib/constants";
 
 const badges = [
   { icon: Shield, label: "Fully Bonded" },
@@ -45,10 +46,13 @@ export default function HomeAboutPreview() {
               <div className="aspect-[4/5] rounded-2xl overflow-hidden">
                 <Image
                   src="/images/tree-trimming-chainsaw.png"
-                  alt="Mike Hazzard, founder of Jack of All Blades Landscaping"
+                  alt="Mike Hazzard owner of Jack of All Blades Landscaping performing tree service in Grand Rapids MI"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  quality={75}
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 w-full h-full border border-forest-700/20 rounded-2xl -z-10" />

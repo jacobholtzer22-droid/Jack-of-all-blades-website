@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { BLUR_DATA_URL } from "@/lib/constants";
 
 const categories = [
   "All",
@@ -15,6 +16,7 @@ const galleryItems = [
   {
     id: 1,
     label: "Landscaping Project",
+    alt: "Professional landscaping project completed in Grand Rapids Michigan",
     category: "Landscaping",
     image: "/images/IMG_5541.jpg",
     span: "md:col-span-2 md:row-span-2",
@@ -22,6 +24,7 @@ const galleryItems = [
   {
     id: 2,
     label: "Patio Installation",
+    alt: "Custom paver patio installation by Jack of All Blades Grand Rapids MI",
     category: "Hardscaping",
     image: "/images/IMG_6756.jpg",
     span: "",
@@ -29,6 +32,7 @@ const galleryItems = [
   {
     id: 3,
     label: "Lawn Maintenance",
+    alt: "Weekly lawn mowing and maintenance service Grand Rapids Michigan",
     category: "Lawn Care",
     image: "/images/IMG_5510.jpg",
     span: "",
@@ -36,6 +40,7 @@ const galleryItems = [
   {
     id: 4,
     label: "Retaining Wall & Patio",
+    alt: "Retaining wall and patio construction Grand Rapids MI",
     category: "Hardscaping",
     image: "/images/IMG_6448.jpg",
     span: "",
@@ -43,6 +48,7 @@ const galleryItems = [
   {
     id: 5,
     label: "Garden Bed Design",
+    alt: "Custom garden bed design and planting Grand Rapids Michigan",
     category: "Landscaping",
     image: "/images/IMG_4267.jpg",
     span: "",
@@ -50,6 +56,7 @@ const galleryItems = [
   {
     id: 6,
     label: "Walkway Installation",
+    alt: "Paver walkway installation at residential home Grand Rapids MI",
     category: "Hardscaping",
     image: "/images/walkway-front-house.png",
     span: "md:col-span-2",
@@ -57,6 +64,7 @@ const galleryItems = [
   {
     id: 7,
     label: "Fall Cleanup",
+    alt: "Fall yard cleanup and leaf removal service Grand Rapids Michigan",
     category: "Lawn Care",
     image: "/images/IMG_7394-preview.jpg",
     span: "",
@@ -64,6 +72,7 @@ const galleryItems = [
   {
     id: 8,
     label: "Hedge Trimming & Mulch",
+    alt: "Hedge trimming and mulch installation Grand Rapids MI",
     category: "Landscaping",
     image: "/images/IMG_4937.jpg",
     span: "",
@@ -71,6 +80,7 @@ const galleryItems = [
   {
     id: 9,
     label: "Snow Plowing",
+    alt: "Snow plowing and removal service Grand Rapids Michigan",
     category: "Snow Removal",
     image: "/images/snow-removal-truck.png",
     span: "",
@@ -78,6 +88,7 @@ const galleryItems = [
   {
     id: 10,
     label: "Brick Patio & Landscaping",
+    alt: "Brick patio and surrounding landscape design Grand Rapids MI",
     category: "Landscaping",
     image: "/images/IMG_6706.jpg",
     span: "md:col-span-2",
@@ -85,6 +96,7 @@ const galleryItems = [
   {
     id: 11,
     label: "Paver Patio with Seating",
+    alt: "Paver patio with built-in seating area Grand Rapids Michigan",
     category: "Hardscaping",
     image: "/images/paver-patio-seating.png",
     span: "",
@@ -92,6 +104,7 @@ const galleryItems = [
   {
     id: 12,
     label: "Residential Lawn Care",
+    alt: "Residential lawn care and mowing service Grand Rapids MI",
     category: "Lawn Care",
     image: "/images/IMG_6094.jpg",
     span: "",
@@ -99,6 +112,7 @@ const galleryItems = [
   {
     id: 13,
     label: "Sod Installation",
+    alt: "Professional sod installation and new lawn service Grand Rapids Michigan",
     category: "Lawn Care",
     image: "/images/sod-laying-team.png",
     span: "md:col-span-2",
@@ -106,6 +120,7 @@ const galleryItems = [
   {
     id: 14,
     label: "Waterfront Property",
+    alt: "Waterfront property lawn maintenance Grand Rapids MI",
     category: "Lawn Care",
     image: "/images/FullSizeRender.jpg",
     span: "",
@@ -113,6 +128,7 @@ const galleryItems = [
   {
     id: 15,
     label: "Commercial Mowing",
+    alt: "Commercial property mowing and lawn care Grand Rapids Michigan",
     category: "Lawn Care",
     image: "/images/IMG_6102.jpg",
     span: "",
@@ -120,6 +136,7 @@ const galleryItems = [
   {
     id: 16,
     label: "Paver Walkway & Patio",
+    alt: "Paver walkway and patio hardscape project Grand Rapids MI",
     category: "Hardscaping",
     image: "/images/IMG_4429.jpg",
     span: "",
@@ -127,6 +144,7 @@ const galleryItems = [
   {
     id: 17,
     label: "Backyard Patio",
+    alt: "Backyard patio installation and hardscaping Grand Rapids Michigan",
     category: "Hardscaping",
     image: "/images/IMG_5386.jpg",
     span: "",
@@ -134,6 +152,7 @@ const galleryItems = [
   {
     id: 18,
     label: "Commercial Property Maintenance",
+    alt: "Commercial property landscape maintenance Grand Rapids MI",
     category: "Lawn Care",
     image: "/images/IMG_6887-preview.jpg",
     span: "md:col-span-2",
@@ -141,6 +160,7 @@ const galleryItems = [
   {
     id: 19,
     label: "Residential Mowing",
+    alt: "Residential lawn mowing service Grand Rapids Michigan",
     category: "Lawn Care",
     image: "/images/IMG_5733.jpg",
     span: "",
@@ -148,6 +168,7 @@ const galleryItems = [
   {
     id: 20,
     label: "Tree Removal",
+    alt: "Tree removal and stump grinding service Grand Rapids MI",
     category: "Landscaping",
     image: "/images/tree-removal-truck.png",
     span: "",
@@ -193,7 +214,7 @@ export default function PortfolioGrid() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all min-h-[44px] ${
                 activeCategory === cat
                   ? "bg-forest-600 text-white"
                   : "bg-dark-800/40 border border-dark-600/20 text-dark-200 hover:border-forest-600/30 hover:text-forest-400"
@@ -218,7 +239,7 @@ export default function PortfolioGrid() {
             >
               <Image
                 src={item.image}
-                alt={item.label}
+                alt={item.alt}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes={
@@ -226,6 +247,9 @@ export default function PortfolioGrid() {
                     ? "(max-width: 768px) 100vw, 50vw"
                     : "(max-width: 768px) 100vw, 25vw"
                 }
+                quality={75}
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-dark-950/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />

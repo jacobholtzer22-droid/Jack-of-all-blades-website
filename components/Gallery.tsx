@@ -2,59 +2,69 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { BLUR_DATA_URL } from "@/lib/constants";
 
 const galleryItems = [
   {
     id: 1,
     label: "Paver Patio",
+    alt: "Custom paver patio installation Grand Rapids Michigan",
     image: "/images/IMG_6756.jpg",
     span: "md:col-span-2 md:row-span-2",
   },
   {
     id: 2,
     label: "Lawn Mowing",
+    alt: "Professional lawn mowing service Grand Rapids MI",
     image: "/images/IMG_5381.jpg",
     span: "",
   },
   {
     id: 3,
     label: "Tree Trimming",
+    alt: "Tree trimming and pruning service Grand Rapids Michigan",
     image: "/images/tree-trimming-chainsaw.png",
     span: "",
   },
   {
     id: 4,
     label: "Landscaping",
+    alt: "Residential landscaping project Grand Rapids MI",
     image: "/images/IMG_5541.jpg",
     span: "",
   },
   {
     id: 5,
     label: "Sod Installation",
+    alt: "New sod installation and lawn setup Grand Rapids Michigan",
     image: "/images/sod-installation.png",
     span: "",
   },
   {
     id: 6,
     label: "Paver Walkway",
+    alt: "Paver walkway installation at residential property Grand Rapids MI",
     image: "/images/walkway-front-house.png",
     span: "md:col-span-2",
   },
   {
     id: 7,
     label: "Snow Removal",
+    alt: "Snow removal and plowing service Grand Rapids Michigan",
     image: "/images/snow-removal-truck.png",
     span: "",
   },
   {
     id: 8,
     label: "Fall Cleanup",
+    alt: "Seasonal fall yard cleanup Grand Rapids MI",
     image: "/images/IMG_7394-preview.jpg",
     span: "",
   },
   {
     id: 9,
     label: "Hardscaping",
+    alt: "Retaining wall and hardscape construction Grand Rapids Michigan",
     image: "/images/IMG_6448.jpg",
     span: "md:col-span-2",
   },
@@ -120,7 +130,7 @@ export default function Gallery() {
             >
               <Image
                 src={item.image}
-                alt={item.label}
+                alt={item.alt}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes={
@@ -128,6 +138,9 @@ export default function Gallery() {
                     ? "(max-width: 768px) 100vw, 50vw"
                     : "(max-width: 768px) 100vw, 25vw"
                 }
+                quality={75}
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-dark-950/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
