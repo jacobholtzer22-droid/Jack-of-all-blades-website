@@ -171,9 +171,9 @@ export default function Footer() {
               href="https://alignandacquire.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gold-500 hover:text-gold-400 transition-colors font-medium"
+              className="inline-flex items-center px-2 py-0.5 rounded-md bg-gold-500/15 border border-gold-500/30 text-gold-400 hover:text-gold-300 hover:bg-gold-500/25 hover:border-gold-500/50 transition-all font-semibold"
             >
-              Align &amp; Acquire
+              Align and Acquire
             </a>
           </p>
         </div>
