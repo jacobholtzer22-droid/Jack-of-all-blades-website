@@ -20,6 +20,7 @@ const galleryItems = [
     category: "Landscaping",
     image: "/images/IMG_5541.webp",
     span: "md:col-span-2 md:row-span-2",
+    imageRotate: 90,
   },
   {
     id: 2,
@@ -50,7 +51,7 @@ const galleryItems = [
     label: "Garden Bed Design",
     alt: "Custom garden bed design and planting Grand Rapids Michigan",
     category: "Landscaping",
-    image: "/images/IMG_5381.webp",
+    image: "/images/IMG_5541.webp",
     span: "",
   },
   {
@@ -122,8 +123,9 @@ const galleryItems = [
     label: "Commercial Mowing",
     alt: "Commercial property mowing and lawn care Grand Rapids Michigan",
     category: "Lawn Care",
-    image: "/images/IMG_5386.webp",
+    image: "/images/IMG_6098.webp",
     span: "",
+    imageRotate: 90,
   },
   {
     id: 16,
@@ -233,7 +235,7 @@ export default function PortfolioGrid() {
                 src={item.image}
                 alt={item.alt}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image]"
+                className={`object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image] ${(item as { imageRotate?: number }).imageRotate ? "rotate-90" : ""}`}
                 sizes={
                   item.span.includes("col-span-2")
                     ? "(max-width: 768px) 100vw, 50vw"
