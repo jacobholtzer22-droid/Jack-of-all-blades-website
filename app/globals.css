@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  /* Respect EXIF orientation so phone/camera photos display right-side-up */
+  img {
+    image-orientation: from-image;
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;

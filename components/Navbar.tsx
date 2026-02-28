@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, Menu, X } from "lucide-react";
+import { useMobileMenu } from "@/contexts/MobileMenuContext";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -17,7 +18,7 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const { mobileMenuOpen, setMobileMenuOpen } = useMobileMenu();
   const isHome = pathname === "/";
 
   useEffect(() => {
@@ -27,7 +28,7 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (mobileOpen) {
+    if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -35,17 +36,17 @@ export default function Navbar() {
     return () => {
       document.body.style.overflow = "";
     };
-  }, [mobileOpen]);
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
+    setMobileMenuOpen(false);
+  }, [pathname, setMobileMenuOpen]);
 
   const showBg = scrolled || !isHome;
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-500 ${
         showBg
           ? "bg-dark-950/95 backdrop-blur-md shadow-lg shadow-black/20 py-3"
           : "bg-black/60 backdrop-blur-md py-5"
@@ -103,30 +104,41 @@ export default function Navbar() {
         </div>
 
         <button
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           type="button"
-          className="lg:hidden text-white p-3 -m-1 relative z-[110] min-w-[44px] min-h-[44px] flex items-center justify-center touch-manipulation"
+          className="lg:hidden text-white p-3 -m-1 relative z-[120] min-w-[44px] min-h-[44px] flex items-center justify-center touch-manipulation"
           aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
+          aria-expanded={mobileMenuOpen}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu overlay - z-[100] so it covers floating buttons (z-[70]) */}
       <div
-        className={`lg:hidden fixed inset-0 top-0 bg-dark-950/98 backdrop-blur-xl transition-all duration-300 z-[100] touch-manipulation ${
-          mobileOpen
+        className={`lg:hidden fixed inset-0 top-0 bg-[#0a0a0a]/98 transition-all duration-300 z-[100] touch-manipulation ${
+          mobileMenuOpen
             ? "opacity-100 pointer-events-auto visible"
             : "opacity-0 pointer-events-none invisible"
         }`}
+        aria-hidden={!mobileMenuOpen}
       >
-        <nav className="flex flex-col items-center justify-center h-full gap-8">
+        {/* Close button - inside overlay so it stays visible and tappable */}
+        <button
+          onClick={() => setMobileMenuOpen(false)}
+          type="button"
+          className="absolute top-4 right-4 z-[110] text-white p-3 -m-1 min-w-[44px] min-h-[44px] flex items-center justify-center touch-manipulation rounded-lg hover:bg-white/10 active:bg-white/20 transition-colors"
+          aria-label="Close menu"
+        >
+          <X size={24} />
+        </button>
+
+        <nav className="flex flex-col items-center justify-center h-full gap-8 relative z-[110]">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setMobileOpen(false)}
+              onClick={() => setMobileMenuOpen(false)}
               className={`text-2xl font-heading font-semibold transition-colors py-3 px-6 -my-2 min-h-[48px] flex items-center touch-manipulation ${
                 pathname === link.href
                   ? "text-forest-400"

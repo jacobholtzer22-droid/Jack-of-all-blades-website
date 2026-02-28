@@ -3,9 +3,16 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Phone, ArrowUp, ClipboardList } from "lucide-react";
+import { useMobileMenu } from "@/contexts/MobileMenuContext";
 
 export default function MobileFloatingButtons() {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const { mobileMenuOpen } = useMobileMenu();
+
+  // Hide floating buttons completely when mobile menu is open
+  if (mobileMenuOpen) {
+    return null;
+  }
 
   useEffect(() => {
     const handleScroll = () => {
