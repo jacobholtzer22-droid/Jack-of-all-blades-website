@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,7 +18,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
   const isHome = pathname === "/";
 
   useEffect(() => {
@@ -42,15 +41,6 @@ export default function Navbar() {
     setMobileOpen(false);
   }, [pathname]);
 
-  const handleBackdropClick = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setMobileOpen(false);
-      }
-    },
-    []
-  );
-
   const showBg = scrolled || !isHome;
 
   return (
@@ -62,14 +52,13 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto section-padding flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group min-h-[44px]">
+        <Link href="/" className="flex items-center gap-2 group">
           <Image
             src="/images/logo-transparent.png"
-            alt="Jack of All Blades Landscaping logo Grand Rapids MI"
+            alt="Jack of All Blades Logo"
             width={36}
             height={36}
             className="rounded-md"
-            priority
           />
           <div className="font-heading font-bold text-lg tracking-tight">
             <span className="text-white">Jack of All</span>{" "}
@@ -82,7 +71,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium tracking-wide uppercase transition-colors min-h-[44px] flex items-center ${
+              className={`text-sm font-medium tracking-wide uppercase transition-colors ${
                 pathname === link.href
                   ? "text-forest-400"
                   : "text-dark-200 hover:text-forest-400"
@@ -96,7 +85,7 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-4">
           <a
             href="tel:6162508044"
-            className="flex items-center gap-2 bg-forest-600 hover:bg-forest-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all hover:shadow-lg hover:shadow-forest-600/25 min-h-[44px]"
+            className="flex items-center gap-2 bg-forest-600 hover:bg-forest-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all hover:shadow-lg hover:shadow-forest-600/25"
           >
             <Phone size={16} />
             <span>Call Now</span>
@@ -105,7 +94,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden text-white p-2.5 relative z-[60] min-w-[44px] min-h-[44px] flex items-center justify-center"
+          className="lg:hidden text-white p-2 relative z-[60]"
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -114,25 +103,18 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        onClick={handleBackdropClick}
-        className={`lg:hidden fixed inset-0 top-0 bg-dark-950/98 backdrop-blur-xl transition-all duration-300 ease-out z-[55] ${
+        className={`lg:hidden fixed inset-0 top-0 bg-dark-950/98 backdrop-blur-xl transition-all duration-300 z-[55] ${
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
       >
-        <div
-          ref={menuRef}
-          className={`flex flex-col items-center justify-center h-full gap-2 transition-transform duration-300 ease-out ${
-            mobileOpen ? "translate-y-0" : "-translate-y-8"
-          }`}
-        >
+        <div className="flex flex-col items-center justify-center h-full gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className={`text-2xl font-heading font-semibold transition-colors min-h-[52px] min-w-[200px] flex items-center justify-center ${
+              className={`text-2xl font-heading font-semibold transition-colors ${
                 pathname === link.href
                   ? "text-forest-400"
                   : "text-dark-100 hover:text-forest-400"
@@ -143,7 +125,7 @@ export default function Navbar() {
           ))}
           <a
             href="tel:6162508044"
-            className="mt-6 flex items-center gap-3 bg-forest-600 hover:bg-forest-500 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all min-h-[52px]"
+            className="mt-4 flex items-center gap-3 bg-forest-600 hover:bg-forest-500 text-white px-8 py-3.5 rounded-lg text-lg font-semibold transition-all"
           >
             <Phone size={20} />
             <span>616-250-8044</span>

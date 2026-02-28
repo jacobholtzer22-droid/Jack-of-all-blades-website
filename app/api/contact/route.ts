@@ -188,6 +188,7 @@ export async function POST(request: Request) {
         from: telnyxFromNumber,
         to: clientPhone,
         text: smsBody,
+        messaging_profile_id: process.env.TELNYX_MESSAGING_PROFILE_ID,
       }),
     });
 

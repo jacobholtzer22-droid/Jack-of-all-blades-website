@@ -7,14 +7,14 @@ export default function Footer() {
     <footer className="relative border-t border-dark-700/30">
       <div className="absolute inset-0 bg-dark-950" />
 
-      <div className="relative z-10 max-w-7xl mx-auto section-padding py-16 pb-24 md:pb-16">
+      <div className="relative z-10 max-w-7xl mx-auto section-padding py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <Image
                 src="/images/logo-transparent.png"
-                alt="Jack of All Blades Landscaping logo Grand Rapids MI"
+                alt="Jack of All Blades Logo"
                 width={36}
                 height={36}
                 className="rounded-md"
@@ -33,7 +33,7 @@ export default function Footer() {
                 href="https://www.instagram.com/jackofallbladeslandscape"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-11 h-11 rounded-lg bg-dark-800/40 border border-dark-600/20 flex items-center justify-center hover:border-forest-600/30 transition-all"
+                className="group w-10 h-10 rounded-lg bg-dark-800/40 border border-dark-600/20 flex items-center justify-center hover:border-forest-600/30 transition-all"
                 aria-label="Instagram"
               >
                 <svg
@@ -48,7 +48,7 @@ export default function Footer() {
                 href="https://www.tiktok.com/@jackofallbladeslscp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-11 h-11 rounded-lg bg-dark-800/40 border border-dark-600/20 flex items-center justify-center hover:border-forest-600/30 transition-all"
+                className="group w-10 h-10 rounded-lg bg-dark-800/40 border border-dark-600/20 flex items-center justify-center hover:border-forest-600/30 transition-all"
                 aria-label="TikTok"
               >
                 <svg
@@ -67,7 +67,7 @@ export default function Footer() {
             <h4 className="font-heading font-semibold text-white mb-4 text-sm uppercase tracking-wider">
               Quick Links
             </h4>
-            <ul className="space-y-1">
+            <ul className="space-y-3">
               {[
                 { label: "Home", href: "/" },
                 { label: "About Us", href: "/about" },
@@ -78,7 +78,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-dark-300 hover:text-forest-400 text-sm transition-colors inline-flex items-center min-h-[44px]"
+                    className="text-dark-300 hover:text-forest-400 text-sm transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -92,11 +92,11 @@ export default function Footer() {
             <h4 className="font-heading font-semibold text-white mb-4 text-sm uppercase tracking-wider">
               Contact
             </h4>
-            <ul className="space-y-1">
+            <ul className="space-y-3">
               <li>
                 <a
                   href="tel:6162508044"
-                  className="flex items-center gap-2 text-dark-300 hover:text-forest-400 text-sm transition-colors min-h-[44px]"
+                  className="flex items-center gap-2 text-dark-300 hover:text-forest-400 text-sm transition-colors"
                 >
                   <Phone size={14} />
                   616-250-8044
@@ -105,14 +105,14 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:jackofallbladeslandscaping@gmail.com"
-                  className="flex items-center gap-2 text-dark-300 hover:text-forest-400 text-sm transition-colors break-all min-h-[44px]"
+                  className="flex items-center gap-2 text-dark-300 hover:text-forest-400 text-sm transition-colors break-all"
                 >
                   <Mail size={14} className="flex-shrink-0" />
                   jackofallbladeslandscaping@gmail.com
                 </a>
               </li>
               <li>
-                <span className="flex items-center gap-2 text-dark-300 text-sm min-h-[44px]">
+                <span className="flex items-center gap-2 text-dark-300 text-sm">
                   <MapPin size={14} className="flex-shrink-0" />
                   Grand Rapids, MI 49506
                 </span>
