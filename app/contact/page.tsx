@@ -38,7 +38,7 @@ export default function ContactPage() {
         titleAccent="Us"
         description="Get a free estimate today. Serving East Grand Rapids, Grand Rapids, and all surrounding Michigan communities."
         backgroundImage="/images/customer-handshake-patio.webp"
-        backgroundSize="contain"
+        backgroundPosition="center top"
       />
       <ContactContent />
     </>

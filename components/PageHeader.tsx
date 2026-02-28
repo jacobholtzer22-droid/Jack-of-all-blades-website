@@ -6,6 +6,8 @@ interface PageHeaderProps {
   backgroundImage?: string;
   /** Use "contain" to show full image without cropping; default "cover" fills the area */
   backgroundSize?: "cover" | "contain";
+  /** Position of background when cropped; "center top" crops bottom (e.g. to hide footer bars) */
+  backgroundPosition?: "center" | "center top" | "center bottom";
 }
 
 export default function PageHeader({
@@ -15,15 +17,19 @@ export default function PageHeader({
   description,
   backgroundImage,
   backgroundSize = "cover",
+  backgroundPosition = "center",
 }: PageHeaderProps) {
   return (
     <section className="relative pt-36 pb-20 sm:pt-44 sm:pb-28 overflow-hidden animate-fade-in min-h-[380px] sm:min-h-[440px]">
       {backgroundImage && (
         <div
-          className={`absolute inset-0 bg-earthy-900 bg-center bg-no-repeat ${
+          className={`absolute inset-0 bg-earthy-900 bg-no-repeat ${
             backgroundSize === "contain" ? "bg-contain" : "bg-cover"
           }`}
-          style={{ backgroundImage: `url(${backgroundImage})` }}
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundPosition,
+          }}
         />
       )}
       <div className={`absolute inset-0 ${backgroundImage ? "bg-gradient-to-br from-earthy-950/85 via-earthy-900/75 to-earthy-950/85" : "bg-gradient-to-br from-earthy-950 via-earthy-900 to-earthy-950"}`} />

@@ -40,7 +40,7 @@ export default function PortfolioPage() {
         title="Project"
         titleAccent="Portfolio"
         description="A showcase of our landscaping, hardscaping, and lawn care transformations across East Grand Rapids, Grand Rapids, and West Michigan."
-        backgroundImage="/images/paver-patio-seating.webp"
+        backgroundImage="/images/IMG_5541.webp"
       />
       <PortfolioGrid />
       <CTABanner />

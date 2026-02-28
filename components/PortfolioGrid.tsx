@@ -50,7 +50,7 @@ const galleryItems = [
     label: "Garden Bed Design",
     alt: "Custom garden bed design and planting Grand Rapids Michigan",
     category: "Landscaping",
-    image: "/images/IMG_7394-preview.webp",
+    image: "/images/IMG_5381.webp",
     span: "",
   },
   {
@@ -58,7 +58,7 @@ const galleryItems = [
     label: "Walkway Installation",
     alt: "Paver walkway installation at residential home Grand Rapids MI",
     category: "Hardscaping",
-    image: "/images/IMG_6706.webp",
+    image: "/images/walkway-front-house.webp",
     span: "md:col-span-2",
   },
   {
@@ -66,7 +66,7 @@ const galleryItems = [
     label: "Fall Cleanup",
     alt: "Fall yard cleanup and leaf removal service Grand Rapids Michigan",
     category: "Lawn Care",
-    image: "/images/IMG_5381.webp",
+    image: "/images/IMG_7394-preview.webp",
     span: "",
   },
   {
@@ -106,7 +106,7 @@ const galleryItems = [
     label: "Residential Lawn Care",
     alt: "Residential lawn care and mowing service Grand Rapids MI",
     category: "Lawn Care",
-    image: "/images/IMG_6081.webp",
+    image: "/images/IMG_6094.webp",
     span: "",
   },
   {
@@ -118,19 +118,11 @@ const galleryItems = [
     span: "md:col-span-2",
   },
   {
-    id: 14,
-    label: "Waterfront Property",
-    alt: "Waterfront property lawn maintenance Grand Rapids MI",
-    category: "Lawn Care",
-    image: "/images/IMG_4429.webp",
-    span: "",
-  },
-  {
     id: 15,
     label: "Commercial Mowing",
     alt: "Commercial property mowing and lawn care Grand Rapids Michigan",
     category: "Lawn Care",
-    image: "/images/IMG_4267.webp",
+    image: "/images/IMG_6102.webp",
     span: "",
   },
   {
@@ -138,7 +130,7 @@ const galleryItems = [
     label: "Paver Walkway & Patio",
     alt: "Paver walkway and patio hardscape project Grand Rapids MI",
     category: "Hardscaping",
-    image: "/images/walkway-front-house.webp",
+    image: "/images/IMG_6706.webp",
     span: "",
   },
   {
@@ -146,7 +138,7 @@ const galleryItems = [
     label: "Backyard Patio",
     alt: "Backyard patio installation and hardscaping Grand Rapids Michigan",
     category: "Hardscaping",
-    image: "/images/IMG_4937.webp",
+    image: "/images/happy-customer-patio.webp",
     span: "",
   },
   {
@@ -162,7 +154,7 @@ const galleryItems = [
     label: "Residential Mowing",
     alt: "Residential lawn mowing service Grand Rapids Michigan",
     category: "Lawn Care",
-    image: "/images/IMG_6098.webp",
+    image: "/images/IMG_5386.webp",
     span: "",
   },
   {
