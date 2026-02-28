@@ -122,7 +122,7 @@ const galleryItems = [
     label: "Commercial Mowing",
     alt: "Commercial property mowing and lawn care Grand Rapids Michigan",
     category: "Lawn Care",
-    image: "/images/IMG_6102.webp",
+    image: "/images/IMG_5386.webp",
     span: "",
   },
   {
@@ -154,7 +154,7 @@ const galleryItems = [
     label: "Residential Mowing",
     alt: "Residential lawn mowing service Grand Rapids Michigan",
     category: "Lawn Care",
-    image: "/images/IMG_5386.webp",
+    image: "/images/IMG_6102.webp",
     span: "",
   },
   {

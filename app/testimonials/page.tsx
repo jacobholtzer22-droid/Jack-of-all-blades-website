@@ -43,6 +43,7 @@ export default function TestimonialsPage() {
         titleAccent="Say"
         description="Don't just take our word for it. Here's what our customers have to say about working with us."
         backgroundImage="/images/customer-handshake-patio.webp"
+        backgroundPosition="center top"
       />
       <TestimonialsList />
       <CTABanner />
