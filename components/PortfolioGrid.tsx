@@ -18,7 +18,7 @@ const galleryItems = [
     label: "Landscaping Project",
     alt: "Professional landscaping project completed in Grand Rapids Michigan",
     category: "Landscaping",
-    image: "/images/IMG_5541.webp",
+    image: "/images/IMG_5733.webp",
     span: "md:col-span-2 md:row-span-2",
     imageRotate: 90,
   },
