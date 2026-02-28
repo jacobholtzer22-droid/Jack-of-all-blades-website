@@ -168,7 +168,7 @@ export async function POST(request: Request) {
 </html>`;
 
     const emailPromise = getResend().emails.send({
-      from: "Jack of All Blades Website <onboarding@resend.dev>",
+      from: "Jack of All Blades Leads <leads@alignandacquire.com>",
       to: clientEmail,
       replyTo: email?.trim() || undefined,
       subject: `New Website Lead: ${service} - ${name}`,
