@@ -81,7 +81,7 @@ export default function HomePhotoStrip() {
                 src={img.src}
                 alt={img.alt}
                 fill
-                className={`object-cover transition-transform duration-500 group-hover:scale-105 [image-orientation:from-image] ${img.rotateLeft ? "-rotate-90" : ""}`}
+                className="object-cover transition-transform duration-500 group-hover:scale-105 [image-orientation:from-image]"
                 sizes="(max-width: 768px) 50vw, 25vw"
                 quality={75}
                 placeholder="blur"
@@ -107,7 +107,7 @@ export default function HomePhotoStrip() {
                   alt={img.alt}
                   width={400}
                   height={300}
-                  className={`object-cover w-full h-full [image-orientation:from-image] ${img.rotateLeft ? "-rotate-90" : ""}`}
+                  className="object-cover w-full h-full [image-orientation:from-image]"
                   quality={75}
                   placeholder="blur"
                   blurDataURL={BLUR_DATA_URL}
