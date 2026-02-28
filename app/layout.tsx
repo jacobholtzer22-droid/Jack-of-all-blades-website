@@ -3,7 +3,6 @@ import { Outfit, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MobileFloatingButtons from "@/components/MobileFloatingButtons";
-import { MobileMenuProvider } from "@/contexts/MobileMenuContext";
 import "./globals.css";
 
 const heading = Outfit({
@@ -78,12 +77,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${heading.variable} ${body.variable}`}>
       <body>
-        <MobileMenuProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <MobileFloatingButtons />
-        </MobileMenuProvider>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+        <MobileFloatingButtons />
       </body>
     </html>
   );
