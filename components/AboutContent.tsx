@@ -55,8 +55,8 @@ export default function AboutContent() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative pb-24 sm:pb-32 overflow-hidden">
-      <div className="absolute inset-0 bg-dark-950" />
+    <section ref={sectionRef} className="relative pb-24 sm:pb-32 overflow-hidden border-t border-forest-900/30">
+      <div className="absolute inset-0 bg-earthy-900" />
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-forest-950/10 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto section-padding">
@@ -115,13 +115,13 @@ export default function AboutContent() {
           </div>
         </div>
 
-        <div className="reveal opacity-0 grid grid-cols-1 sm:grid-cols-3 gap-6 mb-24 sm:mb-32">
+        <div className="reveal opacity-0 grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16 sm:mb-20">
           {badges.map((badge) => {
             const Icon = badge.icon;
             return (
               <div
                 key={badge.label}
-                className="flex items-center gap-4 bg-dark-800/40 border border-dark-600/20 rounded-xl px-6 py-5"
+                className="flex items-center gap-4 bg-earthy-700/60 border border-forest-700/20 rounded-xl px-6 py-5"
               >
                 <div className="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center flex-shrink-0">
                   <Icon size={24} className="text-gold-400" />
@@ -134,11 +134,51 @@ export default function AboutContent() {
           })}
         </div>
 
+        {/* Work gallery below bio */}
+        <div className="reveal opacity-0 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-24 sm:mb-32">
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+            <Image
+              src="/images/sod-laying-team.jpg"
+              alt="Sod installation team at work Grand Rapids MI"
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, 33vw"
+              quality={75}
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
+            />
+          </div>
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+            <Image
+              src="/images/walkway-front-house.jpg"
+              alt="Paver walkway installation at residential home Grand Rapids MI"
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, 33vw"
+              quality={75}
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
+            />
+          </div>
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+            <Image
+              src="/images/mike-paver-patio.jpg"
+              alt="Mike Hazzard working on paver patio installation Grand Rapids MI"
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, 33vw"
+              quality={75}
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
+            />
+          </div>
+        </div>
+
         <div className="text-center mb-12">
           <span className="reveal opacity-0 text-forest-400 text-sm font-semibold uppercase tracking-[0.2em] mb-4 block">
             What Drives Us
           </span>
-          <h2 className="reveal opacity-0 font-heading font-bold text-3xl sm:text-4xl text-white tracking-tight">
+          <h2 className="reveal opacity-0 section-heading-accent font-heading font-bold text-3xl sm:text-4xl text-white tracking-tight pt-2">
             Our Core Values
           </h2>
         </div>
@@ -149,10 +189,10 @@ export default function AboutContent() {
             return (
               <div
                 key={value.title}
-                className="reveal opacity-0 text-center"
+                className="reveal opacity-0 relative bg-earthy-700/80 border-l-4 border-forest-500/60 rounded-r-2xl p-8 text-left"
                 style={{ animationDelay: `${i * 0.15}s` }}
               >
-                <div className="w-16 h-16 rounded-2xl bg-forest-900/40 border border-forest-700/20 flex items-center justify-center mx-auto mb-5">
+                <div className="w-16 h-16 rounded-2xl bg-forest-900/40 border border-forest-700/20 flex items-center justify-center mb-5">
                   <Icon size={30} className="text-forest-400" />
                 </div>
                 <h3 className="font-heading font-bold text-xl text-white mb-3">

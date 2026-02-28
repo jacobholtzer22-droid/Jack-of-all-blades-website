@@ -30,6 +30,28 @@
   .gold-gradient-text {
     @apply bg-gradient-to-r from-gold-400 to-gold-500 bg-clip-text text-transparent;
   }
+
+  .section-heading-accent {
+    @apply relative;
+  }
+
+  .section-heading-accent::before {
+    content: "";
+    @apply absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-0.5 rounded-full bg-forest-500/80;
+  }
+
+  .section-heading-accent-left::before {
+    left: 0;
+    transform: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer utilities {
@@ -106,7 +128,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #111111;
+  background: #0f1a0e;
 }
 
 ::-webkit-scrollbar-thumb {

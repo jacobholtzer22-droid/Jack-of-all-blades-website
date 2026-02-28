@@ -97,25 +97,25 @@ export default function Hero() {
 
         <div className="mt-16 flex items-center justify-center gap-8 sm:gap-12 text-white/90">
           <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-heading font-bold text-white" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
+            <div className="text-2xl sm:text-3xl font-heading font-bold text-forest-400" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
               8+
             </div>
             <div className="text-xs sm:text-sm uppercase tracking-wider mt-1 font-semibold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
               Years Experience
             </div>
           </div>
-          <div className="w-px h-10 bg-white/20" />
+          <div className="w-px h-10 bg-forest-500/40" />
           <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-heading font-bold text-white" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
+            <div className="text-2xl sm:text-3xl font-heading font-bold text-forest-400" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
               6
             </div>
             <div className="text-xs sm:text-sm uppercase tracking-wider mt-1 font-semibold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
               Core Services
             </div>
           </div>
-          <div className="w-px h-10 bg-white/20" />
+          <div className="w-px h-10 bg-forest-500/40" />
           <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-heading font-bold text-white" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
+            <div className="text-2xl sm:text-3xl font-heading font-bold text-forest-400" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
               100%
             </div>
             <div className="text-xs sm:text-sm uppercase tracking-wider mt-1 font-semibold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>

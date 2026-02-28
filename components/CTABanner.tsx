@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CTABanner() {
   const ref = useRef<HTMLElement>(null);
@@ -27,9 +28,17 @@ export default function CTABanner() {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-20 sm:py-28 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-forest-900/30 via-dark-950 to-dark-950" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-forest-800/10 via-transparent to-transparent" />
+    <section ref={ref} className="relative py-20 sm:py-28 overflow-hidden min-h-[320px] sm:min-h-[360px] flex items-center">
+      <Image
+        src="/images/IMG_6081.jpg"
+        alt=""
+        fill
+        className="object-cover"
+        sizes="100vw"
+        priority={false}
+      />
+      <div className="absolute inset-0 bg-earthy-950/85" />
+      <div className="absolute inset-0 bg-gradient-to-br from-earthy-900/70 via-earthy-950/80 to-earthy-950/90" />
 
       <div className="relative z-10 max-w-3xl mx-auto text-center section-padding">
         <h2 className="reveal opacity-0 font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-6 tracking-tight">

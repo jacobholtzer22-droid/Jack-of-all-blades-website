@@ -205,8 +205,8 @@ export default function PortfolioGrid() {
   }, [activeCategory]);
 
   return (
-    <section className="relative pb-24 sm:pb-32">
-      <div className="absolute inset-0 bg-dark-950" />
+    <section className="relative pb-24 sm:pb-32 border-t border-forest-900/30">
+      <div className="absolute inset-0 bg-earthy-800" />
 
       <div className="relative z-10 max-w-7xl mx-auto section-padding">
         <div className="flex flex-wrap items-center justify-center gap-3 mb-12">

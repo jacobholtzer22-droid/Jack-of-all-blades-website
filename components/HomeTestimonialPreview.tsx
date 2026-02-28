@@ -60,16 +60,16 @@ export default function HomeTestimonialPreview() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 sm:py-32 overflow-hidden texture-overlay"
+      className="relative py-24 sm:py-32 overflow-hidden texture-overlay border-t border-forest-900/30"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-950 via-dark-900 to-dark-950" />
+      <div className="absolute inset-0 bg-gradient-to-br from-earthy-950 to-earthy-600" />
 
       <div className="relative z-10 max-w-4xl mx-auto section-padding">
         <div className="text-center mb-12">
           <span className="reveal opacity-0 text-forest-400 text-sm font-semibold uppercase tracking-[0.2em] mb-4 block">
             Testimonials
           </span>
-          <h2 className="reveal opacity-0 font-heading font-bold text-4xl sm:text-5xl text-white mb-6 tracking-tight">
+          <h2 className="reveal opacity-0 section-heading-accent font-heading font-bold text-4xl sm:text-5xl text-white mb-6 tracking-tight pt-2">
             What Our Clients Say
           </h2>
         </div>

@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
 
 const Services = dynamic(() => import("@/components/Services"));
+const HomePhotoStrip = dynamic(() => import("@/components/HomePhotoStrip"));
 const HomeAboutPreview = dynamic(() => import("@/components/HomeAboutPreview"));
 const HomeTestimonialPreview = dynamic(
   () => import("@/components/HomeTestimonialPreview")
@@ -79,6 +80,7 @@ export default function Home() {
       />
       <Hero />
       <Services />
+      <HomePhotoStrip />
       <HomeAboutPreview />
       <HomeTestimonialPreview />
       <CTABanner />

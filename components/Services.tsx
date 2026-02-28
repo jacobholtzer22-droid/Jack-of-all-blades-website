@@ -93,16 +93,16 @@ export default function Services() {
     <section
       id="services"
       ref={sectionRef}
-      className="relative py-24 sm:py-32 texture-overlay"
+      className="relative py-24 sm:py-32 texture-overlay border-t border-forest-900/30"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-950 via-dark-900 to-dark-950" />
+      <div className="absolute inset-0 bg-earthy-900" />
 
       <div className="relative z-10 max-w-7xl mx-auto section-padding">
         <div className="text-center mb-16 sm:mb-20">
           <span className="text-forest-400 text-sm font-semibold uppercase tracking-[0.2em] mb-4 block">
             What We Do
           </span>
-          <h2 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6 tracking-tight">
+          <h2 className="section-heading-accent font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6 tracking-tight pt-2">
             Our Services
           </h2>
           <p className="text-dark-200 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">

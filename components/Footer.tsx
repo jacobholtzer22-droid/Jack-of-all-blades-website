@@ -4,8 +4,8 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-dark-700/30">
-      <div className="absolute inset-0 bg-dark-950" />
+    <footer className="relative border-t-2 border-forest-700/50">
+      <div className="absolute inset-0 bg-earthy-950" />
 
       <div className="relative z-10 max-w-7xl mx-auto section-padding py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-12">
@@ -132,7 +132,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-dark-700/30 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-forest-800/30 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-dark-400 text-sm">
             &copy; 2026 Jack of All Blades Landscaping. All rights reserved.
           </p>

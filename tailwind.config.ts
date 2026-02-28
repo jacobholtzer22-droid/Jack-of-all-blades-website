@@ -8,6 +8,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        earthy: {
+          950: "#0f1a0e",
+          900: "#111a10",
+          800: "#162013",
+          700: "#1a2618",
+          600: "#1a2e15",
+          accent: "#4a9e3f",
+        },
         forest: {
           50: "#f0f7ef",
           100: "#d9ebd6",
@@ -43,7 +51,7 @@ const config: Config = {
           700: "#222222",
           800: "#1a1a1a",
           900: "#111111",
-          950: "#0a0a0a",
+          950: "#0f1a0e",
         },
       },
       fontFamily: {

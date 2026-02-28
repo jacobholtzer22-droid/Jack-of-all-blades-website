@@ -27,8 +27,8 @@ export default function TestimonialsList() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative pb-24 sm:pb-32 overflow-hidden">
-      <div className="absolute inset-0 bg-dark-950" />
+    <section ref={sectionRef} className="relative pb-24 sm:pb-32 overflow-hidden border-t border-forest-900/30">
+      <div className="absolute inset-0 bg-earthy-900" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-forest-950/10 via-transparent to-transparent" />
 
       <div className="relative z-10 max-w-6xl mx-auto section-padding">
