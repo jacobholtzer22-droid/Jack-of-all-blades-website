@@ -17,7 +17,7 @@ export default function PageHeader({
     <section className="relative pt-36 pb-20 sm:pt-44 sm:pb-28 overflow-hidden animate-fade-in">
       {backgroundImage && (
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-top bg-no-repeat"
           style={{ backgroundImage: `url(${backgroundImage})` }}
         />
       )}

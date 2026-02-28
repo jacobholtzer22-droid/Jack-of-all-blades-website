@@ -7,14 +7,14 @@ import { ArrowRight } from "lucide-react";
 import { BLUR_DATA_URL } from "@/lib/constants";
 
 const galleryImages = [
-  { src: "/images/IMG_5541.jpg", alt: "Landscaping project by Jack of All Blades" },
-  { src: "/images/IMG_6081.jpg", alt: "Professional lawn care Grand Rapids MI" },
-  { src: "/images/IMG_6094.jpg", alt: "Residential landscaping Grand Rapids" },
-  { src: "/images/IMG_6706.jpg", alt: "Brick patio and landscape design" },
-  { src: "/images/IMG_4429.jpg", alt: "Paver walkway installation" },
-  { src: "/images/IMG_5733.jpg", alt: "Residential lawn mowing service" },
-  { src: "/images/IMG_6448.jpg", alt: "Retaining wall and patio construction" },
-  { src: "/images/IMG_6756.jpg", alt: "Custom paver patio installation" },
+  { src: "/images/walkway-front-house.jpg", alt: "Paver walkway installation by Jack of All Blades" },
+  { src: "/images/paver-patio-seating.jpg", alt: "Custom paver patio with seating area Grand Rapids MI" },
+  { src: "/images/mike-paver-patio.jpg", alt: "Professional patio installation Grand Rapids" },
+  { src: "/images/happy-customer-patio.jpg", alt: "Completed patio project Grand Rapids Michigan" },
+  { src: "/images/sod-laying-team.jpg", alt: "Sod installation and lawn setup" },
+  { src: "/images/tree-trimming-chainsaw.jpg", alt: "Tree trimming and pruning service" },
+  { src: "/images/snow-removal-truck.jpg", alt: "Snow removal and plowing Grand Rapids MI" },
+  { src: "/images/customer-handshake-patio.jpg", alt: "Customer satisfaction with landscaping project" },
 ];
 
 export default function HomePhotoStrip() {
