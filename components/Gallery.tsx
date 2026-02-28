@@ -9,7 +9,7 @@ const galleryItems = [
     id: 1,
     label: "Paver Patio",
     alt: "Custom paver patio installation Grand Rapids Michigan",
-    image: "/images/IMG_6756.jpg",
+    image: "/images/IMG_6448.jpg",
     span: "md:col-span-2 md:row-span-2",
   },
   {
@@ -44,7 +44,7 @@ const galleryItems = [
     id: 6,
     label: "Paver Walkway",
     alt: "Paver walkway installation at residential property Grand Rapids MI",
-    image: "/images/walkway-front-house.jpg",
+    image: "/images/IMG_6706.jpg",
     span: "md:col-span-2",
   },
   {

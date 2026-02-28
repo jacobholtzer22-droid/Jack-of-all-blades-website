@@ -26,7 +26,7 @@ const galleryItems = [
     label: "Patio Installation",
     alt: "Custom paver patio installation by Jack of All Blades Grand Rapids MI",
     category: "Hardscaping",
-    image: "/images/IMG_6756.jpg",
+    image: "/images/IMG_6448.jpg",
     span: "",
   },
   {
@@ -58,7 +58,7 @@ const galleryItems = [
     label: "Walkway Installation",
     alt: "Paver walkway installation at residential home Grand Rapids MI",
     category: "Hardscaping",
-    image: "/images/walkway-front-house.jpg",
+    image: "/images/IMG_6706.jpg",
     span: "md:col-span-2",
   },
   {
@@ -98,7 +98,7 @@ const galleryItems = [
     label: "Paver Patio Installation",
     alt: "Professional paver patio installation Grand Rapids Michigan",
     category: "Hardscaping",
-    image: "/images/mike-paver-patio.jpg",
+    image: "/images/paver-patio-seating.jpg",
     span: "",
   },
   {
@@ -138,7 +138,7 @@ const galleryItems = [
     label: "Paver Walkway & Patio",
     alt: "Paver walkway and patio hardscape project Grand Rapids MI",
     category: "Hardscaping",
-    image: "/images/mike-paver-patio.jpg",
+    image: "/images/IMG_6706.jpg",
     span: "",
   },
   {
@@ -146,7 +146,7 @@ const galleryItems = [
     label: "Backyard Patio",
     alt: "Backyard patio installation and hardscaping Grand Rapids Michigan",
     category: "Hardscaping",
-    image: "/images/happy-customer-patio.jpg",
+    image: "/images/paver-patio-seating.jpg",
     span: "",
   },
   {

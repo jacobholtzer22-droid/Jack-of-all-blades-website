@@ -14,7 +14,7 @@ export default function PageHeader({
   backgroundImage,
 }: PageHeaderProps) {
   return (
-    <section className="relative pt-36 pb-20 sm:pt-44 sm:pb-28 overflow-hidden animate-fade-in">
+    <section className="relative pt-36 pb-20 sm:pt-44 sm:pb-28 overflow-hidden animate-fade-in min-h-[320px] sm:min-h-[360px]">
       {backgroundImage && (
         <div
           className="absolute inset-0 bg-cover bg-top bg-no-repeat"
