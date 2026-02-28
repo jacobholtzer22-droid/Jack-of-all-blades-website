@@ -29,7 +29,7 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/IMG_6448.webp",
     span: "",
-    imageRotate: 45,
+    imageRotate: -45,
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/IMG_6756.webp",
     span: "",
-    imageRotate: 45,
+    imageRotate: -45,
   },
   {
     id: 5,
@@ -63,7 +63,7 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/walkway-front-house.webp",
     span: "md:col-span-2",
-    imageRotate: 45,
+    imageRotate: -45,
   },
   {
     id: 7,
@@ -96,7 +96,7 @@ const galleryItems = [
     category: "Landscaping",
     image: "/images/paver-patio-seating.webp",
     span: "md:col-span-2",
-    imageRotate: 45,
+    imageRotate: -45,
   },
   {
     id: 11,
@@ -105,7 +105,7 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/mike-paver-patio.webp",
     span: "",
-    imageRotate: 45,
+    imageRotate: -45,
   },
   {
     id: 12,
@@ -149,7 +149,7 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/happy-customer-patio.webp",
     span: "",
-    imageRotate: 45,
+    imageRotate: -45,
   },
   {
     id: 18,
@@ -244,7 +244,7 @@ export default function PortfolioGrid() {
                 src={item.image}
                 alt={item.alt}
                 fill
-                className={`object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image] ${(item as { imageRotate?: number }).imageRotate === 90 ? "rotate-90" : (item as { imageRotate?: number }).imageRotate === -90 ? "-rotate-90" : (item as { imageRotate?: number }).imageRotate === 45 ? "rotate-45" : ""}`}
+                className={`object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image] ${(item as { imageRotate?: number }).imageRotate === 90 ? "rotate-90" : (item as { imageRotate?: number }).imageRotate === -90 ? "-rotate-90" : (item as { imageRotate?: number }).imageRotate === 45 ? "rotate-45" : (item as { imageRotate?: number }).imageRotate === -45 ? "-rotate-45" : ""}`}
                 sizes={
                   item.span.includes("col-span-2")
                     ? "(max-width: 768px) 100vw, 50vw"
