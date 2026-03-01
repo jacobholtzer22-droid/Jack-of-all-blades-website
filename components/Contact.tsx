@@ -8,6 +8,7 @@ import {
   Send,
   CheckCircle,
 } from "lucide-react";
+import SmsConsent from "./SmsConsent";
 
 const serviceOptions = [
   "Lawn Care",
@@ -22,6 +23,7 @@ const serviceOptions = [
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [smsConsent, setSmsConsent] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -44,9 +46,13 @@ export default function Contact() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (!smsConsent) return;
     // For now, just show success state. Wire up to a form service later.
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setTimeout(() => {
+      setSubmitted(false);
+      setSmsConsent(false);
+    }, 5000);
   };
 
   return (
@@ -247,9 +253,15 @@ export default function Contact() {
                 />
               </div>
 
+              <SmsConsent
+                id="contact-home-sms-consent"
+                checked={smsConsent}
+                onChange={setSmsConsent}
+              />
+
               <button
                 type="submit"
-                disabled={submitted}
+                disabled={submitted || !smsConsent}
                 className="w-full flex items-center justify-center gap-3 bg-forest-600 hover:bg-forest-500 disabled:bg-forest-700 text-white py-4 rounded-xl font-heading font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-forest-600/25 disabled:cursor-not-allowed"
               >
                 {submitted ? (

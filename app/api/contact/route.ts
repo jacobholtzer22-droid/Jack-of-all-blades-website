@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const { name, phone, email, service, message, website } = body;
+    const { name, phone, email, service, message, website, smsConsent } = body;
 
     // Honeypot — bots fill the hidden "website" field
     if (website) {
@@ -45,6 +45,7 @@ export async function POST(request: Request) {
     // Validate required fields
     const errors: Record<string, string> = {};
     if (!name?.trim()) errors.name = "Full name is required.";
+    if (!smsConsent) errors.smsConsent = "You must consent to receive SMS messages to continue.";
     if (!phone?.trim()) errors.phone = "Phone number is required.";
     if (!service?.trim()) errors.service = "Please select a service.";
     if (!message?.trim()) errors.message = "Message is required.";

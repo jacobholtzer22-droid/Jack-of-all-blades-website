@@ -11,6 +11,7 @@ import {
   Loader2,
   AlertCircle,
 } from "lucide-react";
+import SmsConsent from "./SmsConsent";
 
 const serviceOptions = [
   "Lawn Care",
@@ -28,6 +29,7 @@ type FormErrors = {
   email?: string;
   service?: string;
   message?: string;
+  smsConsent?: string;
 };
 
 export default function ContactContent() {
@@ -45,6 +47,7 @@ export default function ContactContent() {
     service: "",
     message: "",
     website: "", // honeypot
+    smsConsent: false,
   });
 
   useEffect(() => {
@@ -82,6 +85,7 @@ export default function ContactContent() {
     }
     if (!fields.service) errs.service = "Please select a service.";
     if (!fields.message.trim()) errs.message = "Message is required.";
+    if (!fields.smsConsent) errs.smsConsent = "You must consent to receive SMS messages to continue.";
     return errs;
   }
 
@@ -125,7 +129,7 @@ export default function ContactContent() {
 
     const validationErrors = validate();
     setErrors(validationErrors);
-    setTouched({ name: true, phone: true, service: true, message: true });
+    setTouched({ name: true, phone: true, service: true, message: true, smsConsent: true });
 
     if (Object.keys(validationErrors).length > 0) return;
 
@@ -159,6 +163,7 @@ export default function ContactContent() {
         service: "",
         message: "",
         website: "",
+        smsConsent: false,
       });
       setTouched({});
     } catch {
@@ -385,6 +390,25 @@ export default function ContactContent() {
                     </p>
                   )}
                 </div>
+
+                <SmsConsent
+                  id="contact-sms-consent"
+                  checked={form.smsConsent}
+                  onChange={(checked) => {
+                    const updated = { ...form, smsConsent: checked };
+                    setForm(updated);
+                    if (touched.smsConsent) {
+                      const fieldErrors = validate(updated);
+                      setErrors((prev) => ({
+                        ...prev,
+                        smsConsent: fieldErrors.smsConsent,
+                      }));
+                    }
+                  }}
+                  onBlur={() => setTouched((prev) => ({ ...prev, smsConsent: true }))}
+                  error={errors.smsConsent}
+                  touched={touched.smsConsent}
+                />
 
                 <button
                   type="submit"
