@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Phone, ArrowRight } from "lucide-react";
+import { Phone, ArrowRight, Calendar } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -60,9 +60,10 @@ export default function CTABanner() {
           </a>
           <Link
             href="/contact"
-            className="w-full sm:w-auto group flex items-center justify-center gap-3 bg-white text-black hover:bg-gray-100 px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:shadow-xl"
+            className="w-full sm:w-auto group flex items-center justify-center gap-3 bg-forest-600 hover:bg-forest-500 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 hover:shadow-xl hover:shadow-forest-600/30 hover:-translate-y-0.5"
           >
-            Request Estimate Online
+            <Calendar size={20} />
+            Schedule a Free Quote
             <ArrowRight
               size={18}
               className="group-hover:translate-x-1 transition-transform"

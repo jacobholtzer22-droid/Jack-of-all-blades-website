@@ -7,7 +7,9 @@ import {
   MapPin,
   Send,
   CheckCircle,
+  Calendar,
 } from "lucide-react";
+import Link from "next/link";
 import SmsConsent from "./SmsConsent";
 
 const serviceOptions = [
@@ -73,10 +75,17 @@ export default function Contact() {
             Ready to Transform{" "}
             <span className="text-forest-400">Your Property?</span>
           </h2>
-          <p className="reveal opacity-0 text-dark-200 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="reveal opacity-0 text-dark-200 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
             Get a free estimate today. We serve Grand Rapids, MI and all
             surrounding areas.
           </p>
+          <Link
+            href="/contact"
+            className="reveal opacity-0 inline-flex items-center gap-2 bg-forest-600 hover:bg-forest-500 text-white px-6 py-3 rounded-xl font-heading font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-forest-600/25"
+          >
+            <Calendar size={18} />
+            Schedule a Free Quote
+          </Link>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
