@@ -7,14 +7,14 @@ const ContactContent = dynamic(() => import("@/components/ContactContent"));
 export const metadata: Metadata = {
   title: "Contact Us | Free Landscaping Estimate East Grand Rapids MI",
   description:
-    "Request a free landscaping estimate in East Grand Rapids, Grand Rapids, and surrounding Michigan communities. Call 616-250-8044 or fill out our form.",
+    "Book a free landscaping estimate in East Grand Rapids, Grand Rapids, and surrounding Michigan communities. Schedule online with our booking tool.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
     title: "Contact Us | Free Landscaping Estimate East Grand Rapids MI",
     description:
-      "Request a free landscaping estimate in East Grand Rapids, Grand Rapids, and surrounding Michigan communities. Call 616-250-8044 or fill out our form.",
+      "Book a free landscaping estimate in East Grand Rapids, Grand Rapids, and surrounding Michigan communities. Schedule online with our booking tool.",
     url: "https://jackofallbladeslandscaping.com/contact",
     siteName: "Jack of All Blades Landscaping",
     images: [
