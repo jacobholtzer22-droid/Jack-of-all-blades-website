@@ -210,7 +210,6 @@ export default function ContactContent() {
               className="block w-full min-h-[700px]"
               loading="eager"
               allow="*"
-              sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
             />
           </div>
         </div>
