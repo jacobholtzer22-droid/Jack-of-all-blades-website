@@ -10,8 +10,6 @@ import {
   Clock,
   Loader2,
   AlertCircle,
-  Calendar,
-  ExternalLink,
 } from "lucide-react";
 import SmsConsent from "./SmsConsent";
 
@@ -56,10 +54,6 @@ export default function ContactContent() {
     website: "", // honeypot
     smsConsent: false,
   });
-
-  useEffect(() => {
-    console.log("Booking iframe src:", BOOKING_IFRAME_SRC);
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -204,32 +198,31 @@ export default function ContactContent() {
             Schedule a Free In-Person Quote
           </h2>
 
-          {/* Mobile: direct link button (iframe doesn't work well on mobile) */}
+          {/* iframe for all screen sizes — same on mobile and desktop */}
+          <div
+            className="booking-embed-container w-full min-w-0 overflow-auto rounded-2xl border border-dark-600/20 bg-dark-800/30"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
+            <iframe
+              src={BOOKING_IFRAME_SRC}
+              width="100%"
+              height={800}
+              frameBorder={0}
+              style={{ width: "100%", minHeight: 800, border: "none" }}
+              title="Schedule a Free In-Person Quote"
+              loading="eager"
+              scrolling="yes"
+              allow="geolocation; microphone; camera; payment"
+            />
+          </div>
           <a
             href={BOOKING_LINK_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="block md:hidden w-full flex items-center justify-center gap-3 bg-forest-600 hover:bg-forest-500 text-white px-8 py-5 rounded-2xl text-xl font-heading font-bold transition-all duration-300 hover:shadow-xl hover:shadow-forest-600/30 hover:-translate-y-0.5 border-2 border-forest-500/50"
+            className="md:hidden mt-3 block text-center text-dark-400 hover:text-forest-400 text-sm transition-colors"
           >
-            <Calendar size={26} aria-hidden />
-            Book a Free Quote
-            <ExternalLink size={22} aria-hidden />
+            Having trouble? Tap here to book directly
           </a>
-
-          {/* Desktop: iframe embed */}
-          <div className="hidden md:block booking-embed-container w-full min-w-0 overflow-x-auto rounded-2xl border border-dark-600/20 bg-dark-800/30">
-            <iframe
-              src={BOOKING_IFRAME_SRC}
-              width="100%"
-              height={700}
-              frameBorder={0}
-              style={{ width: "100%", minHeight: 700 }}
-              title="Schedule a Free In-Person Quote"
-              className="block w-full min-h-[700px]"
-              loading="eager"
-              allow="*"
-            />
-          </div>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
