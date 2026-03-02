@@ -10,11 +10,15 @@ import {
   Clock,
   Loader2,
   AlertCircle,
+  Calendar,
+  ExternalLink,
 } from "lucide-react";
 import SmsConsent from "./SmsConsent";
 
 const BOOKING_IFRAME_SRC =
   "https://alignandacquire.com/book/jack-of-all-blades-landscaping-1772384571153/embed";
+const BOOKING_LINK_URL =
+  "https://alignandacquire.com/book/jack-of-all-blades-landscaping-1772384571153";
 
 const serviceOptions = [
   "Lawn Care",
@@ -194,12 +198,26 @@ export default function ContactContent() {
       <div className="absolute inset-0 bg-earthy-900" />
 
       <div className="relative z-10 max-w-7xl mx-auto section-padding">
-        {/* Booking Widget - Schedule a Free In-Person Quote - visible on all screen sizes */}
+        {/* Booking Widget - Schedule a Free In-Person Quote */}
         <div className="w-full max-w-4xl min-w-0 mx-auto mb-16 sm:mb-20">
           <h2 className="font-heading font-bold text-2xl sm:text-3xl text-white mb-6 text-center">
             Schedule a Free In-Person Quote
           </h2>
-          <div className="booking-embed-container w-full min-w-0 overflow-x-auto rounded-2xl border border-dark-600/20 bg-dark-800/30">
+
+          {/* Mobile: direct link button (iframe doesn't work well on mobile) */}
+          <a
+            href={BOOKING_LINK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block md:hidden w-full flex items-center justify-center gap-3 bg-forest-600 hover:bg-forest-500 text-white px-8 py-5 rounded-2xl text-xl font-heading font-bold transition-all duration-300 hover:shadow-xl hover:shadow-forest-600/30 hover:-translate-y-0.5 border-2 border-forest-500/50"
+          >
+            <Calendar size={26} aria-hidden />
+            Book a Free Quote
+            <ExternalLink size={22} aria-hidden />
+          </a>
+
+          {/* Desktop: iframe embed */}
+          <div className="hidden md:block booking-embed-container w-full min-w-0 overflow-x-auto rounded-2xl border border-dark-600/20 bg-dark-800/30">
             <iframe
               src={BOOKING_IFRAME_SRC}
               width="100%"
