@@ -123,6 +123,21 @@
   z-index: 1;
 }
 
+/* Booking embed - responsive height, visible on all screen sizes */
+.booking-embed-container iframe {
+  min-height: 500px;
+}
+@media (min-width: 640px) {
+  .booking-embed-container iframe {
+    min-height: 650px;
+  }
+}
+@media (min-width: 1024px) {
+  .booking-embed-container iframe {
+    min-height: 700px;
+  }
+}
+
 /* Safe area padding for devices with home indicators */
 .safe-area-bottom {
   padding-bottom: max(0.875rem, env(safe-area-inset-bottom));

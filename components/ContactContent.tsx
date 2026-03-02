@@ -187,17 +187,17 @@ export default function ContactContent() {
       <div className="absolute inset-0 bg-earthy-900" />
 
       <div className="relative z-10 max-w-7xl mx-auto section-padding">
-        {/* Booking Widget - Schedule a Free In-Person Quote */}
-        <div className="w-full max-w-4xl mx-auto mb-16 sm:mb-20">
+        {/* Booking Widget - Schedule a Free In-Person Quote - visible on all screen sizes */}
+        <div className="w-full max-w-4xl min-w-0 mx-auto mb-16 sm:mb-20">
           <h2 className="font-heading font-bold text-2xl sm:text-3xl text-white mb-6 text-center">
             Schedule a Free In-Person Quote
           </h2>
-          <div className="w-full overflow-hidden rounded-2xl border border-dark-600/20 bg-dark-800/30">
+          <div className="booking-embed-container w-full min-w-0 overflow-x-auto rounded-2xl border border-dark-600/20 bg-dark-800/30">
             <iframe
               src="https://alignandacquire.com/book/jack-of-all-blades-landscaping-1772384571153/embed"
               width="100%"
               frameBorder={0}
-              style={{ minHeight: "700px", border: "none" }}
+              style={{ border: "none" }}
               title="Schedule a Free In-Person Quote"
               className="block w-full"
             />
