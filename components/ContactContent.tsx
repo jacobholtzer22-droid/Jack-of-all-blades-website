@@ -196,10 +196,12 @@ export default function ContactContent() {
             <iframe
               src="https://alignandacquire.com/book/jack-of-all-blades-landscaping-1772384571153/embed"
               width="100%"
+              height={600}
               frameBorder={0}
-              style={{ border: "none" }}
+              style={{ border: "3px solid red" }}
               title="Schedule a Free In-Person Quote"
-              className="block w-full"
+              className="block w-full min-h-[600px]"
+              loading="eager"
             />
           </div>
         </div>

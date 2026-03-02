@@ -124,8 +124,9 @@
 }
 
 /* Booking embed - responsive height, visible on all screen sizes */
+/* Explicit min-height on iframe (not just container) for mobile visibility */
 .booking-embed-container iframe {
-  min-height: 500px;
+  min-height: 600px;
 }
 @media (min-width: 640px) {
   .booking-embed-container iframe {
