@@ -198,13 +198,6 @@ export default function ContactContent() {
             Schedule a Free In-Person Quote
           </h2>
 
-          {/* Test iframe: if this loads on mobile but booking iframe is blank, alignandacquire.com is blocking embed; if both blank, iframes are broken on mobile */}
-          <iframe
-            src="https://example.com"
-            style={{ width: "100%", height: "100px", border: "2px solid blue" }}
-            title="Test iframe (example.com)"
-          />
-
           {/* iframe for all screen sizes — same on mobile and desktop */}
           <div
             className="booking-embed-container w-full min-w-0 overflow-auto rounded-2xl border border-dark-600/20 bg-dark-800/30"
