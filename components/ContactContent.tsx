@@ -13,6 +13,9 @@ import {
 } from "lucide-react";
 import SmsConsent from "./SmsConsent";
 
+const BOOKING_IFRAME_SRC =
+  "https://alignandacquire.com/book/jack-of-all-blades-landscaping-1772384571153/embed";
+
 const serviceOptions = [
   "Lawn Care",
   "Landscaping",
@@ -49,6 +52,10 @@ export default function ContactContent() {
     website: "", // honeypot
     smsConsent: false,
   });
+
+  useEffect(() => {
+    console.log("Booking iframe src:", BOOKING_IFRAME_SRC);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -194,14 +201,16 @@ export default function ContactContent() {
           </h2>
           <div className="booking-embed-container w-full min-w-0 overflow-x-auto rounded-2xl border border-dark-600/20 bg-dark-800/30">
             <iframe
-              src="https://alignandacquire.com/book/jack-of-all-blades-landscaping-1772384571153/embed"
+              src={BOOKING_IFRAME_SRC}
               width="100%"
-              height={600}
+              height={700}
               frameBorder={0}
-              style={{ border: "3px solid red" }}
+              style={{ width: "100%", minHeight: 700 }}
               title="Schedule a Free In-Person Quote"
-              className="block w-full min-h-[600px]"
+              className="block w-full min-h-[700px]"
               loading="eager"
+              allow="*"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
             />
           </div>
         </div>
