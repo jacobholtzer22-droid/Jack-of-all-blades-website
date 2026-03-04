@@ -9,6 +9,7 @@
     "lint": "next lint",
     "optimize-images": "node scripts/optimize-images.js",
     "fix-exif-orientation": "node scripts/fix-exif-orientation.js",
+    "rotate-about-images": "node scripts/rotate-about-images.js",
     "generate-favicons": "node scripts/generate-favicons.js",
     "convert-to-webp": "node scripts/convert-to-webp.js"
   },

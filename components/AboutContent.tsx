@@ -159,7 +159,7 @@ export default function AboutContent() {
               src="/images/walkway-front-house.webp"
               alt="Paver walkway installation at residential home Grand Rapids MI"
               fill
-              className="object-cover rotate-90"
+              className="object-cover"
               sizes="(max-width: 640px) 100vw, 33vw"
               quality={75}
               placeholder="blur"
@@ -173,7 +173,7 @@ export default function AboutContent() {
               src="/images/mike-paver-patio.webp"
               alt="Mike Hazzard working on paver patio installation Grand Rapids MI"
               fill
-              className="object-cover object-top rotate-90"
+              className="object-cover"
               sizes="(max-width: 640px) 100vw, 33vw"
               quality={75}
               placeholder="blur"
