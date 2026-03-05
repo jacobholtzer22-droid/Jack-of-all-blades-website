@@ -103,6 +103,7 @@ const galleryItems = [
     image: "/images/mike-paver-patio.webp",
     span: "",
     imageRotate: 90,
+    objectPosition: "top",
   },
   {
     id: 12,

@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 import { BLUR_DATA_URL } from "@/lib/constants";
 
 const galleryImages = [
-  { src: "/images/walkway-front-house.webp", alt: "Paver walkway installation by Jack of All Blades" },
+  { src: "/images/IMG_5733.webp", alt: "Professional landscaping project by Jack of All Blades Grand Rapids MI" },
   { src: "/images/paver-patio-seating.webp", alt: "Custom paver patio with seating area Grand Rapids MI" },
   { src: "/images/IMG_5541.webp", alt: "Professional landscaping project Grand Rapids" },
   { src: "/images/IMG_6756.webp", alt: "Custom paver patio installation Grand Rapids Michigan" },
