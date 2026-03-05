@@ -10,11 +10,54 @@ const categories = [
   "Hardscaping",
   "Lawn Care",
   "Snow Removal",
+  "Videos",
 ];
 
-const galleryItems = [
+type GalleryItem = {
+  id: number;
+  label: string;
+  alt: string;
+  category: string;
+  span: string;
+  imageRotate?: number;
+  objectPosition?: string;
+} & (
+  | { type: "image"; image: string }
+  | { type: "video"; video: string }
+);
+
+const galleryItems: GalleryItem[] = [
+  {
+    id: 21,
+    type: "video",
+    label: "Before and After",
+    alt: "Before and after landscaping transformation",
+    category: "Videos",
+    video: "/videos/Before-and-after.MOV",
+    span: "md:col-span-2",
+  },
+  {
+    id: 22,
+    type: "video",
+    label: "Interview 2",
+    alt: "Jack of All Blades interview",
+    category: "Videos",
+    video: "/videos/Interview-2.MOV",
+    span: "md:col-span-2",
+  },
+  {
+    id: 23,
+    type: "video",
+    label: "Interview",
+    alt: "Jack of All Blades interview",
+    category: "Videos",
+    video: "/videos/Interview.mov",
+    span: "md:col-span-2",
+    objectPosition: "center 35%",
+  },
   {
     id: 1,
+    type: "image",
     label: "Landscaping Project",
     alt: "Professional landscaping project completed in Grand Rapids Michigan",
     category: "Landscaping",
@@ -24,6 +67,7 @@ const galleryItems = [
   },
   {
     id: 2,
+    type: "image",
     label: "Patio Installation",
     alt: "Custom paver patio installation by Jack of All Blades Grand Rapids MI",
     category: "Hardscaping",
@@ -32,6 +76,7 @@ const galleryItems = [
   },
   {
     id: 3,
+    type: "image",
     label: "Lawn Maintenance",
     alt: "Weekly lawn mowing and maintenance service Grand Rapids Michigan",
     category: "Lawn Care",
@@ -40,6 +85,7 @@ const galleryItems = [
   },
   {
     id: 4,
+    type: "image",
     label: "Retaining Wall & Patio",
     alt: "Retaining wall and patio construction Grand Rapids MI",
     category: "Hardscaping",
@@ -48,6 +94,7 @@ const galleryItems = [
   },
   {
     id: 5,
+    type: "image",
     label: "Garden Bed Design",
     alt: "Custom garden bed design and planting Grand Rapids Michigan",
     category: "Landscaping",
@@ -56,6 +103,7 @@ const galleryItems = [
   },
   {
     id: 6,
+    type: "image",
     label: "Walkway Installation",
     alt: "Paver walkway installation at residential home Grand Rapids MI",
     category: "Hardscaping",
@@ -65,6 +113,7 @@ const galleryItems = [
   },
   {
     id: 7,
+    type: "image",
     label: "Fall Cleanup",
     alt: "Fall yard cleanup and leaf removal service Grand Rapids Michigan",
     category: "Lawn Care",
@@ -73,6 +122,7 @@ const galleryItems = [
   },
   {
     id: 8,
+    type: "image",
     label: "Hedge Trimming & Mulch",
     alt: "Hedge trimming and mulch installation Grand Rapids MI",
     category: "Landscaping",
@@ -81,6 +131,7 @@ const galleryItems = [
   },
   {
     id: 9,
+    type: "image",
     label: "Snow Plowing",
     alt: "Snow plowing and removal service Grand Rapids Michigan",
     category: "Snow Removal",
@@ -89,6 +140,7 @@ const galleryItems = [
   },
   {
     id: 10,
+    type: "image",
     label: "Brick Patio & Landscaping",
     alt: "Brick patio and surrounding landscape design Grand Rapids MI",
     category: "Landscaping",
@@ -97,6 +149,7 @@ const galleryItems = [
   },
   {
     id: 11,
+    type: "image",
     label: "Paver Patio Installation",
     alt: "Professional paver patio installation Grand Rapids Michigan",
     category: "Hardscaping",
@@ -107,6 +160,7 @@ const galleryItems = [
   },
   {
     id: 12,
+    type: "image",
     label: "Residential Lawn Care",
     alt: "Residential lawn care and mowing service Grand Rapids MI",
     category: "Lawn Care",
@@ -116,6 +170,7 @@ const galleryItems = [
   },
   {
     id: 13,
+    type: "image",
     label: "Sod Installation",
     alt: "Professional sod installation and new lawn service Grand Rapids Michigan",
     category: "Lawn Care",
@@ -124,6 +179,7 @@ const galleryItems = [
   },
   {
     id: 15,
+    type: "image",
     label: "Commercial Mowing",
     alt: "Commercial property mowing and lawn care Grand Rapids Michigan",
     category: "Lawn Care",
@@ -133,6 +189,7 @@ const galleryItems = [
   },
   {
     id: 16,
+    type: "image",
     label: "Paver Walkway & Patio",
     alt: "Paver walkway and patio hardscape project Grand Rapids MI",
     category: "Hardscaping",
@@ -142,6 +199,7 @@ const galleryItems = [
   },
   {
     id: 17,
+    type: "image",
     label: "Backyard Patio",
     alt: "Backyard patio installation and hardscaping Grand Rapids Michigan",
     category: "Hardscaping",
@@ -151,6 +209,7 @@ const galleryItems = [
   },
   {
     id: 18,
+    type: "image",
     label: "Commercial Property Maintenance",
     alt: "Commercial property landscape maintenance Grand Rapids MI",
     category: "Lawn Care",
@@ -159,6 +218,7 @@ const galleryItems = [
   },
   {
     id: 19,
+    type: "image",
     label: "Residential Mowing",
     alt: "Residential lawn mowing service Grand Rapids Michigan",
     category: "Lawn Care",
@@ -168,6 +228,7 @@ const galleryItems = [
   },
   {
     id: 20,
+    type: "image",
     label: "Tree Removal",
     alt: "Tree removal and stump grinding service Grand Rapids MI",
     category: "Landscaping",
@@ -235,29 +296,41 @@ export default function PortfolioGrid() {
               }}
               className={`group relative rounded-2xl overflow-hidden border border-dark-600/20 hover:border-forest-600/30 transition-all duration-500 opacity-0 ${
                 activeCategory === "All" ? item.span : ""
-              } ${item.span.includes("row-span-2") && activeCategory === "All" ? "min-h-[400px]" : "min-h-[220px]"}`}
+              } ${item.type === "video" ? "min-h-[280px]" : item.span.includes("row-span-2") && activeCategory === "All" ? "min-h-[400px]" : "min-h-[220px]"}`}
               style={{ animationDelay: `${i * 0.06}s` }}
             >
-              <Image
-                src={item.image}
-                alt={item.alt}
-                fill
-                className={`object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image] ${(item as { imageRotate?: number }).imageRotate === 90 ? "rotate-90" : (item as { imageRotate?: number }).imageRotate === -90 ? "-rotate-90" : (item as { imageRotate?: number }).imageRotate === 45 ? "rotate-45" : (item as { imageRotate?: number }).imageRotate === -45 ? "-rotate-45" : (item as { imageRotate?: number }).imageRotate === 15 ? "rotate-[15deg]" : ""} ${(item as { objectPosition?: string }).objectPosition === "top" ? "object-top" : ""}`}
-                sizes={
-                  item.span.includes("col-span-2")
-                    ? "(max-width: 768px) 100vw, 50vw"
-                    : "(max-width: 768px) 100vw, 25vw"
-                }
-                quality={75}
-                placeholder="blur"
-                blurDataURL={BLUR_DATA_URL}
-                loading="lazy"
-                decoding="async"
-              />
+              {item.type === "video" ? (
+                <video
+                  src={item.video}
+                  controls
+                  playsInline
+                  className="absolute inset-0 h-full w-full object-cover"
+                  style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
+                  preload="metadata"
+                  aria-label={item.alt}
+                />
+              ) : (
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  fill
+                  className={`object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image] ${item.imageRotate === 90 ? "rotate-90" : item.imageRotate === -90 ? "-rotate-90" : item.imageRotate === 45 ? "rotate-45" : item.imageRotate === -45 ? "-rotate-45" : item.imageRotate === 15 ? "rotate-[15deg]" : ""} ${item.objectPosition === "top" ? "object-top" : ""}`}
+                  sizes={
+                    item.span.includes("col-span-2")
+                      ? "(max-width: 768px) 100vw, 50vw"
+                      : "(max-width: 768px) 100vw, 25vw"
+                  }
+                  quality={75}
+                  placeholder="blur"
+                  blurDataURL={BLUR_DATA_URL}
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/20 pointer-events-none" />
 
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 pointer-events-none">
                 <p className="text-white text-sm sm:text-base font-heading font-bold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
                   {item.label}
                 </p>

@@ -37,3 +37,7 @@ node_modules
 
 node_modules
 .next
+
+# large videos (over GitHub 100MB limit); upload to server when deploying
+public/videos/Interview.mov
+public/videos/Interview-2.MOV
