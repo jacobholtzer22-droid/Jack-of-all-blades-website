@@ -1,0 +1,38 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
+export default function HomeVideoSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.play().catch(() => {});
+    }
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative aspect-[9/16] sm:aspect-video max-h-[70vh] w-full overflow-hidden border-y border-forest-900/30"
+      aria-hidden
+    >
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        poster="/images/IMG_5510.webp"
+      >
+        <source src="/videos/hero.mp4" type="video/mp4" />
+        <source src="/videos/hero.MOV" type="video/quicktime" />
+      </video>
+      <div className="absolute inset-0 bg-black/30" />
+    </section>
+  );
+}

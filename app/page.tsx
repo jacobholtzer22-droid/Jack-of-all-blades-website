@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 
 const Services = dynamic(() => import("@/components/Services"));
 const HomePhotoStrip = dynamic(() => import("@/components/HomePhotoStrip"));
+const HomeVideoSection = dynamic(() => import("@/components/HomeVideoSection"));
 const HomeAboutPreview = dynamic(() => import("@/components/HomeAboutPreview"));
 const HomeTestimonialPreview = dynamic(
   () => import("@/components/HomeTestimonialPreview")
@@ -108,6 +109,7 @@ export default function Home() {
       <Hero />
       <Services />
       <HomePhotoStrip />
+      <HomeVideoSection />
       <HomeAboutPreview />
       <HomeTestimonialPreview />
       <ServiceAreas />
