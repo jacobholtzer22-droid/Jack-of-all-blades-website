@@ -112,8 +112,8 @@ export default function Home() {
       <HomeAboutPreview />
       <HomeTestimonialPreview />
       <ServiceAreas />
-      <CTABanner />
       <HomeVideoSection />
+      <CTABanner />
     </>
   );
 }
