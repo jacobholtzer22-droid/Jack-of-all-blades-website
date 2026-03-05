@@ -152,10 +152,10 @@ export default function ServiceAreaTemplate({ area }: ServiceAreaTemplateProps) 
         {/* CTA */}
         <div className="reveal opacity-0 relative rounded-2xl overflow-hidden border border-forest-700/30">
           <Image
-            src="/images/IMG_6081.webp"
+            src="/images/IMG_5510.webp"
             alt=""
             fill
-            className="object-cover"
+            className="object-cover object-center [image-orientation:from-image]"
             sizes="100vw"
             quality={75}
             placeholder="blur"
