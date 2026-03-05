@@ -33,7 +33,7 @@ export default function Hero() {
           loop
           muted
           playsInline
-          className="object-cover object-top w-full h-full min-h-screen"
+          className="object-cover object-[center_28%] w-full h-full min-h-screen"
           poster="/images/IMG_5510.webp"
           aria-hidden
         >
