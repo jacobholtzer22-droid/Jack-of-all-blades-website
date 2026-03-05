@@ -50,6 +50,5 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-// Replace PLACE_ID with your actual Google Place ID
 export const GOOGLE_REVIEW_URL =
-  "https://www.google.com/maps/place/?q=place_id:PLACE_ID";
+  "https://g.page/r/Cf9VBnv72_3iEAI/review";
