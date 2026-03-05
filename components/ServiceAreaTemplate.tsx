@@ -9,6 +9,7 @@ import {
   Layers,
   Snowflake,
   Scissors,
+  Shrub,
   TreePine,
   ArrowRight,
   MapPin,
@@ -46,6 +47,12 @@ const SERVICES = [
     title: "Seasonal Cleanup",
     description:
       "Spring and fall cleanups including leaf removal, garden bed clearing, perennial cutbacks, and complete yard detailing for year-round health.",
+  },
+  {
+    icon: Shrub,
+    title: "Hedge and Bush Trimming",
+    description:
+      "Precise shaping, pruning, and trimming for hedges and shrubs. Clean, even cuts that promote growth and enhance curb appeal.",
   },
   {
     icon: TreePine,

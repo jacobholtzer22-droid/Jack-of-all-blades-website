@@ -85,6 +85,7 @@ const jsonLd = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hardscaping" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Snow Removal" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Seasonal Cleanup" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hedge and Bush Trimming" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Tree Trimming and Removal" } },
     ],
   },

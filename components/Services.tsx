@@ -11,6 +11,7 @@ import {
   Snowflake,
   TreePine,
   Scissors,
+  Shrub,
   ArrowRight,
 } from "lucide-react";
 const services = [
@@ -58,6 +59,15 @@ const services = [
       "Prepare your property for every season with our thorough cleanup services. Spring and fall cleanups include leaf removal, garden bed clearing, perennial cutbacks, debris removal, and complete yard detailing to keep your landscape healthy year-round.",
     image: "/images/IMG_7394-preview.webp",
     areas: ["East Grand Rapids", "Kentwood", "Walker", "Cascade"],
+  },
+  {
+    icon: Shrub,
+    title: "Hedge and Bush Trimming",
+    alt: "Professional hedge and bush trimming service East Grand Rapids MI",
+    description:
+      "Keep your hedges and shrubs looking sharp and healthy. We provide precise shaping, pruning, and trimming for foundation plantings, privacy hedges, and ornamental bushes. Clean, even cuts that promote growth and enhance your property's curb appeal.",
+    image: "/images/IMG_5541.webp",
+    areas: ["East Grand Rapids", "Grand Rapids", "Kentwood", "Cascade"],
   },
   {
     icon: TreePine,
