@@ -29,8 +29,7 @@ export default function HomeVideoSection() {
         className="absolute inset-0 w-full h-full object-cover"
         poster="/images/IMG_5510.webp"
       >
-        <source src="/videos/hero.mp4" type="video/mp4" />
-        <source src="/videos/hero.MOV" type="video/quicktime" />
+        <source src="/videos/home-bottom.MOV" type="video/quicktime" />
       </video>
       <div className="absolute inset-0 bg-black/30" />
     </section>
