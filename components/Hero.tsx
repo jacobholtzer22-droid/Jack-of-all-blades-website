@@ -6,10 +6,19 @@ import { Phone, ArrowRight } from "lucide-react";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const el = sectionRef.current;
     if (el) el.classList.add("animate-fade-in");
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.play().catch(() => {});
+    }
   }, []);
 
   return (
@@ -19,6 +28,7 @@ export default function Hero() {
     >
       <div className="absolute inset-0">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
@@ -27,6 +37,7 @@ export default function Hero() {
           poster="/images/IMG_5510.webp"
           aria-hidden
         >
+          <source src="/videos/hero.mp4" type="video/mp4" />
           <source src="/videos/hero.MOV" type="video/quicktime" />
         </video>
       </div>
