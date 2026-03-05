@@ -109,11 +109,11 @@ export default function Home() {
       <Hero />
       <Services />
       <HomePhotoStrip />
-      <HomeVideoSection />
       <HomeAboutPreview />
       <HomeTestimonialPreview />
       <ServiceAreas />
       <CTABanner />
+      <HomeVideoSection />
     </>
   );
 }
