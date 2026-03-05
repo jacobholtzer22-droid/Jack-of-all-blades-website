@@ -144,6 +144,7 @@ const galleryItems = [
     category: "Hardscaping",
     image: "/images/happy-customer-patio.webp",
     span: "",
+    objectPosition: "top",
   },
   {
     id: 18,
@@ -238,7 +239,7 @@ export default function PortfolioGrid() {
                 src={item.image}
                 alt={item.alt}
                 fill
-                className={`object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image] ${(item as { imageRotate?: number }).imageRotate === 90 ? "rotate-90" : (item as { imageRotate?: number }).imageRotate === -90 ? "-rotate-90" : (item as { imageRotate?: number }).imageRotate === 45 ? "rotate-45" : (item as { imageRotate?: number }).imageRotate === -45 ? "-rotate-45" : (item as { imageRotate?: number }).imageRotate === 15 ? "rotate-[15deg]" : ""}`}
+                className={`object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image] ${(item as { imageRotate?: number }).imageRotate === 90 ? "rotate-90" : (item as { imageRotate?: number }).imageRotate === -90 ? "-rotate-90" : (item as { imageRotate?: number }).imageRotate === 45 ? "rotate-45" : (item as { imageRotate?: number }).imageRotate === -45 ? "-rotate-45" : (item as { imageRotate?: number }).imageRotate === 15 ? "rotate-[15deg]" : ""} ${(item as { objectPosition?: string }).objectPosition === "top" ? "object-top" : ""}`}
                 sizes={
                   item.span.includes("col-span-2")
                     ? "(max-width: 768px) 100vw, 50vw"

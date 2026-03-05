@@ -155,32 +155,36 @@ export default function AboutContent() {
             />
           </div>
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-            <Image
-              src="/images/walkway-front-house.webp"
-              alt="Paver walkway installation at residential home Grand Rapids MI"
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 100vw, 33vw"
-              quality={75}
-              placeholder="blur"
-              blurDataURL={BLUR_DATA_URL}
-              loading="lazy"
-              decoding="async"
-            />
+            <div className="absolute inset-0 flex items-center justify-center [&>span]:!h-[133%] [&>span]:!w-[133%] [&>span]:-rotate-90">
+              <Image
+                src="/images/walkway-front-house.webp"
+                alt="Paver walkway installation at residential home Grand Rapids MI"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 33vw"
+                quality={75}
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           </div>
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-            <Image
-              src="/images/mike-paver-patio.webp"
-              alt="Mike Hazzard working on paver patio installation Grand Rapids MI"
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 100vw, 33vw"
-              quality={75}
-              placeholder="blur"
-              blurDataURL={BLUR_DATA_URL}
-              loading="lazy"
-              decoding="async"
-            />
+            <div className="absolute inset-0 flex items-center justify-center [&>span]:!h-[133%] [&>span]:!w-[133%] [&>span]:-rotate-90">
+              <Image
+                src="/images/mike-paver-patio.webp"
+                alt="Mike Hazzard working on paver patio installation Grand Rapids MI"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 33vw"
+                quality={75}
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           </div>
         </div>
 
