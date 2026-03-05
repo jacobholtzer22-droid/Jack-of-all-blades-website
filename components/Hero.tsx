@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Phone, ArrowRight } from "lucide-react";
 
 export default function Hero() {
@@ -19,17 +18,17 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0">
-        <Image
-          src="/images/IMG_5510.webp"
-          alt="Beautifully maintained lawn by Jack of All Blades"
-          width={1600}
-          height={1200}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="object-cover w-full h-full min-h-screen"
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          quality={85}
-        />
+          poster="/images/IMG_5510.webp"
+          aria-hidden
+        >
+          <source src="/videos/hero.MOV" type="video/quicktime" />
+        </video>
       </div>
       <div className="absolute inset-0 bg-black/60 md:bg-black/50" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
