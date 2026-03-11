@@ -13,6 +13,7 @@ import {
   Scissors,
   Shrub,
   ArrowRight,
+  CloudRain,
 } from "lucide-react";
 const services = [
   {
@@ -59,6 +60,15 @@ const services = [
       "Prepare your property for every season with our thorough cleanup services. Spring and fall cleanups include leaf removal, garden bed clearing, perennial cutbacks, debris removal, and complete yard detailing to keep your landscape healthy year-round.",
     image: "/images/IMG_7394-preview.webp",
     areas: ["East Grand Rapids", "Kentwood", "Walker", "Cascade"],
+  },
+  {
+    icon: CloudRain,
+    title: "Storm Clean Up",
+    alt: "Storm damage and debris cleanup service East Grand Rapids Michigan",
+    description:
+      "After severe weather, we're here to help restore your property. Our storm clean up services include branch and debris removal, downed limb cleanup, and yard restoration so you can get back to normal quickly and safely.",
+    image: "/images/IMG_4267.webp",
+    areas: ["East Grand Rapids", "Grand Rapids", "Kentwood", "Cascade"],
   },
   {
     icon: Shrub,

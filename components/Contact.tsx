@@ -18,6 +18,7 @@ const serviceOptions = [
   "Hardscape",
   "Snow Removal",
   "Seasonal Cleanup",
+  "Storm Clean Up",
   "Hedge and Bush Trimming",
   "Tree Trimming / Removal",
   "Other",

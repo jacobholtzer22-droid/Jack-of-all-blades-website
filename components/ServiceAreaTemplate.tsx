@@ -13,6 +13,7 @@ import {
   TreePine,
   ArrowRight,
   MapPin,
+  CloudRain,
 } from "lucide-react";
 import type { ServiceArea } from "@/data/serviceAreas";
 import { BLUR_DATA_URL } from "@/lib/constants";
@@ -47,6 +48,12 @@ const SERVICES = [
     title: "Seasonal Cleanup",
     description:
       "Spring and fall cleanups including leaf removal, garden bed clearing, perennial cutbacks, and complete yard detailing for year-round health.",
+  },
+  {
+    icon: CloudRain,
+    title: "Storm Clean Up",
+    description:
+      "Branch and debris removal, downed limb cleanup, and yard restoration after severe weather. We help you get back to normal quickly and safely.",
   },
   {
     icon: Shrub,
