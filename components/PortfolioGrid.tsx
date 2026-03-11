@@ -53,11 +53,11 @@ function PortfolioVideo({
     <div className={`relative w-full h-full min-h-0 ${className ?? ""}`} style={style}>
       <video
         ref={videoRef}
-        {...(item.sources ? {} : { src: item.video })}
+        src={item.video}
         playsInline
         className="absolute inset-0 w-full h-full object-cover bg-black"
         style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
-        preload="metadata"
+        preload="auto"
         aria-label={item.alt}
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
@@ -202,12 +202,7 @@ const galleryItems: GalleryItem[] = [
     label: "Interview",
     alt: "Jack of All Blades interview",
     category: "Videos",
-    video: "/videos/Interview.mov",
-    sources: [
-      { src: "/videos/Interview.mp4", type: "video/mp4" },
-      { src: "/videos/Interview.mov", type: "video/quicktime" },
-      { src: "/videos/Interview.MOV", type: "video/quicktime" },
-    ],
+    video: "/videos/Interview.mp4",
     span: "md:col-span-2",
     objectPosition: "center 35%",
   },
