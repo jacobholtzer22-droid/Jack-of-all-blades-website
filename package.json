@@ -12,7 +12,8 @@
     "rotate-about-images": "node scripts/rotate-about-images.js",
     "generate-favicons": "node scripts/generate-favicons.js",
     "convert-to-webp": "node scripts/convert-to-webp.js",
-    "convert-hero-video": "node scripts/convert-hero-video.js"
+    "convert-hero-video": "node scripts/convert-hero-video.js",
+    "convert-interview-video": "node scripts/convert-interview-video.js"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",

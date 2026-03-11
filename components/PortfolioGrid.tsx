@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { Play, Pause } from "lucide-react";
 import { BLUR_DATA_URL } from "@/lib/constants";
 
 const categories = [
@@ -23,8 +24,76 @@ type GalleryItem = {
   objectPosition?: string;
 } & (
   | { type: "image"; image: string }
-  | { type: "video"; video: string }
+  | { type: "video"; video: string; sources?: { src: string; type: string }[] }
 );
+
+function PortfolioVideo({
+  item,
+  className,
+  style,
+}: {
+  item: Extract<GalleryItem, { type: "video" }>;
+  className?: string;
+  style?: React.CSSProperties;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (isPlaying) {
+      video.pause();
+    } else {
+      video.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  return (
+    <div className={`relative ${className ?? ""}`} style={style}>
+      <video
+        ref={videoRef}
+        {...(item.sources ? {} : { src: item.video })}
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+        style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
+        preload="metadata"
+        aria-label={item.alt}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onClick={togglePlay}
+      >
+        {item.sources?.length
+          ? item.sources.map((s, idx) => (
+              <source key={idx} src={s.src} type={s.type} />
+            ))
+          : null}
+      </video>
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          togglePlay();
+        }}
+        className="absolute inset-0 flex items-center justify-center z-20 transition-opacity duration-200 hover:opacity-90 focus:opacity-90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black/50 rounded-2xl"
+        aria-label={isPlaying ? "Pause" : "Play"}
+      >
+        <span
+          className={`flex items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm border-2 border-white/30 transition-transform duration-200 hover:scale-105 ${
+            isPlaying ? "w-14 h-14 sm:w-16 sm:h-16" : "w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32"
+          }`}
+        >
+          {isPlaying ? (
+            <Pause className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" />
+          ) : (
+            <Play className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 ml-1" fill="currentColor" />
+          )}
+        </span>
+      </button>
+    </div>
+  );
+}
 
 const galleryItems: GalleryItem[] = [
   {
@@ -135,6 +204,11 @@ const galleryItems: GalleryItem[] = [
     alt: "Jack of All Blades interview",
     category: "Videos",
     video: "/videos/Interview.mov",
+    sources: [
+      { src: "/videos/Interview.mp4", type: "video/mp4" },
+      { src: "/videos/Interview.mov", type: "video/quicktime" },
+      { src: "/videos/Interview.MOV", type: "video/quicktime" },
+    ],
     span: "md:col-span-2",
     objectPosition: "center 35%",
   },
@@ -291,14 +365,9 @@ export default function PortfolioGrid() {
               style={{ animationDelay: `${i * 0.06}s` }}
             >
               {item.type === "video" ? (
-                <video
-                  src={item.video}
-                  controls
-                  playsInline
-                  className="absolute inset-0 h-full w-full object-cover"
-                  style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
-                  preload="metadata"
-                  aria-label={item.alt}
+                <PortfolioVideo
+                  item={item}
+                  className="absolute inset-0 z-10"
                 />
               ) : (
                 <Image
@@ -319,9 +388,9 @@ export default function PortfolioGrid() {
                 />
               )}
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/20 pointer-events-none" />
+              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/85 via-black/55 to-black/20 pointer-events-none" />
 
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 pointer-events-none">
+              <div className="absolute bottom-0 left-0 right-0 z-[2] p-4 sm:p-5 pointer-events-none">
                 <p className="text-white text-sm sm:text-base font-heading font-bold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
                   {item.label}
                 </p>

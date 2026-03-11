@@ -67,7 +67,7 @@ const services = [
     alt: "Storm damage and debris cleanup service East Grand Rapids Michigan",
     description:
       "After severe weather, we're here to help restore your property. Our storm clean up services include branch and debris removal, downed limb cleanup, and yard restoration so you can get back to normal quickly and safely.",
-    image: "/images/IMG_4267.webp",
+    image: "/images/IMG_5386.webp",
     areas: ["East Grand Rapids", "Grand Rapids", "Kentwood", "Cascade"],
   },
   {
