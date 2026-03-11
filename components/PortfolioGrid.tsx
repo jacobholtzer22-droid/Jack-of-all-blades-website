@@ -28,34 +28,6 @@ type GalleryItem = {
 
 const galleryItems: GalleryItem[] = [
   {
-    id: 21,
-    type: "video",
-    label: "Before and After",
-    alt: "Before and after landscaping transformation",
-    category: "Videos",
-    video: "/videos/Before-and-after.MOV",
-    span: "md:col-span-2",
-  },
-  {
-    id: 22,
-    type: "video",
-    label: "Interview 2",
-    alt: "Jack of All Blades interview",
-    category: "Videos",
-    video: "/videos/Interview-2.MOV",
-    span: "md:col-span-2",
-  },
-  {
-    id: 23,
-    type: "video",
-    label: "Interview",
-    alt: "Jack of All Blades interview",
-    category: "Videos",
-    video: "/videos/Interview.mov",
-    span: "md:col-span-2",
-    objectPosition: "center 35%",
-  },
-  {
     id: 1,
     type: "image",
     label: "Landscaping Project",
@@ -91,6 +63,15 @@ const galleryItems: GalleryItem[] = [
     category: "Hardscaping",
     image: "/images/IMG_6756.webp",
     span: "",
+  },
+  {
+    id: 21,
+    type: "video",
+    label: "Before and After",
+    alt: "Before and after landscaping transformation",
+    category: "Videos",
+    video: "/videos/Before-and-after.MOV",
+    span: "md:col-span-2",
   },
   {
     id: 5,
@@ -146,6 +127,16 @@ const galleryItems: GalleryItem[] = [
     category: "Landscaping",
     image: "/images/paver-patio-seating.webp",
     span: "md:col-span-2",
+  },
+  {
+    id: 23,
+    type: "video",
+    label: "Interview",
+    alt: "Jack of All Blades interview",
+    category: "Videos",
+    video: "/videos/Interview.mov",
+    span: "md:col-span-2",
+    objectPosition: "center 35%",
   },
   {
     id: 11,
