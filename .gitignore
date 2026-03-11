@@ -40,4 +40,6 @@ node_modules
 
 # large videos (over GitHub 100MB limit); upload to server when deploying
 public/videos/Interview.mov
+public/videos/Interview.MOV
+public/videos/Interview.mp4
 public/videos/Interview-2.MOV

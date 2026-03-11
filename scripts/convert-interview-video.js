@@ -27,12 +27,15 @@ async function main() {
     process.exit(1);
   }
 
+  console.log("Converting Interview video to MP4 (this can take a few minutes)...");
   return new Promise((resolve, reject) => {
     const args = [
       "-i",
       inputPath,
       "-c:v",
       "libx264",
+      "-preset",
+      "veryfast",
       "-c:a",
       "aac",
       "-movflags",
