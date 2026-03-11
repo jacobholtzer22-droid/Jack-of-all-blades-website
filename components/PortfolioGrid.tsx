@@ -45,18 +45,17 @@ function PortfolioVideo({
     if (isPlaying) {
       video.pause();
     } else {
-      video.play();
+      video.play().catch(() => {});
     }
-    setIsPlaying(!isPlaying);
   };
 
   return (
-    <div className={`relative ${className ?? ""}`} style={style}>
+    <div className={`relative w-full h-full min-h-0 ${className ?? ""}`} style={style}>
       <video
         ref={videoRef}
         {...(item.sources ? {} : { src: item.video })}
         playsInline
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover bg-black"
         style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
         preload="metadata"
         aria-label={item.alt}
@@ -80,14 +79,14 @@ function PortfolioVideo({
         aria-label={isPlaying ? "Pause" : "Play"}
       >
         <span
-          className={`flex items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm border-2 border-white/30 transition-transform duration-200 hover:scale-105 ${
-            isPlaying ? "w-14 h-14 sm:w-16 sm:h-16" : "w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32"
+          className={`flex items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm border-2 border-white/30 transition-transform duration-200 hover:scale-105 flex-shrink-0 ${
+            isPlaying ? "w-12 h-12 sm:w-14 sm:h-14" : "w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
           }`}
         >
           {isPlaying ? (
-            <Pause className="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" />
+            <Pause className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" />
           ) : (
-            <Play className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 ml-1" fill="currentColor" />
+            <Play className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 ml-0.5" fill="currentColor" />
           )}
         </span>
       </button>
@@ -361,7 +360,13 @@ export default function PortfolioGrid() {
               }}
               className={`group relative rounded-2xl overflow-hidden border border-dark-600/20 hover:border-forest-600/30 transition-all duration-500 opacity-0 ${
                 activeCategory === "All" ? item.span : ""
-              } ${item.type === "video" ? "min-h-[280px]" : item.span.includes("row-span-2") && activeCategory === "All" ? "min-h-[400px]" : "min-h-[220px]"}`}
+              } ${
+                item.type === "video"
+                  ? "aspect-video min-h-[200px]"
+                  : item.span.includes("row-span-2") && activeCategory === "All"
+                    ? "min-h-[400px]"
+                    : "min-h-[220px]"
+              }`}
               style={{ animationDelay: `${i * 0.06}s` }}
             >
               {item.type === "video" ? (
