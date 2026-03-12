@@ -197,16 +197,6 @@ const galleryItems: GalleryItem[] = [
     span: "md:col-span-2",
   },
   {
-    id: 23,
-    type: "video",
-    label: "Interview",
-    alt: "Jack of All Blades interview",
-    category: "Videos",
-    video: "/videos/Interview.mp4",
-    span: "md:col-span-2",
-    objectPosition: "center 35%",
-  },
-  {
     id: 11,
     type: "image",
     label: "Paver Patio Installation",
