@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { Play, Pause } from "lucide-react";
+import { Play, Pause, Maximize2, Minimize2 } from "lucide-react";
 import { BLUR_DATA_URL } from "@/lib/constants";
 
 const categories = [
@@ -36,8 +36,19 @@ function PortfolioVideo({
   className?: string;
   style?: React.CSSProperties;
 }) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    const onFullscreenChange = () => {
+      const el = document.fullscreenElement;
+      setIsFullscreen(!!el && el === containerRef.current);
+    };
+    document.addEventListener("fullscreenchange", onFullscreenChange);
+    return () => document.removeEventListener("fullscreenchange", onFullscreenChange);
+  }, []);
 
   const togglePlay = () => {
     const video = videoRef.current;
@@ -49,8 +60,34 @@ function PortfolioVideo({
     }
   };
 
+  const toggleFullscreen = async () => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const doc = document as Document & {
+      webkitExitFullscreen?: () => Promise<void> | void;
+    };
+    const anyEl = el as HTMLElement & {
+      webkitRequestFullscreen?: () => Promise<void> | void;
+    };
+
+    try {
+      if (document.fullscreenElement === el) {
+        await (document.exitFullscreen?.() ?? doc.webkitExitFullscreen?.());
+      } else {
+        await (el.requestFullscreen?.() ?? anyEl.webkitRequestFullscreen?.());
+      }
+    } catch {
+      // ignore fullscreen errors (gesture restrictions, unsupported browsers)
+    }
+  };
+
   return (
-    <div className={`relative w-full h-full min-h-0 ${className ?? ""}`} style={style}>
+    <div
+      ref={containerRef}
+      className={`relative w-full h-full min-h-0 ${className ?? ""}`}
+      style={style}
+    >
       <video
         ref={videoRef}
         src={item.video}
@@ -69,6 +106,22 @@ function PortfolioVideo({
             ))
           : null}
       </video>
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/85 via-black/55 to-black/20 pointer-events-none" />
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          toggleFullscreen();
+        }}
+        className="absolute top-3 right-3 z-30 inline-flex items-center justify-center w-11 h-11 rounded-full bg-black/60 text-white backdrop-blur-sm border border-white/25 hover:bg-black/70 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black/50"
+        aria-label={isFullscreen ? "Exit full screen" : "Full screen"}
+      >
+        {isFullscreen ? (
+          <Minimize2 className="w-5 h-5" />
+        ) : (
+          <Maximize2 className="w-5 h-5" />
+        )}
+      </button>
       <button
         type="button"
         onClick={(e) => {
@@ -157,7 +210,7 @@ const galleryItems: GalleryItem[] = [
     alt: "Paver walkway installation at residential home Grand Rapids MI",
     category: "Hardscaping",
     image: "/images/walkway-front-house.webp",
-    span: "md:col-span-2",
+    span: "",
     imageRotate: 90,
   },
   {
@@ -378,7 +431,9 @@ export default function PortfolioGrid() {
                 />
               )}
 
-              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/85 via-black/55 to-black/20 pointer-events-none" />
+              {item.type === "video" ? null : (
+                <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/85 via-black/55 to-black/20 pointer-events-none" />
+              )}
 
               <div className="absolute bottom-0 left-0 right-0 z-[2] p-4 sm:p-5 pointer-events-none">
                 <p className="text-white text-sm sm:text-base font-heading font-bold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
