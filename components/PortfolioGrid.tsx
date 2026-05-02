@@ -7,6 +7,7 @@ import { BLUR_DATA_URL } from "@/lib/constants";
 
 const categories = [
   "All",
+  "Before & After",
   "Landscaping",
   "Hardscaping",
   "Lawn Care",
@@ -25,6 +26,13 @@ type GalleryItem = {
 } & (
   | { type: "image"; image: string }
   | { type: "video"; video: string; sources?: { src: string; type: string }[] }
+  | {
+      type: "before-after";
+      beforeImage: string;
+      afterImage: string;
+      beforeAlt: string;
+      afterAlt: string;
+    }
 );
 
 function PortfolioVideo({
@@ -337,6 +345,84 @@ const galleryItems: GalleryItem[] = [
     image: "/images/tree-removal-truck.webp",
     span: "",
   },
+  {
+    id: 22,
+    type: "before-after",
+    label: "Hot Tub Paver Pad",
+    alt: "Hot tub paver pad before and after installation Grand Rapids Michigan",
+    category: "Before & After",
+    beforeImage: "/images/hot-tub-paver-before.webp",
+    afterImage: "/images/hot-tub-paver-after.webp",
+    beforeAlt: "Paver pad mid-installation alongside hot tub",
+    afterAlt: "Completed paver pad alongside hot tub",
+    span: "md:col-span-2 md:row-span-2",
+  },
+  {
+    id: 23,
+    type: "before-after",
+    label: "Backyard Paver Patio",
+    alt: "Backyard paver patio before and after Grand Rapids Michigan",
+    category: "Before & After",
+    beforeImage: "/images/backyard-paver-install-during.webp",
+    afterImage: "/images/backyard-paver-install-progress.webp",
+    beforeAlt: "Backyard paver patio installation in progress",
+    afterAlt: "Backyard paver patio nearing completion",
+    span: "md:col-span-2",
+  },
+  {
+    id: 24,
+    type: "image",
+    label: "Mulch Bed & Plantings",
+    alt: "Fresh mulch bed with new plantings along brick fence Grand Rapids MI",
+    category: "Landscaping",
+    image: "/images/mulch-bed-brick-fence.webp",
+    span: "md:col-span-2",
+  },
+  {
+    id: 25,
+    type: "image",
+    label: "Boulevard Sod Install",
+    alt: "Sod installation on parkway boulevard Grand Rapids Michigan",
+    category: "Lawn Care",
+    image: "/images/sod-installation-boulevard.webp",
+    span: "",
+  },
+  {
+    id: 26,
+    type: "image",
+    label: "Paver Walkway Finishing",
+    alt: "Paver walkway final sand sweeping detail Grand Rapids MI",
+    category: "Hardscaping",
+    image: "/images/paver-walkway-finishing.webp",
+    span: "",
+  },
+  {
+    id: 27,
+    type: "image",
+    label: "Fresh Lawn & Garden Bed",
+    alt: "Newly installed sod and mulched garden bed Grand Rapids Michigan",
+    category: "Landscaping",
+    image: "/images/landscape-bed-fresh-lawn.webp",
+    span: "md:col-span-2",
+  },
+  {
+    id: 28,
+    type: "image",
+    label: "Timber Retaining Wall",
+    alt: "Timber retaining wall with stone border and fresh plantings Grand Rapids MI",
+    category: "Hardscaping",
+    image: "/images/retaining-wall-stones-plants.webp",
+    span: "",
+  },
+  {
+    id: 29,
+    type: "image",
+    label: "Front Yard Landscape",
+    alt: "Front yard landscape design with mulch, plants and boulders Grand Rapids Michigan",
+    category: "Landscaping",
+    image: "/images/front-yard-landscape-sign.webp",
+    span: "",
+  },
 ];
 
 export default function PortfolioGrid() {
@@ -401,9 +487,14 @@ export default function PortfolioGrid() {
               } ${
                 item.type === "video"
                   ? "aspect-video min-h-[200px]"
-                  : item.span.includes("row-span-2") && activeCategory === "All"
-                    ? "min-h-[400px]"
-                    : "min-h-[220px]"
+                  : item.type === "before-after"
+                    ? item.span.includes("row-span-2") &&
+                      activeCategory === "All"
+                      ? "min-h-[400px]"
+                      : "min-h-[260px] sm:min-h-[300px]"
+                    : item.span.includes("row-span-2") && activeCategory === "All"
+                      ? "min-h-[400px]"
+                      : "min-h-[220px]"
               }`}
               style={{ animationDelay: `${i * 0.06}s` }}
             >
@@ -412,6 +503,59 @@ export default function PortfolioGrid() {
                   item={item}
                   className="absolute inset-0 z-10"
                 />
+              ) : item.type === "before-after" ? (
+                <div className="absolute inset-0 grid grid-cols-2">
+                  <div className="relative overflow-hidden border-r-2 border-white/40">
+                    <Image
+                      src={item.beforeImage}
+                      alt={item.beforeAlt}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image]"
+                      sizes={
+                        item.span.includes("col-span-2")
+                          ? "(max-width: 768px) 50vw, 25vw"
+                          : "(max-width: 768px) 50vw, 12.5vw"
+                      }
+                      quality={75}
+                      placeholder="blur"
+                      blurDataURL={BLUR_DATA_URL}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 pointer-events-none" />
+                    <span
+                      className="absolute top-3 left-3 z-[2] inline-block text-white text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-black/65 backdrop-blur-sm rounded-full px-3 py-1 border border-white/20"
+                      style={{ textShadow: "0 2px 4px rgba(0,0,0,0.6)" }}
+                    >
+                      Before
+                    </span>
+                  </div>
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src={item.afterImage}
+                      alt={item.afterAlt}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image]"
+                      sizes={
+                        item.span.includes("col-span-2")
+                          ? "(max-width: 768px) 50vw, 25vw"
+                          : "(max-width: 768px) 50vw, 12.5vw"
+                      }
+                      quality={75}
+                      placeholder="blur"
+                      blurDataURL={BLUR_DATA_URL}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 pointer-events-none" />
+                    <span
+                      className="absolute top-3 right-3 z-[2] inline-block text-white text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-forest-600/90 backdrop-blur-sm rounded-full px-3 py-1 border border-white/20"
+                      style={{ textShadow: "0 2px 4px rgba(0,0,0,0.6)" }}
+                    >
+                      After
+                    </span>
+                  </div>
+                </div>
               ) : (
                 <Image
                   src={item.image}
@@ -431,7 +575,7 @@ export default function PortfolioGrid() {
                 />
               )}
 
-              {item.type === "video" ? null : (
+              {item.type === "video" || item.type === "before-after" ? null : (
                 <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/85 via-black/55 to-black/20 pointer-events-none" />
               )}
 

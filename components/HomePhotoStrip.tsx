@@ -7,14 +7,14 @@ import { ArrowRight } from "lucide-react";
 import { BLUR_DATA_URL } from "@/lib/constants";
 
 const galleryImages = [
-  { src: "/images/tree-trimming-chainsaw.webp", alt: "Hedge trimming and tree work by Jack of All Blades Grand Rapids MI" },
+  { src: "/images/hot-tub-paver-after.webp", alt: "Completed paver pad alongside hot tub Grand Rapids MI" },
+  { src: "/images/landscape-bed-fresh-lawn.webp", alt: "Fresh sod and new mulched garden bed Grand Rapids Michigan" },
+  { src: "/images/front-yard-landscape-sign.webp", alt: "Front yard landscape design with mulch and boulders Grand Rapids MI" },
+  { src: "/images/retaining-wall-stones-plants.webp", alt: "Timber retaining wall with stone border and new plantings Grand Rapids MI" },
+  { src: "/images/mulch-bed-brick-fence.webp", alt: "Fresh mulch bed with new plantings along brick fence Grand Rapids MI" },
+  { src: "/images/paver-walkway-finishing.webp", alt: "Paver walkway with detail sand sweeping Grand Rapids MI" },
+  { src: "/images/sod-installation-boulevard.webp", alt: "Sod installation on parkway boulevard Grand Rapids Michigan" },
   { src: "/images/paver-patio-seating.webp", alt: "Custom paver patio with seating area Grand Rapids MI" },
-  { src: "/images/IMG_5541.webp", alt: "Professional landscaping project Grand Rapids" },
-  { src: "/images/IMG_6756.webp", alt: "Custom paver patio installation Grand Rapids Michigan" },
-  { src: "/images/sod-laying-team.webp", alt: "Sod installation and lawn setup" },
-  { src: "/images/sod-installation.webp", alt: "Fresh sod installation Grand Rapids Michigan" },
-  { src: "/images/snow-removal-truck.webp", alt: "Snow removal and plowing Grand Rapids MI" },
-  { src: "/images/IMG_6448.webp", alt: "Retaining wall and patio construction Grand Rapids MI" },
 ];
 
 export default function HomePhotoStrip() {

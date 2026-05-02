@@ -15,6 +15,7 @@
 /build
 
 # misc
+.tmp-previews/
 .DS_Store
 *.pem
 
