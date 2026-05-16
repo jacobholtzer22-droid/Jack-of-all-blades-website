@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const { name, phone, email, service, message, website, smsConsent } = body;
+    const { name, phone, email, address, service, message, website, smsConsent } = body;
 
     if (website) {
       return NextResponse.json({ success: true });
@@ -66,6 +66,8 @@ export async function POST(request: Request) {
       if (digits.length < 10) errors.phone = "Please enter a valid phone number.";
     }
 
+    if (!address?.trim()) errors.address = "Service address is required.";
+
     if (Object.keys(errors).length > 0) {
       return NextResponse.json({ errors }, { status: 400 });
     }
@@ -86,6 +88,9 @@ export async function POST(request: Request) {
     const emailTrim = email.trim();
     const emailSafe = e(emailTrim);
     const phoneSafe = e(phone.trim());
+    const addressTrim = address.trim();
+    const addressSafe = e(addressTrim);
+    const addressMapHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressTrim)}`;
     const hasMessage = Boolean(message?.trim());
     const messageSafe = hasMessage ? e(message.trim()) : "";
     const serviceLine = service?.trim()
@@ -153,6 +158,14 @@ export async function POST(request: Request) {
                     </p>
                   </td>
                 </tr>
+                <tr>
+                  <td style="padding:20px 24px;border-bottom:1px solid #2a2a2a;">
+                    <p style="margin:0;color:#808080;font-size:12px;text-transform:uppercase;letter-spacing:1px;">Service Address</p>
+                    <p style="margin:6px 0 0;color:#ffffff;font-size:16px;font-weight:600;">
+                      <a href="${addressMapHref}" style="color:#5fa654;text-decoration:none;" target="_blank" rel="noopener noreferrer">${addressSafe}</a>
+                    </p>
+                  </td>
+                </tr>
                 ${hasMessage ? `<tr>
                   <td style="padding:20px 24px;">
                     <p style="margin:0;color:#808080;font-size:12px;text-transform:uppercase;letter-spacing:1px;">Project Details</p>
@@ -185,7 +198,7 @@ export async function POST(request: Request) {
       html: emailHtml,
     });
 
-    const smsBody = `Quote request from your website!\n\n${name.trim()}\nEmail: ${emailTrim}\nPhone: ${phone.trim()}${service?.trim() ? `\nService: ${service.trim()}` : ""}\n\nCheck your email for project details.`;
+    const smsBody = `Quote request from your website!\n\n${name.trim()}\nEmail: ${emailTrim}\nPhone: ${phone.trim()}\nAddress: ${addressTrim}${service?.trim() ? `\nService: ${service.trim()}` : ""}\n\nCheck your email for project details.`;
 
     const smsPromise = fetch("https://api.telnyx.com/v2/messages", {
       method: "POST",

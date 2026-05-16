@@ -49,6 +49,7 @@ export default function QuoteForm() {
       name: String(fd.get("name") ?? "").trim(),
       email: String(fd.get("email") ?? "").trim(),
       phone: String(fd.get("phone") ?? "").trim(),
+      address: String(fd.get("address") ?? "").trim(),
       service: String(fd.get("service") ?? "").trim(),
       message: String(fd.get("message") ?? "").trim(),
       website: String(fd.get("website") ?? "").trim(),
@@ -189,6 +190,21 @@ export default function QuoteForm() {
             required
             autoComplete="tel"
             placeholder="(616) 555-0123"
+            className={inputClass}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="quote-address" className={labelClass}>
+            Service Address <span className="text-forest-400">*</span>
+          </label>
+          <input
+            type="text"
+            id="quote-address"
+            name="address"
+            required
+            autoComplete="street-address"
+            placeholder="123 Main St, Grand Rapids, MI 49503"
             className={inputClass}
           />
         </div>
