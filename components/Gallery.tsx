@@ -25,7 +25,7 @@ const galleryItems = [
     label: "Tree Trimming",
     alt: "Tree trimming and pruning service Grand Rapids Michigan",
     image: "/images/tree-trimming-chainsaw.webp",
-    span: "",
+    span: "md:row-span-2",
   },
   {
     id: 4,
@@ -126,7 +126,7 @@ export default function Gallery() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:auto-rows-[minmax(200px,auto)]">
           {galleryItems.map((item, i) => (
             <div
               key={item.id}

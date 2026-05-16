@@ -182,7 +182,8 @@ const galleryItems: GalleryItem[] = [
     alt: "Weekly lawn mowing and maintenance service Grand Rapids Michigan",
     category: "Lawn Care",
     image: "/images/IMG_5510.webp",
-    span: "",
+    // Tall right column so the 2×2 hero + two stacked tiles pack without a grid hole
+    span: "md:row-span-2",
   },
   {
     id: 4,
@@ -390,8 +391,8 @@ const galleryItems: GalleryItem[] = [
   {
     id: 26,
     type: "image",
-    label: "Paver Walkway Finishing",
-    alt: "Paver walkway final sand sweeping detail Grand Rapids MI",
+    label: "Driveway Paver Addition",
+    alt: "Driveway paver addition installation Grand Rapids MI",
     category: "Hardscaping",
     image: "/images/paver-walkway-finishing.webp",
     span: "",
@@ -484,7 +485,7 @@ export default function PortfolioGrid() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:auto-rows-[minmax(220px,auto)]">
           {filteredItems.map((item, i) => (
             <div
               key={item.id}
