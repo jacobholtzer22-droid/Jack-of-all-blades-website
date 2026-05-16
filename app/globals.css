@@ -162,10 +162,24 @@
   background: #444444;
 }
 
-/* Muted autoplay backgrounds: retry play() after load; this hides WebKit’s
-   default controls overlay when playback starts a tick late. */
+/* Muted autoplay backgrounds: hide WebKit inline controls; pointer-events
+   avoids focus/tap chrome. When playback cannot start we unmount <video> and
+   use a static <img> so no play overlay remains. */
+.autoplay-bg-video {
+  pointer-events: none;
+}
 .autoplay-bg-video::-webkit-media-controls,
 .autoplay-bg-video::-webkit-media-controls-enclosure,
-.autoplay-bg-video::-webkit-media-controls-start-playback-button {
+.autoplay-bg-video::-webkit-media-controls-overlay-enclosure,
+.autoplay-bg-video::-webkit-media-controls-panel,
+.autoplay-bg-video::-webkit-media-controls-play-button,
+.autoplay-bg-video::-webkit-media-controls-start-playback-button,
+.autoplay-bg-video::-webkit-media-controls-timeline,
+.autoplay-bg-video::-webkit-media-controls-current-time-display,
+.autoplay-bg-video::-webkit-media-controls-time-remaining-display,
+.autoplay-bg-video::-webkit-media-controls-mute-button,
+.autoplay-bg-video::-webkit-media-controls-toggle-closed-captions-button,
+.autoplay-bg-video::-webkit-media-controls-volume-slider,
+.autoplay-bg-video::-webkit-media-controls-fullscreen-button {
   display: none !important;
 }

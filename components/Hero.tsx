@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { Phone, ArrowRight } from "lucide-react";
+import { useAutoplayBackgroundVideo } from "@/lib/useAutoplayBackgroundVideo";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -13,45 +14,37 @@ export default function Hero() {
     if (el) el.classList.add("animate-fade-in");
   }, []);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const tryPlay = () => {
-      video.muted = true;
-      void video.play().catch(() => {});
-    };
-
-    tryPlay();
-    video.addEventListener("loadeddata", tryPlay);
-    video.addEventListener("canplay", tryPlay);
-
-    return () => {
-      video.removeEventListener("loadeddata", tryPlay);
-      video.removeEventListener("canplay", tryPlay);
-    };
-  }, []);
+  const { useStaticCover } = useAutoplayBackgroundVideo(videoRef);
 
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <div className="absolute inset-0">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="autoplay-bg-video object-cover object-[center_28%] w-full h-full min-h-screen"
-          poster="/images/IMG_5510.webp"
-          aria-hidden
-        >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-          <source src="/videos/hero.MOV" type="video/quicktime" />
-        </video>
+      <div className="absolute inset-0 bg-dark-950">
+        {useStaticCover ? (
+          <img
+            src="/images/IMG_5510.webp"
+            alt=""
+            className="object-cover object-[center_28%] w-full h-full min-h-screen"
+            aria-hidden
+          />
+        ) : (
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="autoplay-bg-video object-cover object-[center_28%] w-full h-full min-h-screen"
+            poster="/images/IMG_5510.webp"
+            aria-hidden
+          >
+            <source src="/videos/hero.mp4" type="video/mp4" />
+            <source src="/videos/hero.MOV" type="video/quicktime" />
+          </video>
+        )}
       </div>
       <div className="absolute inset-0 bg-black/60 md:bg-black/50" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />

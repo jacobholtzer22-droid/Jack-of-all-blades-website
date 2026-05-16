@@ -71,6 +71,13 @@ const galleryItems = [
     span: "md:col-span-2",
     imageRotate: 90,
   },
+  {
+    id: 10,
+    label: "Striped Lawn Care",
+    alt: "Zero-turn mowers on professionally striped residential lawn Grand Rapids Michigan",
+    image: "/images/IMG_0545.png",
+    span: "md:col-span-2",
+  },
 ];
 
 export default function Gallery() {

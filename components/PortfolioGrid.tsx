@@ -423,6 +423,15 @@ const galleryItems: GalleryItem[] = [
     image: "/images/front-yard-landscape-sign.webp",
     span: "",
   },
+  {
+    id: 30,
+    type: "image",
+    label: "Striped Lawn Care",
+    alt: "Zero-turn mowers on professionally striped residential lawn Grand Rapids Michigan",
+    category: "Lawn Care",
+    image: "/images/IMG_0545.png",
+    span: "md:col-span-2",
+  },
 ];
 
 export default function PortfolioGrid() {

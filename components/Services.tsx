@@ -28,10 +28,10 @@ const services = [
   {
     icon: Flower2,
     title: "Landscaping",
-    alt: "Custom landscape design and garden bed installation East Grand Rapids Michigan",
+    alt: "Hillside landscape with mulch, new plantings, stone border, and timber retaining wall East Grand Rapids Michigan",
     description:
       "Transform your outdoor space with custom landscape design and installation. From fresh mulch and seasonal plantings to complete landscape renovations, we create beautiful, functional spaces that boost your property's curb appeal and value.",
-    image: "/images/IMG_5541.webp",
+    image: "/images/IMG_0250.webp",
     areas: ["East Grand Rapids", "Ada", "Forest Hills", "Cascade"],
   },
   {
