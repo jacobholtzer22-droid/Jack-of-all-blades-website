@@ -37,10 +37,10 @@ const services = [
   {
     icon: Layers,
     title: "Hardscaping",
-    alt: "Custom patio and walkway installation East Grand Rapids Michigan",
+    alt: "Front yard brick patio with stone retaining wall and flowering tree Grand Rapids Michigan",
     description:
       "Add lasting beauty and structure with professional hardscape installation. We build custom patios, walkways, retaining walls, and stone features using quality materials and expert craftsmanship. Every project is built to withstand Michigan's seasons.",
-    image: "/images/IMG_6756.webp",
+    image: "/images/front-yard-patio-hardscape.webp",
     areas: ["East Grand Rapids", "Grand Rapids", "Wyoming", "Ada"],
   },
   {
@@ -67,7 +67,7 @@ const services = [
     alt: "Storm damage and debris cleanup service East Grand Rapids Michigan",
     description:
       "After severe weather, we're here to help restore your property. Our storm clean up services include branch and debris removal, downed limb cleanup, and yard restoration so you can get back to normal quickly and safely.",
-    image: "/images/IMG_4267.webp",
+    image: "/images/tree-trimming-chainsaw.webp",
     areas: ["East Grand Rapids", "Grand Rapids", "Kentwood", "Cascade"],
   },
   {
@@ -76,7 +76,7 @@ const services = [
     alt: "Professional hedge and bush trimming service East Grand Rapids MI",
     description:
       "Keep your hedges and shrubs looking sharp and healthy. We provide precise shaping, pruning, and trimming for foundation plantings, privacy hedges, and ornamental bushes. Clean, even cuts that promote growth and enhance your property's curb appeal.",
-    image: "/images/IMG_5541.webp",
+    image: "/images/IMG_4267.webp",
     areas: ["East Grand Rapids", "Grand Rapids", "Kentwood", "Cascade"],
   },
   {
@@ -153,12 +153,12 @@ export default function Services() {
                   alt={service.alt}
                   fill
                   className={`object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image] ${
-                    service.title === "Storm Clean Up"
+                    service.title === "Hedge and Bush Trimming"
                       ? "rotate-90 origin-center scale-[1.15]"
                       : ""
                   }`}
                   style={
-                    service.title === "Storm Clean Up"
+                    service.title === "Hedge and Bush Trimming"
                       ? { objectPosition: "50% 35%" }
                       : undefined
                   }

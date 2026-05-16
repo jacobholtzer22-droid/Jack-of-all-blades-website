@@ -48,8 +48,8 @@ export default function About() {
             <div className="relative">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden">
                 <Image
-                  src="/images/tree-trimming-chainsaw.webp"
-                  alt="Mike Hazzard, founder of Jack of All Blades Landscaping"
+                  src="/images/front-yard-patio-hardscape.webp"
+                  alt="Brick paver patio with stone retaining wall and steps, hardscape installation by Jack of All Blades Landscaping in Grand Rapids MI"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"

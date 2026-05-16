@@ -161,3 +161,11 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #444444;
 }
+
+/* Muted autoplay backgrounds: retry play() after load; this hides WebKit’s
+   default controls overlay when playback starts a tick late. */
+.autoplay-bg-video::-webkit-media-controls,
+.autoplay-bg-video::-webkit-media-controls-enclosure,
+.autoplay-bg-video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}

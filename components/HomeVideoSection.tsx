@@ -8,10 +8,21 @@ export default function HomeVideoSection() {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
+    if (!video) return;
+
+    const tryPlay = () => {
       video.muted = true;
-      video.play().catch(() => {});
-    }
+      void video.play().catch(() => {});
+    };
+
+    tryPlay();
+    video.addEventListener("loadeddata", tryPlay);
+    video.addEventListener("canplay", tryPlay);
+
+    return () => {
+      video.removeEventListener("loadeddata", tryPlay);
+      video.removeEventListener("canplay", tryPlay);
+    };
   }, []);
 
   return (
@@ -26,7 +37,8 @@ export default function HomeVideoSection() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        preload="auto"
+        className="autoplay-bg-video absolute inset-0 w-full h-full object-cover"
         poster="/images/IMG_5510.webp"
       >
         <source src="/videos/home-bottom.mp4" type="video/mp4" />

@@ -188,9 +188,9 @@ const galleryItems: GalleryItem[] = [
     id: 4,
     type: "image",
     label: "Retaining Wall & Patio",
-    alt: "Retaining wall and patio construction Grand Rapids MI",
+    alt: "Front yard brick patio with stone retaining wall and flowering tree Grand Rapids MI",
     category: "Hardscaping",
-    image: "/images/IMG_6756.webp",
+    image: "/images/front-yard-patio-hardscape.webp",
     span: "",
   },
   {

@@ -15,10 +15,21 @@ export default function Hero() {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
+    if (!video) return;
+
+    const tryPlay = () => {
       video.muted = true;
-      video.play().catch(() => {});
-    }
+      void video.play().catch(() => {});
+    };
+
+    tryPlay();
+    video.addEventListener("loadeddata", tryPlay);
+    video.addEventListener("canplay", tryPlay);
+
+    return () => {
+      video.removeEventListener("loadeddata", tryPlay);
+      video.removeEventListener("canplay", tryPlay);
+    };
   }, []);
 
   return (
@@ -33,7 +44,8 @@ export default function Hero() {
           loop
           muted
           playsInline
-          className="object-cover object-[center_28%] w-full h-full min-h-screen"
+          preload="auto"
+          className="autoplay-bg-video object-cover object-[center_28%] w-full h-full min-h-screen"
           poster="/images/IMG_5510.webp"
           aria-hidden
         >
