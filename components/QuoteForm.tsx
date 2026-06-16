@@ -45,39 +45,51 @@ export default function QuoteForm() {
     const form = e.currentTarget;
     const fd = new FormData(form);
 
-    const payload = {
-      name: String(fd.get("name") ?? "").trim(),
-      email: String(fd.get("email") ?? "").trim(),
-      phone: String(fd.get("phone") ?? "").trim(),
-      address: String(fd.get("address") ?? "").trim(),
-      service: String(fd.get("service") ?? "").trim(),
-      message: String(fd.get("message") ?? "").trim(),
-      website: String(fd.get("website") ?? "").trim(),
-      smsConsent,
-    };
+    const name = String(fd.get("name") ?? "").trim();
+    const email = String(fd.get("email") ?? "").trim();
+    const phone = String(fd.get("phone") ?? "").trim();
+    const address = String(fd.get("address") ?? "").trim();
+    const service = String(fd.get("service") ?? "").trim();
+    const details = String(fd.get("message") ?? "").trim();
+    const website = String(fd.get("website") ?? "").trim();
+
+    // Honeypot — bots fill the hidden "website" field. Mimic a successful
+    // submit without sending anything to the CRM.
+    if (website) {
+      formRef.current?.reset();
+      setSmsConsent(false);
+      setSmsTouched(false);
+      setSuccess(true);
+      return;
+    }
+
+    // The CRM stores name/phone/email/message; fold the selected service and
+    // service address into the free-text message so no lead detail is lost.
+    const message = [
+      service ? `Service: ${service}` : "",
+      address ? `Address: ${address}` : "",
+      details,
+    ]
+      .filter(Boolean)
+      .join("\n");
 
     setSubmitting(true);
     try {
-      const res = await fetch("/api/quote", {
+      const res = await fetch("https://www.alignandacquire.com/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          businessSlug: "jack-of-all-blades-landscaping",
+          name,
+          phone,
+          email,
+          message,
+          smsConsent,
+        }),
       });
 
-      const data = (await res.json().catch(() => ({}))) as {
-        error?: string;
-        errors?: Record<string, string>;
-      };
-
       if (!res.ok) {
-        const fromFields = data.errors
-          ? Object.values(data.errors).filter(Boolean)[0]
-          : undefined;
-        setError(
-          data.error ??
-            fromFields ??
-            "Something went wrong. Please try again or call us."
-        );
+        setError("Something went wrong. Please try again or call us.");
         return;
       }
 
