@@ -69,8 +69,9 @@ export default function HomePhotoStrip() {
           </Link>
         </div>
 
-        {/* Desktop: 4 columns, 2 rows grid */}
-        <div className="hidden md:grid grid-cols-4 grid-rows-2 gap-2">
+        {/* Responsive grid: 1 col on phones (large, full-width), 2 up at sm,
+            4 up on desktop. Replaces the old fixed-width mobile carousel. */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
           {galleryImages.map((img, i) => (
             <div
               key={img.src}
@@ -82,7 +83,7 @@ export default function HomePhotoStrip() {
                 alt={img.alt}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105 [image-orientation:from-image]"
-                sizes="(max-width: 768px) 50vw, 25vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 25vw"
                 quality={75}
                 placeholder="blur"
                 blurDataURL={BLUR_DATA_URL}
@@ -91,32 +92,6 @@ export default function HomePhotoStrip() {
               />
             </div>
           ))}
-        </div>
-
-        {/* Mobile: horizontal scroll with snap */}
-        <div className="md:hidden overflow-x-auto overflow-y-hidden pb-2 -mx-5 px-5 sm:-mx-8 sm:px-8 snap-x snap-mandatory scrollbar-hide">
-          <div className="flex gap-2 w-max">
-            {galleryImages.map((img, i) => (
-              <div
-                key={img.src}
-                className="reveal opacity-0 shrink-0 w-[72vw] sm:w-[60vw] aspect-[4/3] rounded-xl overflow-hidden snap-center"
-                style={{ animationDelay: `${i * 0.05}s` }}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  width={400}
-                  height={300}
-                  className="object-cover w-full h-full [image-orientation:from-image]"
-                  quality={75}
-                  placeholder="blur"
-                  blurDataURL={BLUR_DATA_URL}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
