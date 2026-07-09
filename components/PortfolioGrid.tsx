@@ -122,7 +122,6 @@ function PortfolioVideo({
             ))
           : null}
       </video>
-      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/85 via-black/55 to-black/20 pointer-events-none" />
       <button
         type="button"
         onClick={(e) => {
@@ -716,7 +715,6 @@ export default function PortfolioGrid() {
                       loading="lazy"
                       decoding="async"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 pointer-events-none" />
                     <span
                       className="absolute top-3 left-3 z-[2] inline-block text-white text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-black/65 backdrop-blur-sm rounded-full px-3 py-1 border border-white/20"
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.6)" }}
@@ -747,7 +745,6 @@ export default function PortfolioGrid() {
                       loading="lazy"
                       decoding="async"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 pointer-events-none" />
                     <span
                       className="absolute top-3 right-3 z-[2] inline-block text-white text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-forest-600/90 backdrop-blur-sm rounded-full px-3 py-1 border border-white/20"
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.6)" }}
@@ -787,10 +784,6 @@ export default function PortfolioGrid() {
                     className="absolute inset-0 z-[3] cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/80"
                   />
                 </>
-              )}
-
-              {item.type === "video" || item.type === "before-after" ? null : (
-                <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/85 via-black/55 to-black/20 pointer-events-none" />
               )}
 
               <div className="absolute bottom-0 left-0 right-0 z-[2] p-4 sm:p-5 pointer-events-none">
