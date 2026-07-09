@@ -1,8 +1,16 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import Image from "next/image";
-import { Play, Pause, Maximize2, Minimize2 } from "lucide-react";
+import {
+  Play,
+  Pause,
+  Maximize2,
+  Minimize2,
+  X,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { BLUR_DATA_URL } from "@/lib/constants";
 
 const categories = [
@@ -151,6 +159,141 @@ function PortfolioVideo({
           )}
         </span>
       </button>
+    </div>
+  );
+}
+
+type LightboxImage = { src: string; alt: string; rotate?: number };
+
+function Lightbox({
+  images,
+  index,
+  onClose,
+  onPrev,
+  onNext,
+}: {
+  images: LightboxImage[];
+  index: number;
+  onClose: () => void;
+  onPrev: () => void;
+  onNext: () => void;
+}) {
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const touchStartX = useRef<number | null>(null);
+
+  useEffect(() => {
+    closeRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      else if (e.key === "ArrowLeft") onPrev();
+      else if (e.key === "ArrowRight") onNext();
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [onClose, onPrev, onNext]);
+
+  const img = images[index];
+  if (!img) return null;
+
+  const isQuarterTurn = img.rotate === 90 || img.rotate === -90;
+  const rotateClass =
+    img.rotate === 90 ? "rotate-90" : img.rotate === -90 ? "-rotate-90" : "";
+  const hasMultiple = images.length > 1;
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={img.alt}
+      onClick={onClose}
+      onTouchStart={(e) => {
+        touchStartX.current = e.touches[0]?.clientX ?? null;
+      }}
+      onTouchEnd={(e) => {
+        if (touchStartX.current === null) return;
+        const dx = (e.changedTouches[0]?.clientX ?? 0) - touchStartX.current;
+        touchStartX.current = null;
+        if (Math.abs(dx) < 40 || !hasMultiple) return;
+        if (dx > 0) onPrev();
+        else onNext();
+      }}
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 opacity-100 transition-opacity duration-200 motion-reduce:transition-none"
+    >
+      <button
+        ref={closeRef}
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
+        aria-label="Close full-size view"
+        className="absolute top-4 right-4 z-[102] inline-flex items-center justify-center w-11 h-11 rounded-full bg-white/10 text-white border border-white/25 backdrop-blur-sm hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"
+      >
+        <X className="w-6 h-6" />
+      </button>
+
+      {hasMultiple && (
+        <>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onPrev();
+            }}
+            aria-label="Previous photo"
+            className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-[102] inline-flex items-center justify-center w-11 h-11 rounded-full bg-white/10 text-white border border-white/25 backdrop-blur-sm hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onNext();
+            }}
+            aria-label="Next photo"
+            className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-[102] inline-flex items-center justify-center w-11 h-11 rounded-full bg-white/10 text-white border border-white/25 backdrop-blur-sm hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </>
+      )}
+
+      <div
+        className="relative flex items-center justify-center"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Plain img so rotated (imageRotate) photos can be shown fully and
+            correctly oriented via swapped max-dimensions; next/image fill
+            cannot fit a CSS-rotated element without cropping.
+            eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={img.src}
+          alt={img.alt}
+          draggable={false}
+          className={`select-none object-contain [image-orientation:from-image] ${rotateClass}`}
+          style={
+            isQuarterTurn
+              ? { maxWidth: "90vh", maxHeight: "95vw" }
+              : { maxWidth: "95vw", maxHeight: "90vh" }
+          }
+        />
+      </div>
+
+      <p
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 z-[102] max-w-[90vw] text-center text-white/90 text-sm bg-black/50 backdrop-blur-sm rounded-full px-4 py-1.5 pointer-events-none"
+        style={{ textShadow: "0 2px 4px rgba(0,0,0,0.6)" }}
+      >
+        {img.alt}
+      </p>
     </div>
   );
 }
@@ -437,12 +580,50 @@ const galleryItems: GalleryItem[] = [
 
 export default function PortfolioGrid() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const filteredItems =
     activeCategory === "All"
       ? galleryItems
       : galleryItems.filter((item) => item.category === activeCategory);
+
+  // Flat list of expandable photos (videos excluded; before/after → two
+  // entries). itemStart / itemAfterStart map a tile to its lightbox index.
+  const { lightboxImages, itemStart, itemAfterStart } = useMemo(() => {
+    const imgs: LightboxImage[] = [];
+    const start: Record<number, number> = {};
+    const afterStart: Record<number, number> = {};
+    for (const item of filteredItems) {
+      if (item.type === "image") {
+        start[item.id] = imgs.length;
+        imgs.push({ src: item.image, alt: item.alt, rotate: item.imageRotate });
+      } else if (item.type === "before-after") {
+        start[item.id] = imgs.length;
+        imgs.push({ src: item.beforeImage, alt: item.beforeAlt });
+        afterStart[item.id] = imgs.length;
+        imgs.push({ src: item.afterImage, alt: item.afterAlt });
+      }
+    }
+    return { lightboxImages: imgs, itemStart: start, itemAfterStart: afterStart };
+  }, [filteredItems]);
+
+  const openLightbox = useCallback((i: number) => setLightboxIndex(i), []);
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+  const showPrev = useCallback(
+    () =>
+      setLightboxIndex((v) =>
+        v === null ? v : (v - 1 + lightboxImages.length) % lightboxImages.length
+      ),
+    [lightboxImages.length]
+  );
+  const showNext = useCallback(
+    () =>
+      setLightboxIndex((v) =>
+        v === null ? v : (v + 1) % lightboxImages.length
+      ),
+    [lightboxImages.length]
+  );
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -473,7 +654,10 @@ export default function PortfolioGrid() {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setActiveCategory(cat)}
+              onClick={() => {
+                setActiveCategory(cat);
+                setLightboxIndex(null);
+              }}
               className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all min-h-[44px] ${
                 activeCategory === cat
                   ? "bg-forest-600 text-white"
@@ -496,15 +680,15 @@ export default function PortfolioGrid() {
                 activeCategory === "All" ? item.span : ""
               } ${
                 item.type === "video"
-                  ? "aspect-video min-h-[200px]"
+                  ? "aspect-video min-h-[220px]"
                   : item.type === "before-after"
                     ? item.span.includes("row-span-2") &&
                       activeCategory === "All"
-                      ? "min-h-[400px]"
-                      : "min-h-[260px] sm:min-h-[300px]"
+                      ? "min-h-[420px]"
+                      : "min-h-[320px] sm:min-h-[300px]"
                     : item.span.includes("row-span-2") && activeCategory === "All"
-                      ? "min-h-[400px]"
-                      : "min-h-[220px]"
+                      ? "min-h-[420px]"
+                      : "min-h-[300px] sm:min-h-[260px] md:min-h-[220px]"
               }`}
               style={{ animationDelay: `${i * 0.06}s` }}
             >
@@ -539,6 +723,12 @@ export default function PortfolioGrid() {
                     >
                       Before
                     </span>
+                    <button
+                      type="button"
+                      onClick={() => openLightbox(itemStart[item.id])}
+                      aria-label={`View ${item.beforeAlt} full size`}
+                      className="absolute inset-0 z-[3] cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/80"
+                    />
                   </div>
                   <div className="relative overflow-hidden">
                     <Image
@@ -564,25 +754,39 @@ export default function PortfolioGrid() {
                     >
                       After
                     </span>
+                    <button
+                      type="button"
+                      onClick={() => openLightbox(itemAfterStart[item.id])}
+                      aria-label={`View ${item.afterAlt} full size`}
+                      className="absolute inset-0 z-[3] cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/80"
+                    />
                   </div>
                 </div>
               ) : (
-                <Image
-                  src={item.image}
-                  alt={item.alt}
-                  fill
-                  className={`object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image] ${item.imageRotate === 90 ? "rotate-90" : item.imageRotate === -90 ? "-rotate-90" : item.imageRotate === 45 ? "rotate-45" : item.imageRotate === -45 ? "-rotate-45" : item.imageRotate === 15 ? "rotate-[15deg]" : ""} ${item.objectPosition === "top" ? "object-top" : ""}`}
-                  sizes={
-                    item.span.includes("col-span-2")
-                      ? "(max-width: 768px) 100vw, 50vw"
-                      : "(max-width: 768px) 100vw, 25vw"
-                  }
-                  quality={75}
-                  placeholder="blur"
-                  blurDataURL={BLUR_DATA_URL}
-                  loading="lazy"
-                  decoding="async"
-                />
+                <>
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    fill
+                    className={`object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image] ${item.imageRotate === 90 ? "rotate-90" : item.imageRotate === -90 ? "-rotate-90" : item.imageRotate === 45 ? "rotate-45" : item.imageRotate === -45 ? "-rotate-45" : item.imageRotate === 15 ? "rotate-[15deg]" : ""} ${item.objectPosition === "top" ? "object-top" : ""}`}
+                    sizes={
+                      item.span.includes("col-span-2")
+                        ? "(max-width: 768px) 100vw, 50vw"
+                        : "(max-width: 768px) 100vw, 25vw"
+                    }
+                    quality={75}
+                    placeholder="blur"
+                    blurDataURL={BLUR_DATA_URL}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => openLightbox(itemStart[item.id])}
+                    aria-label={`View ${item.label} full size`}
+                    className="absolute inset-0 z-[3] cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/80"
+                  />
+                </>
               )}
 
               {item.type === "video" || item.type === "before-after" ? null : (
@@ -601,6 +805,16 @@ export default function PortfolioGrid() {
           ))}
         </div>
       </div>
+
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={lightboxImages}
+          index={lightboxIndex}
+          onClose={closeLightbox}
+          onPrev={showPrev}
+          onNext={showNext}
+        />
+      )}
     </section>
   );
 }
