@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Outfit, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -94,6 +95,20 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google.com" />
         <link rel="dns-prefetch" href="https://alignandacquire.com" />
       </head>
+      {/* Google Ads global site tag (gtag.js) — AW-17985764273 */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-17985764273"
+        strategy="afterInteractive"
+      />
+      <Script id="google-ads-gtag" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-17985764273');
+gtag('config', 'AW-17985764273/0fPECK7jps8cELH3o4BD', {
+  'phone_conversion_number': '616-250-8044'
+});`}
+      </Script>
       <body>
         <Navbar />
         <main>{children}</main>

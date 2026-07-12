@@ -93,6 +93,13 @@ export default function QuoteForm() {
         return;
       }
 
+      // Google Ads conversion — fires only on a genuine successful submission.
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "conversion", {
+          send_to: "AW-17985764273/EQgXCO2Jos4cELH3o4BD",
+        });
+      }
+
       formRef.current?.reset();
       setSmsConsent(false);
       setSmsTouched(false);
