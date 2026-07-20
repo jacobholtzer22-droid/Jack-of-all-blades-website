@@ -3,6 +3,7 @@
 import { useRef, useState, type FormEvent } from "react";
 import { CheckCircle, Loader2, Send } from "lucide-react";
 import SmsConsent from "./SmsConsent";
+import { trackFormConversion } from "@/lib/analytics";
 
 const serviceOptions = [
   "Lawn Care",
@@ -26,6 +27,7 @@ const labelClass = "block text-white text-sm font-medium mb-2";
 
 export default function QuoteForm() {
   const formRef = useRef<HTMLFormElement>(null);
+  const conversionFiredRef = useRef(false);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -93,11 +95,12 @@ export default function QuoteForm() {
         return;
       }
 
-      // Google Ads conversion — fires only on a genuine successful submission.
-      if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("event", "conversion", {
-          send_to: "AW-17985764273/EQgXCO2Jos4cELH3o4BD",
-        });
+      // Google Ads conversion — only past the !res.ok guard, so the CRM has
+      // confirmed the lead. The ref makes it fire at most once per mount even
+      // if handleSubmit somehow re-enters.
+      if (!conversionFiredRef.current) {
+        conversionFiredRef.current = true;
+        trackFormConversion();
       }
 
       formRef.current?.reset();

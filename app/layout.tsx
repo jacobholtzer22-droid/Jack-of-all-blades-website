@@ -4,6 +4,7 @@ import { Outfit, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MobileFloatingButtons from "@/components/MobileFloatingButtons";
+import CallClickTracker from "@/components/CallClickTracker";
 import "./globals.css";
 
 const heading = Outfit({
@@ -114,6 +115,7 @@ gtag('config', 'AW-17985764273/0fPECK7jps8cELH3o4BD', {
         <main>{children}</main>
         <Footer />
         <MobileFloatingButtons />
+        <CallClickTracker />
       </body>
     </html>
   );
