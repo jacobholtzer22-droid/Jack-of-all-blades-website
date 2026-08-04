@@ -24,6 +24,7 @@ export default function YouTubeFacade({
   orientation?: Orientation;
 }) {
   const [activated, setActivated] = useState(false);
+  const [thumbOk, setThumbOk] = useState(true);
   const aspect = orientation === "vertical" ? "aspect-[9/16]" : "aspect-video";
   const thumbnail = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 
@@ -46,15 +47,25 @@ export default function YouTubeFacade({
           aria-label={`Play video: ${title}`}
           className="group absolute inset-0 h-full w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/80"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={thumbnail}
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+          {thumbOk ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={thumbnail}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              onError={() => setThumbOk(false)}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          ) : (
+            // Fallback when YouTube has no public thumbnail (e.g. unlisted
+            // Shorts): a branded card, never a broken-image icon.
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-br from-earthy-800 via-earthy-900 to-forest-950"
+            />
+          )}
           <span className="absolute inset-0 bg-black/30 transition-colors group-hover:bg-black/20" />
           <span className="absolute inset-0 flex items-center justify-center">
             <span className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-white/30 bg-forest-600/90 text-white transition-transform duration-200 group-hover:scale-105 sm:h-20 sm:w-20">
