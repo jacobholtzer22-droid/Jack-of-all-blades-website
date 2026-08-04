@@ -8,7 +8,9 @@ type Interview = {
 
 const interviews: Interview[] = [
   { id: "QyploD_pKoo", title: "Interview 1 (Hardscaping)", orientation: "vertical" },
-  { id: "_csvsZ4JJmE", title: "Interview 2", orientation: "landscape" },
+  // Interview 2 (NpQtk0D6Q74) is a vertical Short — add back once it's set to
+  // Public/Unlisted with embedding enabled (currently not publicly embeddable):
+  // { id: "NpQtk0D6Q74", title: "Interview 2", orientation: "vertical" },
 ];
 
 export default function Interviews() {
