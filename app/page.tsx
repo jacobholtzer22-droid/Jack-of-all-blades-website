@@ -9,6 +9,7 @@ const HomeAboutPreview = dynamic(() => import("@/components/HomeAboutPreview"));
 const HomeTestimonialPreview = dynamic(
   () => import("@/components/HomeTestimonialPreview")
 );
+const Interviews = dynamic(() => import("@/components/Interviews"));
 const ServiceAreas = dynamic(() => import("@/components/ServiceAreas"));
 const CTABanner = dynamic(() => import("@/components/CTABanner"));
 
@@ -111,6 +112,7 @@ export default function Home() {
       <HomePhotoStrip />
       <HomeAboutPreview />
       <HomeTestimonialPreview />
+      <Interviews />
       <ServiceAreas />
       <HomeVideoSection />
       <CTABanner />
