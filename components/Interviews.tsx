@@ -8,7 +8,7 @@ type Interview = {
 
 const interviews: Interview[] = [
   { id: "QyploD_pKoo", title: "Interview 1 (Hardscaping)", orientation: "vertical" },
-  { id: "NpQtk0D6Q74", title: "Interview 2", orientation: "vertical" },
+  { id: "ad1kmf_IJUU", title: "Interview 2", orientation: "vertical" },
 ];
 
 export default function Interviews() {
