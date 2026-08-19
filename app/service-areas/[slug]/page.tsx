@@ -52,8 +52,8 @@ export default async function ServiceAreaPage({ params }: Props) {
     <>
       <PageHeader
         label={`Landscaping in ${area.name}`}
-        title={`Landscaping Services in ${area.name}`}
-        titleAccent=", MI"
+        title={`Landscaping Services in ${area.name},`}
+        titleAccent="MI"
         description={`Professional landscaping, lawn care, hardscaping, and tree services for ${area.name} and surrounding areas.`}
       />
       <ServiceAreaTemplate area={area} />
