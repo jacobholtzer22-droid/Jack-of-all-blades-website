@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://jackofallbladeslandscaping.com"),
   title: {
     default: "Jack of All Blades Landscaping | East Grand Rapids, MI",
-    template: "%s | Jack of All Blades Landscaping",
+    template: "%s",
   },
   description:
     "Professional landscaping, lawn care, hardscaping & tree services in East Grand Rapids, Grand Rapids, Kentwood & West Michigan. Man Made Excellence. Call 616-250-8044 for a free estimate.",

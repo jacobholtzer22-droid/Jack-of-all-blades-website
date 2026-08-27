@@ -7,7 +7,7 @@ const CTABanner = dynamic(() => import("@/components/CTABanner"));
 
 export const metadata: Metadata = {
   title:
-    "Our Work | Landscaping & Hardscaping Projects East Grand Rapids MI",
+    "Our Work | Landscaping & Hardscaping Projects East Grand Rapids MI | Jack of All Blades",
   description:
     "View landscaping, hardscaping, and lawn care projects completed across East Grand Rapids, Grand Rapids, Ada, Cascade & West Michigan.",
   alternates: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Our Work | Landscaping & Hardscaping Projects East Grand Rapids MI",
+      "Our Work | Landscaping & Hardscaping Projects East Grand Rapids MI | Jack of All Blades",
     description:
       "View landscaping, hardscaping, and lawn care projects completed across East Grand Rapids, Grand Rapids, Ada, Cascade & West Michigan.",
     url: "https://jackofallbladeslandscaping.com/portfolio",

@@ -42,7 +42,9 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LandscapingBusiness",
+  "@type": "HomeAndConstructionBusiness",
+  "@id": "https://jackofallbladeslandscaping.com/#business",
+  additionalType: "http://www.productontology.org/id/Landscaping",
   name: "Jack of All Blades Landscaping",
   image: "https://jackofallbladeslandscaping.com/images/logo-transparent.webp",
   url: "https://jackofallbladeslandscaping.com",
@@ -93,7 +95,10 @@ const jsonLd = {
   },
   priceRange: "$$",
   openingHours: "Mo-Sa 07:00-19:00",
-  sameAs: [],
+  sameAs: [
+    "https://www.instagram.com/jackofallbladeslandscape",
+    "https://www.tiktok.com/@jackofallbladeslscp",
+  ],
   description:
     "Professional landscaping, hardscaping, lawn care, snow removal, and tree services in East Grand Rapids, Grand Rapids, and West Michigan. Fully bonded with 8+ years experience. Free estimates available.",
 };

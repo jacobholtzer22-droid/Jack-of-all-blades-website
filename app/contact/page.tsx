@@ -4,14 +4,14 @@ import dynamic from "next/dynamic";
 const ContactContent = dynamic(() => import("@/components/ContactContent"));
 
 export const metadata: Metadata = {
-  title: "Contact Us | Free Landscaping Estimate East Grand Rapids MI",
+  title: "Contact Us | Free Landscaping Estimate East Grand Rapids MI | Jack of All Blades",
   description:
     "Request a free landscaping quote in East Grand Rapids, Grand Rapids, and surrounding Michigan communities. Tell us about your project and we will get back to you.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Us | Free Landscaping Estimate East Grand Rapids MI",
+    title: "Contact Us | Free Landscaping Estimate East Grand Rapids MI | Jack of All Blades",
     description:
       "Request a free landscaping quote in East Grand Rapids, Grand Rapids, and surrounding Michigan communities. Tell us about your project and we will get back to you.",
     url: "https://jackofallbladeslandscaping.com/contact",
