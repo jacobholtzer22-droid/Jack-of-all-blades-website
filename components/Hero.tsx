@@ -62,27 +62,28 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2 border border-forest-700/40 bg-black/40 backdrop-blur-sm rounded-full px-5 py-2 mb-8">
           <div className="w-2 h-2 rounded-full bg-forest-400 animate-pulse" />
           <span className="text-white text-sm font-semibold tracking-wide" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
-            East Grand Rapids, Michigan
+            Grand Rapids, Michigan
           </span>
         </div>
 
-        <h1 className="font-heading font-900 text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.95] mb-6">
+        <span className="block text-forest-400 text-sm font-semibold uppercase tracking-[0.2em] mb-4" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
+          Man Made Excellence
+        </span>
+
+        <h1 className="font-heading font-900 text-[2rem] sm:text-5xl md:text-6xl tracking-tight leading-[0.95] mb-6 [text-wrap:balance]">
           <span className="text-white font-bold" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.9)" }}>
-            Man Made
+            Grand Rapids Landscaping
           </span>
           <br />
           <span className="text-white font-bold" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.9)" }}>
-            Excellence
+            &amp; Hardscaping
           </span>
         </h1>
 
-        <p className="text-white text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto mb-4 font-semibold leading-relaxed" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
-          Premium landscaping, hardscaping & lawn care serving East Grand Rapids,
-          Grand Rapids & West Michigan.
-        </p>
-
-        <p className="text-white/95 text-base mb-10 font-semibold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
-          Jack of All Blades Landscaping
+        <p className="text-white text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto mb-10 font-semibold leading-relaxed" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
+          Jack of All Blades Landscaping. Premium landscaping, hardscaping, lawn
+          care &amp; snow removal serving Grand Rapids, East Grand Rapids &amp;
+          West Michigan.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -127,10 +128,10 @@ export default function Hero() {
           <div className="w-px h-10 bg-forest-500/40" />
           <div className="text-center">
             <div className="text-2xl sm:text-3xl font-heading font-bold text-forest-400" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
-              6
+              8
             </div>
             <div className="text-xs sm:text-sm uppercase tracking-wider mt-1 font-semibold" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}>
-              Core Services
+              Services
             </div>
           </div>
           <div className="w-px h-10 bg-forest-500/40" />

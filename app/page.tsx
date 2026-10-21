@@ -14,18 +14,16 @@ const ServiceAreas = dynamic(() => import("@/components/ServiceAreas"));
 const CTABanner = dynamic(() => import("@/components/CTABanner"));
 
 export const metadata: Metadata = {
-  title:
-    "Jack of All Blades Landscaping | Lawn Care & Landscaping East Grand Rapids MI",
+  title: "Grand Rapids Landscaping & Hardscaping | Jack of All Blades",
   description:
-    "Professional landscaping, lawn care, hardscaping & tree services in East Grand Rapids, Grand Rapids, Kentwood & surrounding areas. Fully bonded. Free estimates. Call 616-250-8044.",
+    "Grand Rapids landscaping, hardscaping, lawn care & snow removal. Jack of All Blades serves Grand Rapids, East Grand Rapids & West Michigan. Call 616-250-8044",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title:
-      "Jack of All Blades Landscaping | Lawn Care & Landscaping East Grand Rapids MI",
+    title: "Grand Rapids Landscaping & Hardscaping | Jack of All Blades",
     description:
-      "Professional landscaping, lawn care, hardscaping & tree services in East Grand Rapids, Grand Rapids, Kentwood & surrounding areas. Fully bonded. Free estimates.",
+      "Grand Rapids landscaping, hardscaping, lawn care & snow removal. Jack of All Blades serves Grand Rapids, East Grand Rapids & West Michigan. Call 616-250-8044",
     url: "https://jackofallbladeslandscaping.com",
     siteName: "Jack of All Blades Landscaping",
     images: [
@@ -52,7 +50,7 @@ const jsonLd = {
   email: "jackofallbladeslandscaping@gmail.com",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "East Grand Rapids",
+    addressLocality: "Grand Rapids",
     addressRegion: "MI",
     postalCode: "49506",
     addressCountry: "US",
@@ -98,6 +96,7 @@ const jsonLd = {
   sameAs: [
     "https://www.instagram.com/jackofallbladeslandscape",
     "https://www.tiktok.com/@jackofallbladeslscp",
+    "https://www.facebook.com/people/Jack-of-all-Blades-Landscaping-LLC/61585659296089/",
   ],
   description:
     "Professional landscaping, hardscaping, lawn care, snow removal, and tree services in East Grand Rapids, Grand Rapids, and West Michigan. Fully bonded with 8+ years experience. Free estimates available.",

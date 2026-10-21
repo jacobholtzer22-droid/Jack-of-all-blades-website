@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -62,6 +62,21 @@ export default function Footer() {
                   <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.18 8.18 0 004.77 1.52V6.84a4.84 4.84 0 01-1-.15z" />
                 </svg>
               </a>
+              <a
+                href="https://www.facebook.com/people/Jack-of-all-Blades-Landscaping-LLC/61585659296089/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-10 h-10 rounded-lg bg-dark-800/40 border border-dark-600/20 flex items-center justify-center hover:border-forest-600/30 transition-all"
+                aria-label="Facebook"
+              >
+                <svg
+                  className="w-4 h-4 text-dark-300 group-hover:text-forest-400 transition-colors"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+              </a>
             </div>
           </div>
 
@@ -97,12 +112,14 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { label: "East Grand Rapids", href: "/service-areas/east-grand-rapids" },
                 { label: "Grand Rapids", href: "/service-areas/grand-rapids" },
+                { label: "East Grand Rapids", href: "/service-areas/east-grand-rapids" },
                 { label: "Kentwood", href: "/service-areas/kentwood" },
                 { label: "Wyoming", href: "/service-areas/wyoming-mi" },
                 { label: "Ada", href: "/service-areas/ada" },
                 { label: "Cascade", href: "/service-areas/cascade" },
+                { label: "Walker", href: "/service-areas/walker" },
+                { label: "Grandville", href: "/service-areas/grandville" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -113,6 +130,14 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/service-areas"
+                  className="text-forest-400 hover:text-forest-300 text-sm font-semibold transition-colors"
+                >
+                  View all areas
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -144,6 +169,12 @@ export default function Footer() {
                 <span className="flex items-center gap-2 text-dark-300 text-sm">
                   <MapPin size={14} className="flex-shrink-0" />
                   Grand Rapids, MI 49506
+                </span>
+              </li>
+              <li>
+                <span className="flex items-center gap-2 text-dark-300 text-sm">
+                  <Clock size={14} className="flex-shrink-0" />
+                  Mon - Sat 7 AM - 7 PM
                 </span>
               </li>
             </ul>

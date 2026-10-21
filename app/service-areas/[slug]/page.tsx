@@ -40,6 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+const SITE = "https://jackofallbladeslandscaping.com";
+
 export default async function ServiceAreaPage({ params }: Props) {
   const { slug } = await params;
   const area = getServiceAreaBySlug(slug);
@@ -48,8 +50,34 @@ export default async function ServiceAreaPage({ params }: Props) {
     return null; // or redirect to 404
   }
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Service Areas",
+        item: `${SITE}/service-areas`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: area.name,
+        item: `${SITE}/service-areas/${area.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
+        }}
+      />
       <PageHeader
         label={`Landscaping in ${area.name}`}
         title={`Landscaping Services in ${area.name}`}

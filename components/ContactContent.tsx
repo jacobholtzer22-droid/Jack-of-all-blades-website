@@ -20,14 +20,14 @@ const contactItems = [
   {
     icon: MapPin,
     label: "Service Area",
-    value: "Grand Rapids, MI",
-    secondary: "& surrounding West Michigan communities",
+    value: "Grand Rapids, MI 49506",
+    secondary: "East Grand Rapids & surrounding West Michigan communities",
   },
   {
     icon: Clock,
     label: "Hours",
-    value: "Mon – Fri: 8:00 AM – 5:00 PM",
-    secondary: "Sat – Sun: Closed",
+    value: "Mon - Sat: 7:00 AM - 7:00 PM",
+    secondary: "Sunday: Closed",
   },
 ];
 

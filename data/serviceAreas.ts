@@ -68,6 +68,106 @@ export const SERVICE_AREAS: ServiceArea[] = [
     metaDescription:
       "Professional landscaping, lawn care, hardscaping & tree services in Cascade, MI. Fully bonded. Free estimates. Call 616-250-8044.",
   },
+  {
+    slug: "walker",
+    name: "Walker",
+    displayName: "Walker",
+    description:
+      "Jack of All Blades Landscaping serves Walker on the northwest side of the Grand Rapids metro. Homeowners and businesses here have our full range of services available: lawn care, landscaping, hardscaping, snow removal, seasonal cleanup, storm clean up, hedge and bush trimming, and tree trimming and removal. Fully bonded with free, no-obligation on-site estimates, we bring the same attention to detail to every Walker property.",
+    metaTitle: "Landscaping & Lawn Care Walker MI | Jack of All Blades",
+    metaDescription:
+      "Landscaping, lawn care, hardscaping and snow removal in Walker, MI by Jack of All Blades. Fully bonded, free on-site estimates. Call 616-250-8044.",
+  },
+  {
+    slug: "byron-center",
+    name: "Byron Center",
+    displayName: "Byron Center",
+    description:
+      "Jack of All Blades Landscaping serves Byron Center, just south of Grand Rapids in Kent County. Every one of our services is available here: lawn care, landscaping, hardscaping, snow removal, seasonal cleanup, storm clean up, hedge and bush trimming, and tree trimming and removal. We offer free on-site estimates for both residential and commercial properties throughout Byron Center.",
+    metaTitle: "Landscaping & Lawn Care Byron Center MI | Jack of All Blades",
+    metaDescription:
+      "Jack of All Blades offers lawn care, landscaping, hardscaping and snow removal in Byron Center, MI. Fully bonded, free on-site estimates. Call 616-250-8044.",
+  },
+  {
+    slug: "grandville",
+    name: "Grandville",
+    displayName: "Grandville",
+    description:
+      "Jack of All Blades Landscaping serves Grandville, home to the RiverTown Crossings area southwest of Grand Rapids. Property owners here can book our full range of services: lawn care, landscaping, hardscaping, snow removal, seasonal cleanup, storm clean up, hedge and bush trimming, and tree trimming and removal. Fully bonded, with free, no-obligation on-site estimates for homes and businesses.",
+    metaTitle: "Landscaping & Lawn Care Grandville MI | Jack of All Blades",
+    metaDescription:
+      "Lawn care, landscaping, hardscaping and snow removal in Grandville, MI from Jack of All Blades. Free on-site estimates for homes and businesses. Call 616-250-8044.",
+  },
+  {
+    slug: "rockford",
+    name: "Rockford",
+    displayName: "Rockford",
+    description:
+      "Jack of All Blades Landscaping serves Rockford, along the Rogue River north of Grand Rapids. All of our services are available to Rockford homes and businesses: lawn care, landscaping, hardscaping, snow removal, seasonal cleanup, storm clean up, hedge and bush trimming, and tree trimming and removal. We provide free on-site estimates and the same reliable, detailed work we are known for across West Michigan.",
+    metaTitle: "Landscaping & Lawn Care Rockford MI | Jack of All Blades",
+    metaDescription:
+      "Jack of All Blades provides lawn care, landscaping, hardscaping and snow removal in Rockford, MI. Fully bonded, free on-site estimates. Call 616-250-8044.",
+  },
+  {
+    slug: "comstock-park",
+    name: "Comstock Park",
+    displayName: "Comstock Park",
+    description:
+      "Jack of All Blades Landscaping serves Comstock Park, just north of Grand Rapids along the Grand River. Residents and businesses here have access to our full range of services: lawn care, landscaping, hardscaping, snow removal, seasonal cleanup, storm clean up, hedge and bush trimming, and tree trimming and removal. Fully bonded, with free, no-obligation on-site estimates.",
+    metaTitle: "Landscaping & Lawn Care Comstock Park MI | Jack of All Blades",
+    metaDescription:
+      "Lawn care, landscaping, hardscaping and snow removal in Comstock Park, MI by Jack of All Blades. Free on-site estimates. Call 616-250-8044 today.",
+  },
+  {
+    slug: "forest-hills",
+    name: "Forest Hills",
+    displayName: "Forest Hills",
+    description:
+      "Jack of All Blades Landscaping serves the Forest Hills area east of Grand Rapids. Homeowners and businesses here can book any of our services: lawn care, landscaping, hardscaping, snow removal, seasonal cleanup, storm clean up, hedge and bush trimming, and tree trimming and removal. We bring free on-site estimates and careful, high-quality work to every Forest Hills property.",
+    metaTitle: "Landscaping & Lawn Care Forest Hills MI | Jack of All Blades",
+    metaDescription:
+      "Jack of All Blades offers lawn care, landscaping, hardscaping and snow removal in the Forest Hills area, MI. Free on-site estimates. Call 616-250-8044.",
+  },
+  {
+    slug: "caledonia",
+    name: "Caledonia",
+    displayName: "Caledonia",
+    description:
+      "Jack of All Blades Landscaping serves Caledonia, southeast of Grand Rapids in Kent County. Our full range of services is available here: lawn care, landscaping, hardscaping, snow removal, seasonal cleanup, storm clean up, hedge and bush trimming, and tree trimming and removal. Fully bonded, with free, no-obligation on-site estimates for residential and commercial properties.",
+    metaTitle: "Landscaping & Lawn Care Caledonia MI | Jack of All Blades",
+    metaDescription:
+      "Lawn care, landscaping, hardscaping and snow removal in Caledonia, MI from Jack of All Blades. Fully bonded, free on-site estimates. Call 616-250-8044.",
+  },
+  {
+    slug: "jenison",
+    name: "Jenison",
+    displayName: "Jenison",
+    description:
+      "Jack of All Blades Landscaping serves Jenison, in Ottawa County just west of Grand Rapids. Property owners here can rely on us for lawn care, landscaping, hardscaping, snow removal, seasonal cleanup, storm clean up, hedge and bush trimming, and tree trimming and removal. We offer free on-site estimates and dependable service season after season.",
+    metaTitle: "Landscaping & Lawn Care Jenison MI | Jack of All Blades",
+    metaDescription:
+      "Jack of All Blades provides lawn care, landscaping, hardscaping and snow removal in Jenison, MI. Free on-site estimates for homes and businesses. Call 616-250-8044.",
+  },
+  {
+    slug: "hudsonville",
+    name: "Hudsonville",
+    displayName: "Hudsonville",
+    description:
+      "Jack of All Blades Landscaping serves Hudsonville, west of Grand Rapids in Ottawa County. All of our services are available here: lawn care, landscaping, hardscaping, snow removal, seasonal cleanup, storm clean up, hedge and bush trimming, and tree trimming and removal. Fully bonded, with free, no-obligation on-site estimates for homes and businesses.",
+    metaTitle: "Landscaping & Lawn Care Hudsonville MI | Jack of All Blades",
+    metaDescription:
+      "Lawn care, landscaping, hardscaping and snow removal in Hudsonville, MI by Jack of All Blades. Fully bonded, free on-site estimates. Call 616-250-8044.",
+  },
+  {
+    slug: "alto",
+    name: "Alto",
+    displayName: "Alto",
+    description:
+      "Jack of All Blades Landscaping serves Alto, southeast of Grand Rapids in Kent County. Homeowners and businesses here have our full range of services available: lawn care, landscaping, hardscaping, snow removal, seasonal cleanup, storm clean up, hedge and bush trimming, and tree trimming and removal. We provide free on-site estimates and the same attention to detail we bring across West Michigan.",
+    metaTitle: "Landscaping & Lawn Care Alto MI | Jack of All Blades",
+    metaDescription:
+      "Jack of All Blades offers lawn care, landscaping, hardscaping and snow removal in Alto, MI. Fully bonded, free on-site estimates. Call 616-250-8044.",
+  },
 ];
 
 export const ALL_SERVICE_AREAS = [
@@ -89,7 +189,7 @@ export const ALL_SERVICE_AREAS = [
   "Alto",
 ] as const;
 
-// Areas that have dedicated service area pages
+// Areas that have dedicated service area pages (all 16 now have one)
 export const SERVICE_AREA_SLUGS = [
   "east-grand-rapids",
   "grand-rapids",
@@ -97,15 +197,20 @@ export const SERVICE_AREA_SLUGS = [
   "wyoming-mi",
   "ada",
   "cascade",
+  "walker",
+  "byron-center",
+  "grandville",
+  "rockford",
+  "comstock-park",
+  "forest-hills",
+  "caledonia",
+  "jenison",
+  "hudsonville",
+  "alto",
 ] as const;
 
 export function getServiceAreaBySlug(slug: string): ServiceArea | undefined {
   return SERVICE_AREAS.find((a) => a.slug === slug);
-}
-
-export function getContactLinkForArea(displayName: string): string {
-  const encoded = encodeURIComponent(displayName.replace(/ \(MI\)$/, ""));
-  return `/contact?area=${encoded}`;
 }
 
 export function getServiceAreaLink(displayName: string): string {
@@ -113,6 +218,34 @@ export function getServiceAreaLink(displayName: string): string {
   const area = SERVICE_AREAS.find(
     (a) => a.displayName === displayName || a.name === normalized
   );
-  if (area) return `/service-areas/${area.slug}`;
-  return getContactLinkForArea(displayName);
+  // Every advertised area now has a dedicated page; fall back to the index.
+  return area ? `/service-areas/${area.slug}` : "/service-areas";
+}
+
+// Closest other city pages per area, chosen by geography. Used for the
+// "Nearby areas" chips on each city page.
+export const NEARBY_AREAS: Record<string, string[]> = {
+  "east-grand-rapids": ["grand-rapids", "kentwood", "forest-hills", "ada", "cascade"],
+  "grand-rapids": ["east-grand-rapids", "kentwood", "wyoming-mi", "walker", "comstock-park"],
+  kentwood: ["grand-rapids", "east-grand-rapids", "wyoming-mi", "cascade", "caledonia"],
+  "wyoming-mi": ["grand-rapids", "kentwood", "grandville", "byron-center", "jenison"],
+  walker: ["grand-rapids", "comstock-park", "grandville", "jenison"],
+  "byron-center": ["wyoming-mi", "grandville", "caledonia", "kentwood"],
+  grandville: ["wyoming-mi", "walker", "jenison", "hudsonville", "byron-center"],
+  cascade: ["ada", "forest-hills", "kentwood", "east-grand-rapids", "caledonia"],
+  ada: ["cascade", "forest-hills", "east-grand-rapids", "rockford"],
+  rockford: ["comstock-park", "ada", "forest-hills", "grand-rapids"],
+  "comstock-park": ["grand-rapids", "walker", "rockford", "ada"],
+  "forest-hills": ["ada", "cascade", "east-grand-rapids", "grand-rapids", "rockford"],
+  caledonia: ["kentwood", "cascade", "byron-center", "alto"],
+  jenison: ["grandville", "hudsonville", "wyoming-mi", "walker"],
+  hudsonville: ["jenison", "grandville", "byron-center", "wyoming-mi"],
+  alto: ["caledonia", "cascade", "ada", "kentwood"],
+};
+
+export function getNearbyAreas(slug: string): ServiceArea[] {
+  const slugs = NEARBY_AREAS[slug] ?? [];
+  return slugs
+    .map((s) => getServiceAreaBySlug(s))
+    .filter((a): a is ServiceArea => Boolean(a));
 }
