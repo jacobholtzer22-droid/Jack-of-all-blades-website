@@ -623,7 +623,7 @@ const galleryItems: GalleryItem[] = [
     id: 36,
     type: "image",
     label: "Gravel Patio",
-    alt: "Gravel patio with steel edging, paver apron and boxwood plantings Grand Rapids MI",
+    alt: "Gravel patio with metal edging, paver apron and boxwood plantings Grand Rapids MI",
     category: "Hardscaping",
     image: "/images/gravel-patio-boxwood-edging.webp",
     span: "",
@@ -662,7 +662,7 @@ const galleryItems: GalleryItem[] = [
     alt: "Fresh black mulch bed with granite boulder border and new plantings along sidewalk Grand Rapids MI",
     category: "Landscaping",
     image: "/images/boulder-mulch-bed-sign.webp",
-    span: "",
+    span: "md:col-span-2",
   },
   {
     id: 41,
@@ -677,7 +677,7 @@ const galleryItems: GalleryItem[] = [
     id: 42,
     type: "image",
     label: "Mulch & Plantings",
-    alt: "Fresh mulch and new hosta plantings along brick wall and sidewalk Grand Rapids MI",
+    alt: "Fresh mulch and new perennial plantings along brick wall and sidewalk Grand Rapids MI",
     category: "Landscaping",
     image: "/images/mulch-bed-new-plantings.webp",
     span: "",
@@ -725,7 +725,7 @@ const galleryItems: GalleryItem[] = [
     alt: "Stand-on mower, blower and trimmer on freshly mowed residential lawn Grand Rapids MI",
     category: "Lawn Care",
     image: "/images/mowing-equipment-striped-lawn.webp",
-    span: "",
+    span: "md:col-span-2",
   },
 ];
 
