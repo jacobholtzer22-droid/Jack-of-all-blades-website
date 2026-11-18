@@ -33,7 +33,13 @@ type GalleryItem = {
   objectPosition?: string;
 } & (
   | { type: "image"; image: string }
-  | { type: "video"; video: string; sources?: { src: string; type: string }[] }
+  | {
+      type: "video";
+      video: string;
+      poster?: string;
+      portrait?: boolean;
+      sources?: { src: string; type: string }[];
+    }
   | {
       type: "before-after";
       beforeImage: string;
@@ -107,6 +113,7 @@ function PortfolioVideo({
       <video
         ref={videoRef}
         src={item.video}
+        poster={item.poster}
         playsInline
         className="absolute inset-0 w-full h-full object-cover bg-black"
         style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
@@ -301,9 +308,9 @@ const galleryItems: GalleryItem[] = [
   {
     id: 1,
     type: "image",
-    label: "Landscaping Project",
-    alt: "Professional landscaping project completed in Grand Rapids Michigan",
-    category: "Landscaping",
+    label: "Striped Lawn",
+    alt: "Freshly mowed striped lawn seen from the mower, Grand Rapids Michigan",
+    category: "Lawn Care",
     image: "/images/IMG_5733.webp",
     span: "md:col-span-2 md:row-span-2",
     imageRotate: 90,
@@ -320,8 +327,8 @@ const galleryItems: GalleryItem[] = [
   {
     id: 3,
     type: "image",
-    label: "Lawn Maintenance",
-    alt: "Weekly lawn mowing and maintenance service Grand Rapids Michigan",
+    label: "Striped Lawn Mowing",
+    alt: "Weekly lawn mowing leaving crisp stripes on a Grand Rapids Michigan lawn",
     category: "Lawn Care",
     image: "/images/IMG_5510.webp",
     // Tall right column so the 2×2 hero + two stacked tiles pack without a grid hole
@@ -330,8 +337,8 @@ const galleryItems: GalleryItem[] = [
   {
     id: 4,
     type: "image",
-    label: "Retaining Wall & Patio",
-    alt: "Front yard brick patio with stone retaining wall and flowering tree Grand Rapids MI",
+    label: "Brick Paver Patio & Edging",
+    alt: "Brick paver patio with stone edging and flowering tree in front yard Grand Rapids MI",
     category: "Hardscaping",
     image: "/images/front-yard-patio-hardscape.webp",
     span: "",
@@ -357,9 +364,9 @@ const galleryItems: GalleryItem[] = [
   {
     id: 6,
     type: "image",
-    label: "Walkway Installation",
-    alt: "Paver walkway installation at residential home Grand Rapids MI",
-    category: "Hardscaping",
+    label: "Front Walkway & Lawn",
+    alt: "Front walkway and mowed lawn at a Grand Rapids Michigan home",
+    category: "Landscaping",
     image: "/images/walkway-front-house.webp",
     span: "",
     imageRotate: 90,
@@ -376,8 +383,8 @@ const galleryItems: GalleryItem[] = [
   {
     id: 8,
     type: "image",
-    label: "Hedge Trimming & Mulch",
-    alt: "Hedge trimming and mulch installation Grand Rapids MI",
+    label: "Tree Trimming",
+    alt: "Crew member trimming and clearing a tree with a chainsaw Grand Rapids MI",
     category: "Landscaping",
     image: "/images/tree-trimming-chainsaw.webp",
     span: "",
@@ -394,17 +401,17 @@ const galleryItems: GalleryItem[] = [
   {
     id: 10,
     type: "image",
-    label: "Brick Patio & Landscaping",
-    alt: "Brick patio and surrounding landscape design Grand Rapids MI",
-    category: "Landscaping",
+    label: "Paver Patio",
+    alt: "Large-format paver patio with seating area Grand Rapids MI",
+    category: "Hardscaping",
     image: "/images/paver-patio-seating.webp",
     span: "md:col-span-2",
   },
   {
     id: 11,
     type: "image",
-    label: "Paver Patio Installation",
-    alt: "Professional paver patio installation Grand Rapids Michigan",
+    label: "Mike on a New Paver Patio",
+    alt: "Jack of All Blades crew member standing on a new paver patio Grand Rapids MI",
     category: "Hardscaping",
     image: "/images/mike-paver-patio.webp",
     span: "",
@@ -433,8 +440,8 @@ const galleryItems: GalleryItem[] = [
   {
     id: 15,
     type: "image",
-    label: "Commercial Mowing",
-    alt: "Commercial property mowing and lawn care Grand Rapids Michigan",
+    label: "Large Lawn Mowing",
+    alt: "Large open lawn freshly mowed with stripes, Grand Rapids Michigan",
     category: "Lawn Care",
     image: "/images/IMG_6102.webp",
     span: "",
@@ -443,8 +450,8 @@ const galleryItems: GalleryItem[] = [
   {
     id: 16,
     type: "image",
-    label: "Paver Walkway & Patio",
-    alt: "Paver walkway and patio hardscape project Grand Rapids MI",
+    label: "Brick Patio with Seating",
+    alt: "Round brick patio with Adirondack chairs in a landscaped yard Grand Rapids MI",
     category: "Hardscaping",
     image: "/images/IMG_6706.webp",
     span: "",
@@ -453,8 +460,8 @@ const galleryItems: GalleryItem[] = [
   {
     id: 17,
     type: "image",
-    label: "Backyard Patio",
-    alt: "Backyard patio installation and hardscaping Grand Rapids Michigan",
+    label: "Happy Customer, New Patio",
+    alt: "Homeowner shaking hands with Jack of All Blades crew member on a new paver patio Grand Rapids MI",
     category: "Hardscaping",
     image: "/images/happy-customer-patio.webp",
     span: "",
@@ -463,8 +470,8 @@ const galleryItems: GalleryItem[] = [
   {
     id: 18,
     type: "image",
-    label: "Commercial Property Maintenance",
-    alt: "Commercial property landscape maintenance Grand Rapids MI",
+    label: "Fresh Sod Lawn",
+    alt: "Freshly laid sod in a fenced backyard Grand Rapids Michigan",
     category: "Lawn Care",
     image: "/images/sod-installation.webp",
     span: "md:col-span-2",
@@ -472,8 +479,8 @@ const galleryItems: GalleryItem[] = [
   {
     id: 19,
     type: "image",
-    label: "Residential Mowing",
-    alt: "Residential lawn mowing service Grand Rapids Michigan",
+    label: "Mowing & Blowing",
+    alt: "Crew member blowing clippings off the sidewalk after mowing Grand Rapids Michigan",
     category: "Lawn Care",
     image: "/images/IMG_6098.webp",
     span: "",
@@ -482,8 +489,8 @@ const galleryItems: GalleryItem[] = [
   {
     id: 20,
     type: "image",
-    label: "Tree Removal",
-    alt: "Tree removal and stump grinding service Grand Rapids MI",
+    label: "Tree & Brush Removal",
+    alt: "Crew member loading cut branches into a trailer Grand Rapids MI",
     category: "Landscaping",
     image: "/images/tree-removal-truck.webp",
     span: "",
@@ -524,8 +531,8 @@ const galleryItems: GalleryItem[] = [
   {
     id: 25,
     type: "image",
-    label: "Boulevard Sod Install",
-    alt: "Sod installation on parkway boulevard Grand Rapids Michigan",
+    label: "Boulevard Sod Prep",
+    alt: "Crew preparing soil for sod on a parkway boulevard Grand Rapids Michigan",
     category: "Lawn Care",
     image: "/images/sod-installation-boulevard.webp",
     span: "",
@@ -533,8 +540,8 @@ const galleryItems: GalleryItem[] = [
   {
     id: 26,
     type: "image",
-    label: "Driveway Paver Addition",
-    alt: "Driveway paver addition installation Grand Rapids MI",
+    label: "Paver Walkway Finishing",
+    alt: "Crew member finishing a paver walkway beside a home Grand Rapids MI",
     category: "Hardscaping",
     image: "/images/paver-walkway-finishing.webp",
     span: "",
@@ -551,19 +558,10 @@ const galleryItems: GalleryItem[] = [
   {
     id: 28,
     type: "image",
-    label: "Timber Retaining Wall",
-    alt: "Timber retaining wall with stone border and fresh plantings Grand Rapids MI",
+    label: "Timber-Edged Garden Bed",
+    alt: "New garden bed with timber edging, river stones and fresh plantings Grand Rapids MI",
     category: "Hardscaping",
     image: "/images/retaining-wall-stones-plants.webp",
-    span: "",
-  },
-  {
-    id: 29,
-    type: "image",
-    label: "Front Yard Landscape",
-    alt: "Front yard landscape design with mulch, plants and boulders Grand Rapids Michigan",
-    category: "Landscaping",
-    image: "/images/front-yard-landscape-sign.webp",
     span: "",
   },
   {
@@ -574,7 +572,8 @@ const galleryItems: GalleryItem[] = [
     category: "Lawn Care",
     image: "/images/IMG_0545.png",
     span: "md:col-span-2",
-  },  {
+  },
+  {
     id: 31,
     type: "image",
     label: "Fire Bowl & Seat Wall",
@@ -602,28 +601,10 @@ const galleryItems: GalleryItem[] = [
     span: "",
   },
   {
-    id: 34,
-    type: "image",
-    label: "Herringbone Walkway",
-    alt: "Crew installing herringbone brick paver walkway in backyard Grand Rapids MI",
-    category: "Hardscaping",
-    image: "/images/herringbone-paver-walkway-install.webp",
-    span: "",
-  },
-  {
-    id: 35,
-    type: "image",
-    label: "Paver Walkway",
-    alt: "Newly laid cobblestone paver walkway alongside hot tub Grand Rapids MI",
-    category: "Hardscaping",
-    image: "/images/paver-walkway-hot-tub.webp",
-    span: "",
-  },
-  {
     id: 36,
     type: "image",
-    label: "Gravel Patio",
-    alt: "Gravel patio with metal edging, paver apron and boxwood plantings Grand Rapids MI",
+    label: "Gravel Base & Plantings",
+    alt: "Gravel patio base with metal edging, paver apron and boxwood plantings Grand Rapids MI",
     category: "Hardscaping",
     image: "/images/gravel-patio-boxwood-edging.webp",
     span: "",
@@ -663,24 +644,6 @@ const galleryItems: GalleryItem[] = [
     category: "Landscaping",
     image: "/images/boulder-mulch-bed-sign.webp",
     span: "md:col-span-2",
-  },
-  {
-    id: 41,
-    type: "image",
-    label: "Mulch Bed",
-    alt: "Curved mulch bed with new shrubs and perennials beside freshly mowed lawn Grand Rapids MI",
-    category: "Landscaping",
-    image: "/images/curved-mulch-bed-new-plants.webp",
-    span: "md:col-span-2",
-  },
-  {
-    id: 42,
-    type: "image",
-    label: "Mulch & Plantings",
-    alt: "Fresh mulch and new perennial plantings along brick wall and sidewalk Grand Rapids MI",
-    category: "Landscaping",
-    image: "/images/mulch-bed-new-plantings.webp",
-    span: "",
   },
   {
     id: 43,
@@ -726,6 +689,68 @@ const galleryItems: GalleryItem[] = [
     category: "Lawn Care",
     image: "/images/mowing-equipment-striped-lawn.webp",
     span: "md:col-span-2",
+  },
+  {
+    id: 48,
+    type: "video",
+    label: "Patio Base to Finished Pavers",
+    alt: "Job video: grading and sand base prep, then laying and finishing a paver patio in Grand Rapids MI",
+    category: "Videos",
+    video: "/videos/patio-base-to-pavers.mp4",
+    poster: "/videos/patio-base-to-pavers-poster.jpg",
+    portrait: true,
+    span: "md:row-span-2",
+  },
+  {
+    id: 49,
+    type: "video",
+    label: "Paver Patio Install",
+    alt: "Crew hauling material and laying large-format pavers for a new patio in Grand Rapids MI",
+    category: "Videos",
+    video: "/videos/paver-patio-install.mp4",
+    poster: "/videos/paver-patio-install-poster.jpg",
+    portrait: true,
+    span: "md:row-span-2",
+  },
+  {
+    id: 50,
+    type: "video",
+    label: "Finished Paver Patio",
+    alt: "Finished paver patio with dark border beside a home in Grand Rapids MI",
+    category: "Videos",
+    video: "/videos/finished-paver-patio.mp4",
+    poster: "/videos/finished-paver-patio-poster.jpg",
+    portrait: true,
+    span: "md:row-span-2",
+  },
+  {
+    id: 51,
+    type: "video",
+    label: "Lush Green Lawn",
+    alt: "Lush green lawn along a sidewalk in Grand Rapids MI",
+    category: "Videos",
+    video: "/videos/fresh-sod-lawn.mp4",
+    poster: "/videos/fresh-sod-lawn-poster.jpg",
+    portrait: true,
+    span: "md:row-span-2",
+  },
+  {
+    id: 52,
+    type: "image",
+    label: "Striped Lawn by the Pond",
+    alt: "Freshly mowed striped lawn beside a pond with trees Grand Rapids MI",
+    category: "Lawn Care",
+    image: "/images/FullSizeRender.webp",
+    span: "",
+  },
+  {
+    id: 53,
+    type: "image",
+    label: "Striped Lawn & Driveway",
+    alt: "Crisp mowing stripes on a front lawn beside a concrete driveway Grand Rapids MI",
+    category: "Lawn Care",
+    image: "/images/striped-lawn-concrete-driveway.webp",
+    span: "",
   },
 ];
 
@@ -820,7 +845,7 @@ export default function PortfolioGrid() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:auto-rows-[minmax(220px,auto)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:grid-flow-dense gap-4 md:auto-rows-[minmax(220px,auto)]">
           {filteredItems.map((item, i) => (
             <div
               key={item.id}
@@ -831,7 +856,9 @@ export default function PortfolioGrid() {
                 activeCategory === "All" ? item.span : ""
               } ${
                 item.type === "video"
-                  ? "aspect-video min-h-[220px]"
+                  ? item.portrait
+                    ? "min-h-[420px]"
+                    : "aspect-video min-h-[220px]"
                   : item.type === "before-after"
                     ? item.span.includes("row-span-2") &&
                       activeCategory === "All"

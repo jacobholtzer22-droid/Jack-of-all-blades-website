@@ -10,7 +10,7 @@ const galleryImages = [
   { src: "/images/hot-tub-paver-after.webp", alt: "Completed paver pad alongside hot tub Grand Rapids MI" },
   { src: "/images/landscape-bed-fresh-lawn.webp", alt: "Fresh sod and new mulched garden bed Grand Rapids Michigan" },
   { src: "/images/front-yard-landscape-sign.webp", alt: "Front yard landscape design with mulch and boulders Grand Rapids MI" },
-  { src: "/images/retaining-wall-stones-plants.webp", alt: "Timber retaining wall with stone border and new plantings Grand Rapids MI" },
+  { src: "/images/retaining-wall-stones-plants.webp", alt: "Timber-edged garden bed with river stones and new plantings Grand Rapids MI" },
   { src: "/images/mulch-bed-brick-fence.webp", alt: "Fresh mulch bed with new plantings along brick fence Grand Rapids MI" },
   { src: "/images/paver-walkway-finishing.webp", alt: "Paver walkway with detail sand sweeping Grand Rapids MI" },
   { src: "/images/sod-installation-boulevard.webp", alt: "Sod installation on parkway boulevard Grand Rapids Michigan" },
