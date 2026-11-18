@@ -26,7 +26,12 @@ export default function YouTubeFacade({
   const [activated, setActivated] = useState(false);
   const [thumbOk, setThumbOk] = useState(true);
   const aspect = orientation === "vertical" ? "aspect-[9/16]" : "aspect-video";
-  const thumbnail = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+  // Shorts have a real 9:16 poster at oar2.jpg (1080x1920); landscape videos
+  // use maxresdefault (1280x720). Both avoid the soft 480x360 hqdefault.
+  const thumbnail =
+    orientation === "vertical"
+      ? `https://i.ytimg.com/vi/${id}/oar2.jpg`
+      : `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
 
   return (
     <div
