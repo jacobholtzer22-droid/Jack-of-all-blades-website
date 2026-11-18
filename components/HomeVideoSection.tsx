@@ -18,7 +18,7 @@ export default function HomeVideoSection() {
       <div className="absolute inset-0 bg-dark-950">
         {useStaticCover ? (
           <img
-            src="/images/front-yard-patio-hardscape.webp"
+            src="/images/striped-lawn-pines.webp"
             alt=""
             className="absolute inset-0 h-full w-full object-cover"
             aria-hidden
