@@ -99,16 +99,6 @@ export const SERVICE_AREAS: ServiceArea[] = [
       "Lawn care, landscaping, hardscaping and snow removal in Grandville, MI from Jack of All Blades. Free on-site estimates for homes and businesses. Call 616-250-8044.",
   },
   {
-    slug: "rockford",
-    name: "Rockford",
-    displayName: "Rockford",
-    description:
-      "Jack of All Blades Landscaping serves Rockford, along the Rogue River north of Grand Rapids. All of our services are available to Rockford homes and businesses: lawn care, landscaping, hardscaping, snow removal, seasonal cleanup, storm clean up, hedge and bush trimming, and tree trimming and removal. We provide free on-site estimates and the same reliable, detailed work we are known for across West Michigan.",
-    metaTitle: "Landscaping & Lawn Care Rockford MI | Jack of All Blades",
-    metaDescription:
-      "Jack of All Blades provides lawn care, landscaping, hardscaping and snow removal in Rockford, MI. Fully bonded, free on-site estimates. Call 616-250-8044.",
-  },
-  {
     slug: "comstock-park",
     name: "Comstock Park",
     displayName: "Comstock Park",
@@ -180,7 +170,6 @@ export const ALL_SERVICE_AREAS = [
   "Grandville",
   "Cascade",
   "Ada",
-  "Rockford",
   "Comstock Park",
   "Forest Hills",
   "Caledonia",
@@ -189,7 +178,7 @@ export const ALL_SERVICE_AREAS = [
   "Alto",
 ] as const;
 
-// Areas that have dedicated service area pages (all 16 now have one)
+// Areas that have dedicated service area pages (every listed area has one)
 export const SERVICE_AREA_SLUGS = [
   "east-grand-rapids",
   "grand-rapids",
@@ -200,7 +189,6 @@ export const SERVICE_AREA_SLUGS = [
   "walker",
   "byron-center",
   "grandville",
-  "rockford",
   "comstock-park",
   "forest-hills",
   "caledonia",
@@ -233,10 +221,9 @@ export const NEARBY_AREAS: Record<string, string[]> = {
   "byron-center": ["wyoming-mi", "grandville", "caledonia", "kentwood"],
   grandville: ["wyoming-mi", "walker", "jenison", "hudsonville", "byron-center"],
   cascade: ["ada", "forest-hills", "kentwood", "east-grand-rapids", "caledonia"],
-  ada: ["cascade", "forest-hills", "east-grand-rapids", "rockford"],
-  rockford: ["comstock-park", "ada", "forest-hills", "grand-rapids"],
-  "comstock-park": ["grand-rapids", "walker", "rockford", "ada"],
-  "forest-hills": ["ada", "cascade", "east-grand-rapids", "grand-rapids", "rockford"],
+  ada: ["cascade", "forest-hills", "east-grand-rapids"],
+  "comstock-park": ["grand-rapids", "walker", "ada"],
+  "forest-hills": ["ada", "cascade", "east-grand-rapids", "grand-rapids"],
   caledonia: ["kentwood", "cascade", "byron-center", "alto"],
   jenison: ["grandville", "hudsonville", "wyoming-mi", "walker"],
   hudsonville: ["jenison", "grandville", "byron-center", "wyoming-mi"],

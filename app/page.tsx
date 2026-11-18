@@ -70,7 +70,6 @@ const jsonLd = {
     { "@type": "City", name: "Grandville", containedInPlace: { "@type": "State", name: "Michigan" } },
     { "@type": "City", name: "Cascade", containedInPlace: { "@type": "State", name: "Michigan" } },
     { "@type": "City", name: "Ada", containedInPlace: { "@type": "State", name: "Michigan" } },
-    { "@type": "City", name: "Rockford", containedInPlace: { "@type": "State", name: "Michigan" } },
     { "@type": "City", name: "Comstock Park", containedInPlace: { "@type": "State", name: "Michigan" } },
     { "@type": "City", name: "Forest Hills", containedInPlace: { "@type": "State", name: "Michigan" } },
     { "@type": "City", name: "Caledonia", containedInPlace: { "@type": "State", name: "Michigan" } },

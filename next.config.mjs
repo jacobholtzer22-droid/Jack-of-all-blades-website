@@ -10,6 +10,17 @@ const nextConfig = {
     minimumCacheTTL: 5184000, // 60 days
   },
 
+  // Permanent redirects for retired pages
+  async redirects() {
+    return [
+      {
+        source: "/service-areas/rockford",
+        destination: "/service-areas",
+        permanent: true,
+      },
+    ];
+  },
+
   // Cache-Control headers: 1 year for static assets
   async headers() {
     const oneYear = "public, max-age=31536000, immutable";
