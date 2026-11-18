@@ -19,7 +19,6 @@ interface ServiceCardProps {
 const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
   function ServiceCard({ service, className = "", style }, ref) {
     const Icon = service.icon;
-    const isHedge = service.slug === "hedge-and-bush-trimming";
 
     return (
       <div
@@ -32,9 +31,9 @@ const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
           alt={service.alt}
           fill
           className={`object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image] ${
-            isHedge ? "rotate-90 origin-center scale-[1.15]" : ""
+            ""
           }`}
-          style={isHedge ? { objectPosition: "50% 35%" } : undefined}
+          
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           quality={75}
           placeholder="blur"

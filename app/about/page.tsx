@@ -40,7 +40,7 @@ export default function AboutPage() {
         title="Built from the"
         titleAccent="ground up"
         description="Meet the team behind East Grand Rapids and West Michigan's most dedicated landscaping company."
-        backgroundImage="/images/IMG_5510.webp"
+        backgroundImage="/images/striped-lawn-backyard-hd.webp"
       />
       <AboutContent />
       <CTABanner />

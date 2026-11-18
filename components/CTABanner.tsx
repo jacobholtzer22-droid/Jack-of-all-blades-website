@@ -30,7 +30,7 @@ export default function CTABanner() {
   return (
     <section ref={ref} id="contact" className="relative py-20 sm:py-28 overflow-hidden min-h-[320px] sm:min-h-[360px] flex items-center">
       <Image
-        src="/images/striped-lawn-parking-lot.webp"
+        src="/images/striped-lawn-tree-line-banner.webp"
         alt=""
         fill
         className="object-cover object-center [image-orientation:from-image]"

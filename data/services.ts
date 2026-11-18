@@ -255,7 +255,7 @@ export const SERVICES: Service[] = [
     name: "Hedge and Bush Trimming",
     shortName: "Hedge & Bush Trimming",
     icon: Shrub,
-    image: "/images/IMG_4267.webp",
+    image: "/images/hedge-trimming-commercial.webp",
     alt: "Professional hedge and bush trimming service East Grand Rapids MI",
     cardDescription:
       "Keep your hedges and shrubs looking sharp and healthy. We provide precise shaping, pruning, and trimming for foundation plantings, privacy hedges, and ornamental bushes. Clean, even cuts that promote growth and enhance your property's curb appeal.",

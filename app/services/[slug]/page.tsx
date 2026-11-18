@@ -93,7 +93,6 @@ export default async function ServicePage({ params }: Props) {
     })),
   };
 
-  const isHedge = service.slug === "hedge-and-bush-trimming";
 
   return (
     <>
@@ -136,9 +135,9 @@ export default async function ServicePage({ params }: Props) {
                 alt={service.alt}
                 fill
                 className={`object-cover [image-orientation:from-image] ${
-                  isHedge ? "rotate-90 origin-center scale-[1.15]" : ""
+                  ""
                 }`}
-                style={isHedge ? { objectPosition: "50% 35%" } : undefined}
+                
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 quality={75}
                 placeholder="blur"

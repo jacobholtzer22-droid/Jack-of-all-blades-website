@@ -479,6 +479,7 @@ const galleryItems: GalleryItem[] = [
     alt: "Crew member blowing clippings off the sidewalk after mowing Grand Rapids Michigan",
     category: "Lawn Care",
     image: "/images/mowing-and-blowing-sidewalk.webp",
+    objectPosition: "bottom",
     span: "",
   },
   {
@@ -980,7 +981,7 @@ export default function PortfolioGrid() {
                     src={item.image}
                     alt={item.alt}
                     fill
-                    className={`object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image] ${item.imageRotate === 90 ? "rotate-90" : item.imageRotate === -90 ? "-rotate-90" : item.imageRotate === 45 ? "rotate-45" : item.imageRotate === -45 ? "-rotate-45" : item.imageRotate === 15 ? "rotate-[15deg]" : ""} ${item.objectPosition === "top" ? "object-top" : ""}`}
+                    className={`object-cover transition-transform duration-700 group-hover:scale-105 [image-orientation:from-image] ${item.imageRotate === 90 ? "rotate-90" : item.imageRotate === -90 ? "-rotate-90" : item.imageRotate === 45 ? "rotate-45" : item.imageRotate === -45 ? "-rotate-45" : item.imageRotate === 15 ? "rotate-[15deg]" : ""} ${item.objectPosition === "top" ? "object-top" : item.objectPosition === "bottom" ? "object-bottom" : ""}`}
                     sizes={
                       item.span.includes("col-span-2")
                         ? "(max-width: 768px) 100vw, 50vw"

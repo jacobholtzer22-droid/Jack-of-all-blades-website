@@ -36,7 +36,7 @@ export default function ContactContent() {
     <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 min-h-screen overflow-hidden">
       <div className="absolute inset-0 bg-earthy-900">
         <Image
-          src="/images/IMG_5510.webp"
+          src="/images/striped-lawn-backyard-hd.webp"
           alt=""
           fill
           className="object-cover opacity-25"
