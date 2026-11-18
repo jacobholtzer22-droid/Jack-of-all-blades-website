@@ -110,8 +110,8 @@ export const SERVICES: Service[] = [
     slug: "hardscaping",
     name: "Hardscaping",
     icon: Layers,
-    image: "/images/front-yard-patio-hardscape.webp",
-    alt: "Front yard brick patio with stone retaining wall and flowering tree Grand Rapids Michigan",
+    image: "/images/fire-bowl-seat-wall-paver-patio.webp",
+    alt: "Herringbone brick paver patio with stone seat wall and fire bowl Grand Rapids Michigan",
     cardDescription:
       "Add lasting beauty and structure with professional hardscape installation. We build custom patios, walkways, retaining walls, and stone features using quality materials and expert craftsmanship. Every project is built to withstand Michigan's seasons.",
     intro:

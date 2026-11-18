@@ -787,15 +787,6 @@ const galleryItems: GalleryItem[] = [
     image: "/images/striped-lawn-tree-lined-yard.webp",
     span: "",
   },
-  {
-    id: 58,
-    type: "image",
-    label: "Striped Lawn by the Lot",
-    alt: "Mowing stripes on a lawn beside a parking lot Grand Rapids MI",
-    category: "Lawn Care",
-    image: "/images/striped-lawn-parking-lot.webp",
-    span: "",
-  },
 ];
 
 export default function PortfolioGrid() {
