@@ -327,7 +327,7 @@ export const SERVICES: Service[] = [
     metaTitle: "Tree Trimming & Removal Grand Rapids MI | Jack of All Blades",
     metaDescription:
       "Licensed, insured tree trimming, removal and stump grinding in Grand Rapids & West Michigan by Jack of All Blades. Free on-site estimates. Call 616-250-8044",
-    areas: ["East Grand Rapids", "Grand Rapids", "Ada", "Rockford"],
+    areas: ["East Grand Rapids", "Grand Rapids", "Ada"],
   },
 ];
 
