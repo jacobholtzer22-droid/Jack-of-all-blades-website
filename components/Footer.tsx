@@ -196,8 +196,8 @@ export default function Footer() {
           <p className="text-dark-200 text-sm">
             &copy; 2026 Jack of All Blades Landscaping. All rights reserved.
             {" "}·{" "}
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>{" "}·{" "}
-            <a href="#" data-aa-cookie-settings hidden className="hover:text-white transition-colors">Cookie settings</a>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+            <span hidden data-aa-cookie-wrap>{" "}·{" "}<a href="#" data-aa-cookie-settings className="hover:text-white transition-colors">Cookie settings</a></span>
           </p>
           <p className="text-dark-200 text-sm">
             Website by{" "}
