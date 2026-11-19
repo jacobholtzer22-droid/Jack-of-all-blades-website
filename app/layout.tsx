@@ -80,6 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${heading.variable} ${body.variable}`}>
       <head>
+        <script defer src="https://www.alignandacquire.com/t/s/jack-of-all-blades-landscaping.js"></script>
         {/* Critical above-the-fold CSS - prevents white flash before main stylesheet loads */}
         <style
           dangerouslySetInnerHTML={{

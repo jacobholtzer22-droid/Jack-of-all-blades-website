@@ -195,6 +195,9 @@ export default function Footer() {
         <div className="border-t border-forest-800/30 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-dark-200 text-sm">
             &copy; 2026 Jack of All Blades Landscaping. All rights reserved.
+            {" "}·{" "}
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>{" "}·{" "}
+            <a href="#" data-aa-cookie-settings hidden className="hover:text-white transition-colors">Cookie settings</a>
           </p>
           <p className="text-dark-200 text-sm">
             Website by{" "}
